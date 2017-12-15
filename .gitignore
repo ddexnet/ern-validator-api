@@ -1,0 +1,10 @@
+ # eclipse ignore
+.settings/
+.project
+.classpath
+# idea ignore
+.idea/
+*.ipr
+*.iml
+*.iws
+/target/

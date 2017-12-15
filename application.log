@@ -1,0 +1,608 @@
+2017-12-15 05:22:58,980 243  [main] INFO  org.eclipse.jetty.util.log - Logging initialized @416ms to org.eclipse.jetty.util.log.Slf4jLog
+2017-12-15 05:22:59,127 390  [main] INFO  org.eclipse.jetty.server.Server - jetty-9.4.6.v20170531
+2017-12-15 05:22:59,206 469  [main] INFO  o.e.j.s.handler.ContextHandler.ROOT - Initializing Spring root WebApplicationContext
+2017-12-15 05:22:59,206 469  [main] INFO  o.s.web.context.ContextLoader - Root WebApplicationContext: initialization started
+2017-12-15 05:22:59,209 472  [main] INFO  o.s.w.c.s.AnnotationConfigWebApplicationContext - Refreshing Root WebApplicationContext: startup date [Fri Dec 15 05:22:59 EST 2017]; root of context hierarchy
+2017-12-15 05:22:59,306 569  [main] INFO  o.s.w.c.s.AnnotationConfigWebApplicationContext - Found 2 annotated classes in package [net/ddex/ern/config]
+2017-12-15 05:23:00,164 1427 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/status],methods=[GET],produces=[text/plain]}" onto public java.lang.String net.ddex.ern.controller.ValidateController.test() throws javax.xml.parsers.ParserConfigurationException,org.xml.sax.SAXException,java.io.IOException,javax.xml.stream.XMLStreamException,javax.xml.transform.TransformerException,javax.xml.xpath.XPathExpressionException
+2017-12-15 05:23:00,165 1428 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/json/validateSchematron],methods=[POST],produces=[application/json]}" onto public java.util.List<java.util.Map<java.lang.String, java.lang.String>> net.ddex.ern.controller.ValidateController.validateSchematronJSON(org.springframework.web.multipart.MultipartFile,java.lang.String,java.lang.String) throws javax.xml.parsers.ParserConfigurationException,org.xml.sax.SAXException,java.io.IOException,javax.xml.stream.XMLStreamException,javax.xml.transform.TransformerException,javax.xml.xpath.XPathExpressionException
+2017-12-15 05:23:00,166 1429 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/json/validateXML],methods=[POST],produces=[application/json]}" onto public java.util.List<java.util.Map<java.lang.String, java.lang.Object>> net.ddex.ern.controller.ValidateController.validateXMLJSON(org.springframework.web.multipart.MultipartFile,java.lang.String,java.lang.String,java.lang.String) throws javax.xml.parsers.ParserConfigurationException,java.io.IOException,javax.xml.stream.XMLStreamException,javax.xml.transform.TransformerException,org.xml.sax.SAXException,javax.xml.xpath.XPathExpressionException,net.ddex.ern.exception.ValidatorException
+2017-12-15 05:23:00,480 1743 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerAdapter - Looking for @ControllerAdvice: Root WebApplicationContext: startup date [Fri Dec 15 05:22:59 EST 2017]; root of context hierarchy
+2017-12-15 05:23:00,523 1786 [main] INFO  o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - Detected @ExceptionHandler methods in exceptionControllerAdvice
+2017-12-15 05:23:00,620 1883 [main] INFO  o.s.web.context.ContextLoader - Root WebApplicationContext: initialization completed in 1414 ms
+2017-12-15 05:23:00,624 1887 [main] INFO  o.e.j.s.handler.ContextHandler.ROOT - Initializing Spring FrameworkServlet 'org.springframework.web.servlet.DispatcherServlet-60285225'
+2017-12-15 05:23:00,624 1887 [main] INFO  o.s.web.servlet.DispatcherServlet - FrameworkServlet 'org.springframework.web.servlet.DispatcherServlet-60285225': initialization started
+2017-12-15 05:23:00,635 1898 [main] INFO  o.s.web.servlet.DispatcherServlet - FrameworkServlet 'org.springframework.web.servlet.DispatcherServlet-60285225': initialization completed in 11 ms
+2017-12-15 05:23:00,635 1898 [main] INFO  o.e.j.server.handler.ContextHandler - Started o.e.j.s.ServletContextHandler@5827af16{/,null,AVAILABLE}
+2017-12-15 05:23:01,414 2677 [main] INFO  o.e.jetty.server.AbstractConnector - Started ServerConnector@38be305c{HTTP/1.1,[http/1.1]}{0.0.0.0:6060}
+2017-12-15 05:23:01,414 2677 [main] INFO  org.eclipse.jetty.server.Server - Started @2855ms
+2017-12-15 05:23:01,414 2677 [main] INFO  n.d.ern.initializer.EmbeddedJetty - Server started at port 6060
+2017-12-15 05:23:42,653 43916 [qtp2008362258-11] INFO  n.d.e.controller.ValidateController - Validating ERN 130295703_20171205033227.xml as schema version 3.8.2. 
+2017-12-15 05:23:42,654 43917 [qtp2008362258-11] INFO  n.d.e.controller.ValidateController - Validating ERN 130295703_20171205033227.xml as schematron version 14 and product version AudioAlbumMusicOnly. 
+2017-12-15 05:23:42,654 43917 [qtp2008362258-11] INFO  n.d.e.controller.ValidateController - working swell
+2017-12-15 05:23:42,743 44006 [qtp2008362258-11] INFO  net.ddex.ern.service.SchemaService - schemaVersion: 382
+2017-12-15 05:25:21,122 298  [main] INFO  org.eclipse.jetty.util.log - Logging initialized @522ms to org.eclipse.jetty.util.log.Slf4jLog
+2017-12-15 05:25:21,311 487  [main] INFO  org.eclipse.jetty.server.Server - jetty-9.4.6.v20170531
+2017-12-15 05:25:21,408 584  [main] INFO  o.e.j.s.handler.ContextHandler.ROOT - Initializing Spring root WebApplicationContext
+2017-12-15 05:25:21,409 585  [main] INFO  o.s.web.context.ContextLoader - Root WebApplicationContext: initialization started
+2017-12-15 05:25:21,413 589  [main] INFO  o.s.w.c.s.AnnotationConfigWebApplicationContext - Refreshing Root WebApplicationContext: startup date [Fri Dec 15 05:25:21 EST 2017]; root of context hierarchy
+2017-12-15 05:25:21,533 709  [main] INFO  o.s.w.c.s.AnnotationConfigWebApplicationContext - Found 2 annotated classes in package [net/ddex/ern/config]
+2017-12-15 05:25:22,566 1742 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/status],methods=[GET],produces=[text/plain]}" onto public java.lang.String net.ddex.ern.controller.ValidateController.test() throws javax.xml.parsers.ParserConfigurationException,org.xml.sax.SAXException,java.io.IOException,javax.xml.stream.XMLStreamException,javax.xml.transform.TransformerException,javax.xml.xpath.XPathExpressionException
+2017-12-15 05:25:22,567 1743 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/json/validateXML],methods=[POST],produces=[application/json]}" onto public java.util.List<java.util.Map<java.lang.String, java.lang.Object>> net.ddex.ern.controller.ValidateController.validateXMLJSON(org.springframework.web.multipart.MultipartFile,java.lang.String,java.lang.String,java.lang.String) throws javax.xml.parsers.ParserConfigurationException,java.io.IOException,javax.xml.stream.XMLStreamException,javax.xml.transform.TransformerException,org.xml.sax.SAXException,javax.xml.xpath.XPathExpressionException,net.ddex.ern.exception.ValidatorException
+2017-12-15 05:25:22,568 1744 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/json/validateSchematron],methods=[POST],produces=[application/json]}" onto public java.util.List<java.util.Map<java.lang.String, java.lang.String>> net.ddex.ern.controller.ValidateController.validateSchematronJSON(org.springframework.web.multipart.MultipartFile,java.lang.String,java.lang.String) throws javax.xml.parsers.ParserConfigurationException,org.xml.sax.SAXException,java.io.IOException,javax.xml.stream.XMLStreamException,javax.xml.transform.TransformerException,javax.xml.xpath.XPathExpressionException
+2017-12-15 05:25:23,005 2181 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerAdapter - Looking for @ControllerAdvice: Root WebApplicationContext: startup date [Fri Dec 15 05:25:21 EST 2017]; root of context hierarchy
+2017-12-15 05:25:23,074 2250 [main] INFO  o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - Detected @ExceptionHandler methods in exceptionControllerAdvice
+2017-12-15 05:25:23,206 2382 [main] INFO  o.s.web.context.ContextLoader - Root WebApplicationContext: initialization completed in 1797 ms
+2017-12-15 05:25:23,212 2388 [main] INFO  o.e.j.s.handler.ContextHandler.ROOT - Initializing Spring FrameworkServlet 'org.springframework.web.servlet.DispatcherServlet-60285225'
+2017-12-15 05:25:23,212 2388 [main] INFO  o.s.web.servlet.DispatcherServlet - FrameworkServlet 'org.springframework.web.servlet.DispatcherServlet-60285225': initialization started
+2017-12-15 05:25:23,228 2404 [main] INFO  o.s.web.servlet.DispatcherServlet - FrameworkServlet 'org.springframework.web.servlet.DispatcherServlet-60285225': initialization completed in 16 ms
+2017-12-15 05:25:23,228 2404 [main] INFO  o.e.j.server.handler.ContextHandler - Started o.e.j.s.ServletContextHandler@5827af16{/,null,AVAILABLE}
+2017-12-15 05:25:24,220 3396 [main] INFO  o.e.jetty.server.AbstractConnector - Started ServerConnector@38be305c{HTTP/1.1,[http/1.1]}{0.0.0.0:6060}
+2017-12-15 05:25:24,220 3396 [main] INFO  org.eclipse.jetty.server.Server - Started @3628ms
+2017-12-15 05:25:24,220 3396 [main] INFO  n.d.ern.initializer.EmbeddedJetty - Server started at port 6060
+2017-12-15 05:25:34,715 13891 [qtp2008362258-16] INFO  n.d.e.controller.ValidateController - Validating ERN 130295703_20171205033227.xml as schema version 3.8.2. 
+2017-12-15 05:25:34,715 13891 [qtp2008362258-16] INFO  n.d.e.controller.ValidateController - Validating ERN 130295703_20171205033227.xml as schematron version 14 and product version AudioAlbumMusicOnly. 
+2017-12-15 05:25:34,715 13891 [qtp2008362258-16] INFO  n.d.e.controller.ValidateController - working swell
+2017-12-15 05:25:34,837 14013 [qtp2008362258-16] INFO  net.ddex.ern.service.SchemaService - schemaVersion: 382
+2017-12-15 05:29:55,872 237  [main] INFO  org.eclipse.jetty.util.log - Logging initialized @458ms to org.eclipse.jetty.util.log.Slf4jLog
+2017-12-15 05:29:56,026 391  [main] INFO  org.eclipse.jetty.server.Server - jetty-9.4.6.v20170531
+2017-12-15 05:29:56,101 466  [main] INFO  o.e.j.s.handler.ContextHandler.ROOT - Initializing Spring root WebApplicationContext
+2017-12-15 05:29:56,101 466  [main] INFO  o.s.web.context.ContextLoader - Root WebApplicationContext: initialization started
+2017-12-15 05:29:56,104 469  [main] INFO  o.s.w.c.s.AnnotationConfigWebApplicationContext - Refreshing Root WebApplicationContext: startup date [Fri Dec 15 05:29:56 EST 2017]; root of context hierarchy
+2017-12-15 05:29:56,204 569  [main] INFO  o.s.w.c.s.AnnotationConfigWebApplicationContext - Found 2 annotated classes in package [net/ddex/ern/config]
+2017-12-15 05:29:57,181 1546 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/status],methods=[GET],produces=[text/plain]}" onto public java.lang.String net.ddex.ern.controller.ValidateController.test() throws javax.xml.parsers.ParserConfigurationException,org.xml.sax.SAXException,java.io.IOException,javax.xml.stream.XMLStreamException,javax.xml.transform.TransformerException,javax.xml.xpath.XPathExpressionException
+2017-12-15 05:29:57,183 1548 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/json/validateSchematron],methods=[POST],produces=[application/json]}" onto public java.util.List<java.util.Map<java.lang.String, java.lang.String>> net.ddex.ern.controller.ValidateController.validateSchematronJSON(org.springframework.web.multipart.MultipartFile,java.lang.String,java.lang.String) throws javax.xml.parsers.ParserConfigurationException,org.xml.sax.SAXException,java.io.IOException,javax.xml.stream.XMLStreamException,javax.xml.transform.TransformerException,javax.xml.xpath.XPathExpressionException
+2017-12-15 05:29:57,184 1549 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/json/validateXML],methods=[POST],produces=[application/json]}" onto public java.util.List<java.util.Map<java.lang.String, java.lang.Object>> net.ddex.ern.controller.ValidateController.validateXMLJSON(org.springframework.web.multipart.MultipartFile,java.lang.String,java.lang.String,java.lang.String) throws javax.xml.parsers.ParserConfigurationException,java.io.IOException,javax.xml.stream.XMLStreamException,javax.xml.transform.TransformerException,org.xml.sax.SAXException,javax.xml.xpath.XPathExpressionException,net.ddex.ern.exception.ValidatorException
+2017-12-15 05:29:57,695 2060 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerAdapter - Looking for @ControllerAdvice: Root WebApplicationContext: startup date [Fri Dec 15 05:29:56 EST 2017]; root of context hierarchy
+2017-12-15 05:29:57,773 2138 [main] INFO  o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - Detected @ExceptionHandler methods in exceptionControllerAdvice
+2017-12-15 05:29:57,889 2254 [main] INFO  o.s.web.context.ContextLoader - Root WebApplicationContext: initialization completed in 1788 ms
+2017-12-15 05:29:57,898 2263 [main] INFO  o.e.j.s.handler.ContextHandler.ROOT - Initializing Spring FrameworkServlet 'org.springframework.web.servlet.DispatcherServlet-60285225'
+2017-12-15 05:29:57,898 2263 [main] INFO  o.s.web.servlet.DispatcherServlet - FrameworkServlet 'org.springframework.web.servlet.DispatcherServlet-60285225': initialization started
+2017-12-15 05:29:57,919 2284 [main] INFO  o.s.web.servlet.DispatcherServlet - FrameworkServlet 'org.springframework.web.servlet.DispatcherServlet-60285225': initialization completed in 21 ms
+2017-12-15 05:29:57,919 2284 [main] INFO  o.e.j.server.handler.ContextHandler - Started o.e.j.s.ServletContextHandler@5827af16{/,null,AVAILABLE}
+2017-12-15 05:29:59,028 3393 [main] INFO  o.e.jetty.server.AbstractConnector - Started ServerConnector@38be305c{HTTP/1.1,[http/1.1]}{0.0.0.0:6060}
+2017-12-15 05:29:59,029 3394 [main] INFO  org.eclipse.jetty.server.Server - Started @3619ms
+2017-12-15 05:29:59,029 3394 [main] INFO  n.d.ern.initializer.EmbeddedJetty - Server started at port 6060
+2017-12-15 05:30:33,714 224  [main] INFO  org.eclipse.jetty.util.log - Logging initialized @397ms to org.eclipse.jetty.util.log.Slf4jLog
+2017-12-15 05:30:33,865 375  [main] INFO  org.eclipse.jetty.server.Server - jetty-9.4.6.v20170531
+2017-12-15 05:30:33,953 463  [main] INFO  o.e.j.s.handler.ContextHandler.ROOT - Initializing Spring root WebApplicationContext
+2017-12-15 05:30:33,953 463  [main] INFO  o.s.web.context.ContextLoader - Root WebApplicationContext: initialization started
+2017-12-15 05:30:33,956 466  [main] INFO  o.s.w.c.s.AnnotationConfigWebApplicationContext - Refreshing Root WebApplicationContext: startup date [Fri Dec 15 05:30:33 EST 2017]; root of context hierarchy
+2017-12-15 05:30:34,086 596  [main] INFO  o.s.w.c.s.AnnotationConfigWebApplicationContext - Found 2 annotated classes in package [net/ddex/ern/config]
+2017-12-15 05:30:35,026 1536 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/status],methods=[GET],produces=[text/plain]}" onto public java.lang.String net.ddex.ern.controller.ValidateController.test() throws javax.xml.parsers.ParserConfigurationException,org.xml.sax.SAXException,java.io.IOException,javax.xml.stream.XMLStreamException,javax.xml.transform.TransformerException,javax.xml.xpath.XPathExpressionException
+2017-12-15 05:30:35,027 1537 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/json/validateSchematron],methods=[POST],produces=[application/json]}" onto public java.util.List<java.util.Map<java.lang.String, java.lang.String>> net.ddex.ern.controller.ValidateController.validateSchematronJSON(org.springframework.web.multipart.MultipartFile,java.lang.String,java.lang.String) throws javax.xml.parsers.ParserConfigurationException,org.xml.sax.SAXException,java.io.IOException,javax.xml.stream.XMLStreamException,javax.xml.transform.TransformerException,javax.xml.xpath.XPathExpressionException
+2017-12-15 05:30:35,028 1538 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/json/validateXML],methods=[POST],produces=[application/json]}" onto public java.util.List<java.util.Map<java.lang.String, java.lang.Object>> net.ddex.ern.controller.ValidateController.validateXMLJSON(org.springframework.web.multipart.MultipartFile,java.lang.String,java.lang.String,java.lang.String) throws javax.xml.parsers.ParserConfigurationException,java.io.IOException,javax.xml.stream.XMLStreamException,javax.xml.transform.TransformerException,org.xml.sax.SAXException,javax.xml.xpath.XPathExpressionException,net.ddex.ern.exception.ValidatorException
+2017-12-15 05:30:35,412 1922 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerAdapter - Looking for @ControllerAdvice: Root WebApplicationContext: startup date [Fri Dec 15 05:30:33 EST 2017]; root of context hierarchy
+2017-12-15 05:30:35,465 1975 [main] INFO  o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - Detected @ExceptionHandler methods in exceptionControllerAdvice
+2017-12-15 05:30:35,557 2067 [main] INFO  o.s.web.context.ContextLoader - Root WebApplicationContext: initialization completed in 1604 ms
+2017-12-15 05:30:35,562 2072 [main] INFO  o.e.j.s.handler.ContextHandler.ROOT - Initializing Spring FrameworkServlet 'org.springframework.web.servlet.DispatcherServlet-60285225'
+2017-12-15 05:30:35,562 2072 [main] INFO  o.s.web.servlet.DispatcherServlet - FrameworkServlet 'org.springframework.web.servlet.DispatcherServlet-60285225': initialization started
+2017-12-15 05:30:35,576 2086 [main] INFO  o.s.web.servlet.DispatcherServlet - FrameworkServlet 'org.springframework.web.servlet.DispatcherServlet-60285225': initialization completed in 14 ms
+2017-12-15 05:30:35,576 2086 [main] INFO  o.e.j.server.handler.ContextHandler - Started o.e.j.s.ServletContextHandler@5827af16{/,null,AVAILABLE}
+2017-12-15 05:30:55,886 230  [main] INFO  org.eclipse.jetty.util.log - Logging initialized @404ms to org.eclipse.jetty.util.log.Slf4jLog
+2017-12-15 05:30:56,029 373  [main] INFO  org.eclipse.jetty.server.Server - jetty-9.4.6.v20170531
+2017-12-15 05:30:56,111 455  [main] INFO  o.e.j.s.handler.ContextHandler.ROOT - Initializing Spring root WebApplicationContext
+2017-12-15 05:30:56,112 456  [main] INFO  o.s.web.context.ContextLoader - Root WebApplicationContext: initialization started
+2017-12-15 05:30:56,116 460  [main] INFO  o.s.w.c.s.AnnotationConfigWebApplicationContext - Refreshing Root WebApplicationContext: startup date [Fri Dec 15 05:30:56 EST 2017]; root of context hierarchy
+2017-12-15 05:30:56,214 558  [main] INFO  o.s.w.c.s.AnnotationConfigWebApplicationContext - Found 2 annotated classes in package [net/ddex/ern/config]
+2017-12-15 05:30:57,135 1479 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/status],methods=[GET],produces=[text/plain]}" onto public java.lang.String net.ddex.ern.controller.ValidateController.test() throws javax.xml.parsers.ParserConfigurationException,org.xml.sax.SAXException,java.io.IOException,javax.xml.stream.XMLStreamException,javax.xml.transform.TransformerException,javax.xml.xpath.XPathExpressionException
+2017-12-15 05:30:57,136 1480 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/json/validateXML],methods=[POST],produces=[application/json]}" onto public java.util.List<java.util.Map<java.lang.String, java.lang.Object>> net.ddex.ern.controller.ValidateController.validateXMLJSON(org.springframework.web.multipart.MultipartFile,java.lang.String,java.lang.String,java.lang.String) throws javax.xml.parsers.ParserConfigurationException,java.io.IOException,javax.xml.stream.XMLStreamException,javax.xml.transform.TransformerException,org.xml.sax.SAXException,javax.xml.xpath.XPathExpressionException,net.ddex.ern.exception.ValidatorException
+2017-12-15 05:30:57,137 1481 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/json/validateSchematron],methods=[POST],produces=[application/json]}" onto public java.util.List<java.util.Map<java.lang.String, java.lang.String>> net.ddex.ern.controller.ValidateController.validateSchematronJSON(org.springframework.web.multipart.MultipartFile,java.lang.String,java.lang.String) throws javax.xml.parsers.ParserConfigurationException,org.xml.sax.SAXException,java.io.IOException,javax.xml.stream.XMLStreamException,javax.xml.transform.TransformerException,javax.xml.xpath.XPathExpressionException
+2017-12-15 05:30:57,570 1914 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerAdapter - Looking for @ControllerAdvice: Root WebApplicationContext: startup date [Fri Dec 15 05:30:56 EST 2017]; root of context hierarchy
+2017-12-15 05:30:57,624 1968 [main] INFO  o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - Detected @ExceptionHandler methods in exceptionControllerAdvice
+2017-12-15 05:30:57,709 2053 [main] INFO  o.s.web.context.ContextLoader - Root WebApplicationContext: initialization completed in 1597 ms
+2017-12-15 05:30:57,715 2059 [main] INFO  o.e.j.s.handler.ContextHandler.ROOT - Initializing Spring FrameworkServlet 'org.springframework.web.servlet.DispatcherServlet-60285225'
+2017-12-15 05:30:57,716 2060 [main] INFO  o.s.web.servlet.DispatcherServlet - FrameworkServlet 'org.springframework.web.servlet.DispatcherServlet-60285225': initialization started
+2017-12-15 05:30:57,736 2080 [main] INFO  o.s.web.servlet.DispatcherServlet - FrameworkServlet 'org.springframework.web.servlet.DispatcherServlet-60285225': initialization completed in 20 ms
+2017-12-15 05:30:57,736 2080 [main] INFO  o.e.j.server.handler.ContextHandler - Started o.e.j.s.ServletContextHandler@5827af16{/,null,AVAILABLE}
+2017-12-15 05:30:58,680 3024 [main] INFO  o.e.jetty.server.AbstractConnector - Started ServerConnector@38be305c{HTTP/1.1,[http/1.1]}{0.0.0.0:6060}
+2017-12-15 05:30:58,680 3024 [main] INFO  org.eclipse.jetty.server.Server - Started @3203ms
+2017-12-15 05:30:58,680 3024 [main] INFO  n.d.ern.initializer.EmbeddedJetty - Server started at port 6060
+2017-12-15 05:31:06,993 11337 [qtp2008362258-12] INFO  n.d.e.controller.ValidateController - Validating ERN 130295703_20171205033227.xml as schema version 3.8.2. 
+2017-12-15 05:31:06,993 11337 [qtp2008362258-12] INFO  n.d.e.controller.ValidateController - Validating ERN 130295703_20171205033227.xml as schematron version 14 and product version AudioAlbumMusicOnly. 
+2017-12-15 05:31:06,994 11338 [qtp2008362258-12] INFO  n.d.e.controller.ValidateController - working swell
+2017-12-15 05:31:07,049 11393 [qtp2008362258-12] INFO  net.ddex.ern.service.SchemaService - schemaVersion: 382
+2017-12-15 05:31:07,633 11977 [qtp2008362258-12] ERROR net.ddex.ern.schema.SchemaValidator - cvc-elt.1: Cannot find the declaration of element 'ernm:NewReleaseMessage'.
+2017-12-15 05:31:07,634 11978 [qtp2008362258-12] ERROR net.ddex.ern.service.SchemaService - org.xml.sax.SAXParseException; cvc-elt.1: Cannot find the declaration of element 'ernm:NewReleaseMessage'.
+2017-12-15 05:32:55,267 282  [main] INFO  org.eclipse.jetty.util.log - Logging initialized @500ms to org.eclipse.jetty.util.log.Slf4jLog
+2017-12-15 05:32:55,420 435  [main] INFO  org.eclipse.jetty.server.Server - jetty-9.4.6.v20170531
+2017-12-15 05:32:55,497 512  [main] INFO  o.e.j.s.handler.ContextHandler.ROOT - Initializing Spring root WebApplicationContext
+2017-12-15 05:32:55,497 512  [main] INFO  o.s.web.context.ContextLoader - Root WebApplicationContext: initialization started
+2017-12-15 05:32:55,500 515  [main] INFO  o.s.w.c.s.AnnotationConfigWebApplicationContext - Refreshing Root WebApplicationContext: startup date [Fri Dec 15 05:32:55 EST 2017]; root of context hierarchy
+2017-12-15 05:32:55,596 611  [main] INFO  o.s.w.c.s.AnnotationConfigWebApplicationContext - Found 2 annotated classes in package [net/ddex/ern/config]
+2017-12-15 05:32:56,439 1454 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/status],methods=[GET],produces=[text/plain]}" onto public java.lang.String net.ddex.ern.controller.ValidateController.test() throws javax.xml.parsers.ParserConfigurationException,org.xml.sax.SAXException,java.io.IOException,javax.xml.stream.XMLStreamException,javax.xml.transform.TransformerException,javax.xml.xpath.XPathExpressionException
+2017-12-15 05:32:56,440 1455 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/json/validateSchematron],methods=[POST],produces=[application/json]}" onto public java.util.List<java.util.Map<java.lang.String, java.lang.String>> net.ddex.ern.controller.ValidateController.validateSchematronJSON(org.springframework.web.multipart.MultipartFile,java.lang.String,java.lang.String) throws javax.xml.parsers.ParserConfigurationException,org.xml.sax.SAXException,java.io.IOException,javax.xml.stream.XMLStreamException,javax.xml.transform.TransformerException,javax.xml.xpath.XPathExpressionException
+2017-12-15 05:32:56,441 1456 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/json/validateXML],methods=[POST],produces=[application/json]}" onto public java.util.List<java.util.Map<java.lang.String, java.lang.Object>> net.ddex.ern.controller.ValidateController.validateXMLJSON(org.springframework.web.multipart.MultipartFile,java.lang.String,java.lang.String,java.lang.String) throws javax.xml.parsers.ParserConfigurationException,java.io.IOException,javax.xml.stream.XMLStreamException,javax.xml.transform.TransformerException,org.xml.sax.SAXException,javax.xml.xpath.XPathExpressionException,net.ddex.ern.exception.ValidatorException
+2017-12-15 05:32:56,870 1885 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerAdapter - Looking for @ControllerAdvice: Root WebApplicationContext: startup date [Fri Dec 15 05:32:55 EST 2017]; root of context hierarchy
+2017-12-15 05:32:56,933 1948 [main] INFO  o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - Detected @ExceptionHandler methods in exceptionControllerAdvice
+2017-12-15 05:32:57,062 2077 [main] INFO  o.s.web.context.ContextLoader - Root WebApplicationContext: initialization completed in 1565 ms
+2017-12-15 05:32:57,069 2084 [main] INFO  o.e.j.s.handler.ContextHandler.ROOT - Initializing Spring FrameworkServlet 'org.springframework.web.servlet.DispatcherServlet-60285225'
+2017-12-15 05:32:57,069 2084 [main] INFO  o.s.web.servlet.DispatcherServlet - FrameworkServlet 'org.springframework.web.servlet.DispatcherServlet-60285225': initialization started
+2017-12-15 05:32:57,090 2105 [main] INFO  o.s.web.servlet.DispatcherServlet - FrameworkServlet 'org.springframework.web.servlet.DispatcherServlet-60285225': initialization completed in 21 ms
+2017-12-15 05:32:57,091 2106 [main] INFO  o.e.j.server.handler.ContextHandler - Started o.e.j.s.ServletContextHandler@5827af16{/,null,AVAILABLE}
+2017-12-15 05:32:58,514 3529 [main] INFO  o.e.jetty.server.AbstractConnector - Started ServerConnector@38be305c{HTTP/1.1,[http/1.1]}{0.0.0.0:6060}
+2017-12-15 05:32:58,514 3529 [main] INFO  org.eclipse.jetty.server.Server - Started @3752ms
+2017-12-15 05:32:58,514 3529 [main] INFO  n.d.ern.initializer.EmbeddedJetty - Server started at port 6060
+2017-12-15 05:33:08,054 13069 [qtp2008362258-17] INFO  n.d.e.controller.ValidateController - Validating ERN 130295703_20171205033227.xml as schema version 3.8.2. 
+2017-12-15 05:33:08,054 13069 [qtp2008362258-17] INFO  n.d.e.controller.ValidateController - Validating ERN 130295703_20171205033227.xml as schematron version 14 and product version AudioAlbumMusicOnly. 
+2017-12-15 05:33:08,054 13069 [qtp2008362258-17] INFO  n.d.e.controller.ValidateController - working swell
+2017-12-15 05:33:08,125 13140 [qtp2008362258-17] INFO  net.ddex.ern.service.SchemaService - schemaVersion: 382
+2017-12-15 05:33:08,751 13766 [qtp2008362258-17] ERROR net.ddex.ern.schema.SchemaValidator - cvc-elt.1: Cannot find the declaration of element 'ernm:NewReleaseMessage'.
+2017-12-15 05:33:08,751 13766 [qtp2008362258-17] ERROR net.ddex.ern.service.SchemaService - org.xml.sax.SAXParseException; cvc-elt.1: Cannot find the declaration of element 'ernm:NewReleaseMessage'.
+2017-12-15 05:34:43,864 273  [main] INFO  org.eclipse.jetty.util.log - Logging initialized @437ms to org.eclipse.jetty.util.log.Slf4jLog
+2017-12-15 05:34:44,045 454  [main] INFO  org.eclipse.jetty.server.Server - jetty-9.4.6.v20170531
+2017-12-15 05:34:44,124 533  [main] INFO  o.e.j.s.handler.ContextHandler.ROOT - Initializing Spring root WebApplicationContext
+2017-12-15 05:34:44,124 533  [main] INFO  o.s.web.context.ContextLoader - Root WebApplicationContext: initialization started
+2017-12-15 05:34:44,128 537  [main] INFO  o.s.w.c.s.AnnotationConfigWebApplicationContext - Refreshing Root WebApplicationContext: startup date [Fri Dec 15 05:34:44 EST 2017]; root of context hierarchy
+2017-12-15 05:34:44,221 630  [main] INFO  o.s.w.c.s.AnnotationConfigWebApplicationContext - Found 2 annotated classes in package [net/ddex/ern/config]
+2017-12-15 05:34:45,140 1549 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/status],methods=[GET],produces=[text/plain]}" onto public java.lang.String net.ddex.ern.controller.ValidateController.test() throws javax.xml.parsers.ParserConfigurationException,org.xml.sax.SAXException,java.io.IOException,javax.xml.stream.XMLStreamException,javax.xml.transform.TransformerException,javax.xml.xpath.XPathExpressionException
+2017-12-15 05:34:45,141 1550 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/json/validateXML],methods=[POST],produces=[application/json]}" onto public java.util.List<java.util.Map<java.lang.String, java.lang.Object>> net.ddex.ern.controller.ValidateController.validateXMLJSON(org.springframework.web.multipart.MultipartFile,java.lang.String,java.lang.String,java.lang.String) throws javax.xml.parsers.ParserConfigurationException,java.io.IOException,javax.xml.stream.XMLStreamException,javax.xml.transform.TransformerException,org.xml.sax.SAXException,javax.xml.xpath.XPathExpressionException,net.ddex.ern.exception.ValidatorException
+2017-12-15 05:34:45,142 1551 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/json/validateSchematron],methods=[POST],produces=[application/json]}" onto public java.util.List<java.util.Map<java.lang.String, java.lang.String>> net.ddex.ern.controller.ValidateController.validateSchematronJSON(org.springframework.web.multipart.MultipartFile,java.lang.String,java.lang.String) throws javax.xml.parsers.ParserConfigurationException,org.xml.sax.SAXException,java.io.IOException,javax.xml.stream.XMLStreamException,javax.xml.transform.TransformerException,javax.xml.xpath.XPathExpressionException
+2017-12-15 05:34:45,542 1951 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerAdapter - Looking for @ControllerAdvice: Root WebApplicationContext: startup date [Fri Dec 15 05:34:44 EST 2017]; root of context hierarchy
+2017-12-15 05:34:45,599 2008 [main] INFO  o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - Detected @ExceptionHandler methods in exceptionControllerAdvice
+2017-12-15 05:34:45,690 2099 [main] INFO  o.s.web.context.ContextLoader - Root WebApplicationContext: initialization completed in 1566 ms
+2017-12-15 05:34:45,697 2106 [main] INFO  o.e.j.s.handler.ContextHandler.ROOT - Initializing Spring FrameworkServlet 'org.springframework.web.servlet.DispatcherServlet-60285225'
+2017-12-15 05:34:45,697 2106 [main] INFO  o.s.web.servlet.DispatcherServlet - FrameworkServlet 'org.springframework.web.servlet.DispatcherServlet-60285225': initialization started
+2017-12-15 05:34:45,717 2126 [main] INFO  o.s.web.servlet.DispatcherServlet - FrameworkServlet 'org.springframework.web.servlet.DispatcherServlet-60285225': initialization completed in 20 ms
+2017-12-15 05:34:45,718 2127 [main] INFO  o.e.j.server.handler.ContextHandler - Started o.e.j.s.ServletContextHandler@5b11a194{/,null,AVAILABLE}
+2017-12-15 05:35:17,472 272  [main] INFO  org.eclipse.jetty.util.log - Logging initialized @445ms to org.eclipse.jetty.util.log.Slf4jLog
+2017-12-15 05:35:17,642 442  [main] INFO  org.eclipse.jetty.server.Server - jetty-9.4.6.v20170531
+2017-12-15 05:35:17,724 524  [main] INFO  o.e.j.s.handler.ContextHandler.ROOT - Initializing Spring root WebApplicationContext
+2017-12-15 05:35:17,724 524  [main] INFO  o.s.web.context.ContextLoader - Root WebApplicationContext: initialization started
+2017-12-15 05:35:17,728 528  [main] INFO  o.s.w.c.s.AnnotationConfigWebApplicationContext - Refreshing Root WebApplicationContext: startup date [Fri Dec 15 05:35:17 EST 2017]; root of context hierarchy
+2017-12-15 05:35:17,822 622  [main] INFO  o.s.w.c.s.AnnotationConfigWebApplicationContext - Found 2 annotated classes in package [net/ddex/ern/config]
+2017-12-15 05:35:18,690 1490 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/status],methods=[GET],produces=[text/plain]}" onto public java.lang.String net.ddex.ern.controller.ValidateController.test() throws javax.xml.parsers.ParserConfigurationException,org.xml.sax.SAXException,java.io.IOException,javax.xml.stream.XMLStreamException,javax.xml.transform.TransformerException,javax.xml.xpath.XPathExpressionException
+2017-12-15 05:35:18,694 1494 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/json/validateXML],methods=[POST],produces=[application/json]}" onto public java.util.List<java.util.Map<java.lang.String, java.lang.Object>> net.ddex.ern.controller.ValidateController.validateXMLJSON(org.springframework.web.multipart.MultipartFile,java.lang.String,java.lang.String,java.lang.String) throws javax.xml.parsers.ParserConfigurationException,java.io.IOException,javax.xml.stream.XMLStreamException,javax.xml.transform.TransformerException,org.xml.sax.SAXException,javax.xml.xpath.XPathExpressionException,net.ddex.ern.exception.ValidatorException
+2017-12-15 05:35:18,695 1495 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/json/validateSchematron],methods=[POST],produces=[application/json]}" onto public java.util.List<java.util.Map<java.lang.String, java.lang.String>> net.ddex.ern.controller.ValidateController.validateSchematronJSON(org.springframework.web.multipart.MultipartFile,java.lang.String,java.lang.String) throws javax.xml.parsers.ParserConfigurationException,org.xml.sax.SAXException,java.io.IOException,javax.xml.stream.XMLStreamException,javax.xml.transform.TransformerException,javax.xml.xpath.XPathExpressionException
+2017-12-15 05:35:19,037 1837 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerAdapter - Looking for @ControllerAdvice: Root WebApplicationContext: startup date [Fri Dec 15 05:35:17 EST 2017]; root of context hierarchy
+2017-12-15 05:35:19,083 1883 [main] INFO  o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - Detected @ExceptionHandler methods in exceptionControllerAdvice
+2017-12-15 05:35:19,176 1976 [main] INFO  o.s.web.context.ContextLoader - Root WebApplicationContext: initialization completed in 1452 ms
+2017-12-15 05:35:19,182 1982 [main] INFO  o.e.j.s.handler.ContextHandler.ROOT - Initializing Spring FrameworkServlet 'org.springframework.web.servlet.DispatcherServlet-60285225'
+2017-12-15 05:35:19,182 1982 [main] INFO  o.s.web.servlet.DispatcherServlet - FrameworkServlet 'org.springframework.web.servlet.DispatcherServlet-60285225': initialization started
+2017-12-15 05:35:19,200 2000 [main] INFO  o.s.web.servlet.DispatcherServlet - FrameworkServlet 'org.springframework.web.servlet.DispatcherServlet-60285225': initialization completed in 18 ms
+2017-12-15 05:35:19,200 2000 [main] INFO  o.e.j.server.handler.ContextHandler - Started o.e.j.s.ServletContextHandler@5b11a194{/,null,AVAILABLE}
+2017-12-15 05:35:20,140 2940 [main] INFO  o.e.jetty.server.AbstractConnector - Started ServerConnector@4f071df8{HTTP/1.1,[http/1.1]}{0.0.0.0:6060}
+2017-12-15 05:35:20,140 2940 [main] INFO  org.eclipse.jetty.server.Server - Started @3119ms
+2017-12-15 05:35:20,140 2940 [main] INFO  n.d.ern.initializer.EmbeddedJetty - Server started at port 6060
+2017-12-15 05:35:26,350 9150 [qtp2008362258-11] INFO  n.d.e.controller.ValidateController - Validating ERN 130295703_20171205033227.xml as schema version 3.8.2. 
+2017-12-15 05:35:26,351 9151 [qtp2008362258-11] INFO  n.d.e.controller.ValidateController - Validating ERN 130295703_20171205033227.xml as schematron version 14 and product version AudioAlbumMusicOnly. 
+2017-12-15 05:35:26,351 9151 [qtp2008362258-11] INFO  n.d.e.controller.ValidateController - working swell
+2017-12-15 05:35:26,416 9216 [qtp2008362258-11] INFO  net.ddex.ern.service.SchemaService - schemaVersion: 382
+2017-12-15 05:35:26,421 9221 [qtp2008362258-11] INFO  n.d.e.e.ExceptionControllerAdvice - <500 Internal Server Error,net.ddex.ern.exception.ErrorResponse@3b89b0fc,{}>
+2017-12-15 05:48:02,103 223  [main] INFO  org.eclipse.jetty.util.log - Logging initialized @397ms to org.eclipse.jetty.util.log.Slf4jLog
+2017-12-15 05:48:02,244 364  [main] INFO  org.eclipse.jetty.server.Server - jetty-9.4.6.v20170531
+2017-12-15 05:48:02,318 438  [main] INFO  o.e.j.s.handler.ContextHandler.ROOT - Initializing Spring root WebApplicationContext
+2017-12-15 05:48:02,318 438  [main] INFO  o.s.web.context.ContextLoader - Root WebApplicationContext: initialization started
+2017-12-15 05:48:02,321 441  [main] INFO  o.s.w.c.s.AnnotationConfigWebApplicationContext - Refreshing Root WebApplicationContext: startup date [Fri Dec 15 05:48:02 EST 2017]; root of context hierarchy
+2017-12-15 05:48:02,411 531  [main] INFO  o.s.w.c.s.AnnotationConfigWebApplicationContext - Found 2 annotated classes in package [net/ddex/ern/config]
+2017-12-15 05:48:03,210 1330 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/status],methods=[GET],produces=[text/plain]}" onto public java.lang.String net.ddex.ern.controller.ValidateController.test() throws javax.xml.parsers.ParserConfigurationException,org.xml.sax.SAXException,java.io.IOException,javax.xml.stream.XMLStreamException,javax.xml.transform.TransformerException,javax.xml.xpath.XPathExpressionException
+2017-12-15 05:48:03,211 1331 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/json/validateSchematron],methods=[POST],produces=[application/json]}" onto public java.util.List<java.util.Map<java.lang.String, java.lang.String>> net.ddex.ern.controller.ValidateController.validateSchematronJSON(org.springframework.web.multipart.MultipartFile,java.lang.String,java.lang.String) throws javax.xml.parsers.ParserConfigurationException,org.xml.sax.SAXException,java.io.IOException,javax.xml.stream.XMLStreamException,javax.xml.transform.TransformerException,javax.xml.xpath.XPathExpressionException
+2017-12-15 05:48:03,212 1332 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/json/validateXML],methods=[POST],produces=[application/json]}" onto public java.util.List<java.util.Map<java.lang.String, java.lang.Object>> net.ddex.ern.controller.ValidateController.validateXMLJSON(org.springframework.web.multipart.MultipartFile,java.lang.String,java.lang.String,java.lang.String) throws javax.xml.parsers.ParserConfigurationException,java.io.IOException,javax.xml.stream.XMLStreamException,javax.xml.transform.TransformerException,org.xml.sax.SAXException,javax.xml.xpath.XPathExpressionException,net.ddex.ern.exception.ValidatorException
+2017-12-15 05:48:03,534 1654 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerAdapter - Looking for @ControllerAdvice: Root WebApplicationContext: startup date [Fri Dec 15 05:48:02 EST 2017]; root of context hierarchy
+2017-12-15 05:48:03,582 1702 [main] INFO  o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - Detected @ExceptionHandler methods in exceptionControllerAdvice
+2017-12-15 05:48:03,658 1778 [main] INFO  o.s.web.context.ContextLoader - Root WebApplicationContext: initialization completed in 1340 ms
+2017-12-15 05:48:03,662 1782 [main] INFO  o.e.j.s.handler.ContextHandler.ROOT - Initializing Spring FrameworkServlet 'org.springframework.web.servlet.DispatcherServlet-60285225'
+2017-12-15 05:48:03,662 1782 [main] INFO  o.s.web.servlet.DispatcherServlet - FrameworkServlet 'org.springframework.web.servlet.DispatcherServlet-60285225': initialization started
+2017-12-15 05:48:03,675 1795 [main] INFO  o.s.web.servlet.DispatcherServlet - FrameworkServlet 'org.springframework.web.servlet.DispatcherServlet-60285225': initialization completed in 13 ms
+2017-12-15 05:48:03,676 1796 [main] INFO  o.e.j.server.handler.ContextHandler - Started o.e.j.s.ServletContextHandler@654d8173{/,null,AVAILABLE}
+2017-12-15 05:48:04,655 2775 [main] INFO  o.e.jetty.server.AbstractConnector - Started ServerConnector@269f4bad{HTTP/1.1,[http/1.1]}{0.0.0.0:6060}
+2017-12-15 05:48:04,655 2775 [main] INFO  org.eclipse.jetty.server.Server - Started @2954ms
+2017-12-15 05:48:04,655 2775 [main] INFO  n.d.ern.initializer.EmbeddedJetty - Server started at port 6060
+2017-12-15 05:48:15,179 13299 [qtp2008362258-12] INFO  n.d.e.controller.ValidateController - Validating ERN 130295703_20171205033227.xml as schema version 3.8.2. 
+2017-12-15 05:48:15,180 13300 [qtp2008362258-12] INFO  n.d.e.controller.ValidateController - Validating ERN 130295703_20171205033227.xml as schematron version 14 and product version AudioAlbumMusicOnly. 
+2017-12-15 05:48:15,180 13300 [qtp2008362258-12] INFO  n.d.e.controller.ValidateController - working swell
+2017-12-15 05:48:15,244 13364 [qtp2008362258-12] INFO  net.ddex.ern.service.SchemaService - schemaVersion: 382
+2017-12-15 05:48:15,677 13797 [qtp2008362258-12] ERROR net.ddex.ern.schema.SchemaValidator - cvc-elt.1: Cannot find the declaration of element 'ernm:NewReleaseMessage'.
+2017-12-15 05:48:15,678 13798 [qtp2008362258-12] ERROR net.ddex.ern.service.SchemaService - org.xml.sax.SAXParseException; cvc-elt.1: Cannot find the declaration of element 'ernm:NewReleaseMessage'.
+2017-12-15 06:37:06,510 233  [main] INFO  org.eclipse.jetty.util.log - Logging initialized @410ms to org.eclipse.jetty.util.log.Slf4jLog
+2017-12-15 06:37:06,656 379  [main] INFO  org.eclipse.jetty.server.Server - jetty-9.4.6.v20170531
+2017-12-15 06:37:06,735 458  [main] INFO  o.e.j.s.handler.ContextHandler.ROOT - Initializing Spring root WebApplicationContext
+2017-12-15 06:37:06,735 458  [main] INFO  o.s.web.context.ContextLoader - Root WebApplicationContext: initialization started
+2017-12-15 06:37:06,738 461  [main] INFO  o.s.w.c.s.AnnotationConfigWebApplicationContext - Refreshing Root WebApplicationContext: startup date [Fri Dec 15 06:37:06 EST 2017]; root of context hierarchy
+2017-12-15 06:37:06,827 550  [main] INFO  o.s.w.c.s.AnnotationConfigWebApplicationContext - Found 2 annotated classes in package [net/ddex/ern/config]
+2017-12-15 06:37:07,683 1406 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/status],methods=[GET],produces=[text/plain]}" onto public java.lang.String net.ddex.ern.controller.ValidateController.test() throws javax.xml.parsers.ParserConfigurationException,org.xml.sax.SAXException,java.io.IOException,javax.xml.stream.XMLStreamException,javax.xml.transform.TransformerException,javax.xml.xpath.XPathExpressionException
+2017-12-15 06:37:07,684 1407 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/json/validateXML],methods=[POST],produces=[application/json]}" onto public java.util.List<java.util.Map<java.lang.String, java.lang.Object>> net.ddex.ern.controller.ValidateController.validateXMLJSON(org.springframework.web.multipart.MultipartFile,java.lang.String,java.lang.String,java.lang.String) throws javax.xml.parsers.ParserConfigurationException,java.io.IOException,javax.xml.stream.XMLStreamException,javax.xml.transform.TransformerException,org.xml.sax.SAXException,javax.xml.xpath.XPathExpressionException,net.ddex.ern.exception.ValidatorException
+2017-12-15 06:37:07,684 1407 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/json/validateSchematron],methods=[POST],produces=[application/json]}" onto public java.util.List<java.util.Map<java.lang.String, java.lang.String>> net.ddex.ern.controller.ValidateController.validateSchematronJSON(org.springframework.web.multipart.MultipartFile,java.lang.String,java.lang.String) throws javax.xml.parsers.ParserConfigurationException,org.xml.sax.SAXException,java.io.IOException,javax.xml.stream.XMLStreamException,javax.xml.transform.TransformerException,javax.xml.xpath.XPathExpressionException
+2017-12-15 06:37:08,054 1777 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerAdapter - Looking for @ControllerAdvice: Root WebApplicationContext: startup date [Fri Dec 15 06:37:06 EST 2017]; root of context hierarchy
+2017-12-15 06:37:08,112 1835 [main] INFO  o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - Detected @ExceptionHandler methods in exceptionControllerAdvice
+2017-12-15 06:37:08,199 1922 [main] INFO  o.s.web.context.ContextLoader - Root WebApplicationContext: initialization completed in 1464 ms
+2017-12-15 06:37:08,203 1926 [main] INFO  o.e.j.s.handler.ContextHandler.ROOT - Initializing Spring FrameworkServlet 'org.springframework.web.servlet.DispatcherServlet-60285225'
+2017-12-15 06:37:08,203 1926 [main] INFO  o.s.web.servlet.DispatcherServlet - FrameworkServlet 'org.springframework.web.servlet.DispatcherServlet-60285225': initialization started
+2017-12-15 06:37:08,217 1940 [main] INFO  o.s.web.servlet.DispatcherServlet - FrameworkServlet 'org.springframework.web.servlet.DispatcherServlet-60285225': initialization completed in 14 ms
+2017-12-15 06:37:08,217 1940 [main] INFO  o.e.j.server.handler.ContextHandler - Started o.e.j.s.ServletContextHandler@5b11a194{/,null,AVAILABLE}
+2017-12-15 06:37:09,100 2823 [main] INFO  o.e.jetty.server.AbstractConnector - Started ServerConnector@4f071df8{HTTP/1.1,[http/1.1]}{0.0.0.0:6060}
+2017-12-15 06:37:09,101 2824 [main] INFO  org.eclipse.jetty.server.Server - Started @3005ms
+2017-12-15 06:37:09,101 2824 [main] INFO  n.d.ern.initializer.EmbeddedJetty - Server started at port 6060
+2017-12-15 06:38:33,253 86976 [qtp2008362258-12] INFO  n.d.e.e.ExceptionControllerAdvice - <500 Internal Server Error,net.ddex.ern.exception.ErrorResponse@2878e741,{}>
+2017-12-15 06:39:04,713 226  [main] INFO  org.eclipse.jetty.util.log - Logging initialized @400ms to org.eclipse.jetty.util.log.Slf4jLog
+2017-12-15 06:39:04,873 386  [main] INFO  org.eclipse.jetty.server.Server - jetty-9.4.6.v20170531
+2017-12-15 06:39:04,947 460  [main] INFO  o.e.j.s.handler.ContextHandler.ROOT - Initializing Spring root WebApplicationContext
+2017-12-15 06:39:04,947 460  [main] INFO  o.s.web.context.ContextLoader - Root WebApplicationContext: initialization started
+2017-12-15 06:39:04,950 463  [main] INFO  o.s.w.c.s.AnnotationConfigWebApplicationContext - Refreshing Root WebApplicationContext: startup date [Fri Dec 15 06:39:04 EST 2017]; root of context hierarchy
+2017-12-15 06:39:05,049 562  [main] INFO  o.s.w.c.s.AnnotationConfigWebApplicationContext - Found 2 annotated classes in package [net/ddex/ern/config]
+2017-12-15 06:39:05,907 1420 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/status],methods=[GET],produces=[text/plain]}" onto public java.lang.String net.ddex.ern.controller.ValidateController.test() throws javax.xml.parsers.ParserConfigurationException,org.xml.sax.SAXException,java.io.IOException,javax.xml.stream.XMLStreamException,javax.xml.transform.TransformerException,javax.xml.xpath.XPathExpressionException
+2017-12-15 06:39:05,908 1421 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/json/validateXML],methods=[POST],produces=[application/json]}" onto public java.util.List<java.util.Map<java.lang.String, java.lang.Object>> net.ddex.ern.controller.ValidateController.validateXMLJSON(org.springframework.web.multipart.MultipartFile,java.lang.String,java.lang.String,java.lang.String) throws javax.xml.parsers.ParserConfigurationException,java.io.IOException,javax.xml.stream.XMLStreamException,javax.xml.transform.TransformerException,org.xml.sax.SAXException,javax.xml.xpath.XPathExpressionException,net.ddex.ern.exception.ValidatorException
+2017-12-15 06:39:05,909 1422 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/json/validateSchematron],methods=[POST],produces=[application/json]}" onto public java.util.List<java.util.Map<java.lang.String, java.lang.String>> net.ddex.ern.controller.ValidateController.validateSchematronJSON(org.springframework.web.multipart.MultipartFile,java.lang.String,java.lang.String) throws javax.xml.parsers.ParserConfigurationException,org.xml.sax.SAXException,java.io.IOException,javax.xml.stream.XMLStreamException,javax.xml.transform.TransformerException,javax.xml.xpath.XPathExpressionException
+2017-12-15 06:39:06,252 1765 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerAdapter - Looking for @ControllerAdvice: Root WebApplicationContext: startup date [Fri Dec 15 06:39:04 EST 2017]; root of context hierarchy
+2017-12-15 06:39:06,305 1818 [main] INFO  o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - Detected @ExceptionHandler methods in exceptionControllerAdvice
+2017-12-15 06:39:06,398 1911 [main] INFO  o.s.web.context.ContextLoader - Root WebApplicationContext: initialization completed in 1451 ms
+2017-12-15 06:39:06,401 1914 [main] INFO  o.e.j.s.handler.ContextHandler.ROOT - Initializing Spring FrameworkServlet 'org.springframework.web.servlet.DispatcherServlet-60285225'
+2017-12-15 06:39:06,402 1915 [main] INFO  o.s.web.servlet.DispatcherServlet - FrameworkServlet 'org.springframework.web.servlet.DispatcherServlet-60285225': initialization started
+2017-12-15 06:39:06,414 1927 [main] INFO  o.s.web.servlet.DispatcherServlet - FrameworkServlet 'org.springframework.web.servlet.DispatcherServlet-60285225': initialization completed in 12 ms
+2017-12-15 06:39:06,414 1927 [main] INFO  o.e.j.server.handler.ContextHandler - Started o.e.j.s.ServletContextHandler@5b11a194{/,null,AVAILABLE}
+2017-12-15 06:39:07,261 2774 [main] INFO  o.e.jetty.server.AbstractConnector - Started ServerConnector@4f071df8{HTTP/1.1,[http/1.1]}{0.0.0.0:6060}
+2017-12-15 06:39:07,261 2774 [main] INFO  org.eclipse.jetty.server.Server - Started @2952ms
+2017-12-15 06:39:07,261 2774 [main] INFO  n.d.ern.initializer.EmbeddedJetty - Server started at port 6060
+2017-12-15 06:39:53,311 48824 [qtp2008362258-11] INFO  n.d.e.controller.ValidateController - Validating ERN 130295703_20171205033227.xml as schema version 3.8.2. 
+2017-12-15 06:39:53,311 48824 [qtp2008362258-11] INFO  n.d.e.controller.ValidateController - Validating ERN 130295703_20171205033227.xml as schematron version 14 and product version AudioAlbumMusicOnly. 
+2017-12-15 06:39:53,311 48824 [qtp2008362258-11] INFO  n.d.e.controller.ValidateController - working swell
+2017-12-15 06:39:53,404 48917 [qtp2008362258-11] INFO  net.ddex.ern.service.SchemaService - schemaVersion: 382
+2017-12-15 06:39:53,408 48921 [qtp2008362258-11] INFO  n.d.e.e.ExceptionControllerAdvice - <500 Internal Server Error,net.ddex.ern.exception.ErrorResponse@2af9513d,{}>
+2017-12-15 06:43:46,080 222  [main] INFO  org.eclipse.jetty.util.log - Logging initialized @399ms to org.eclipse.jetty.util.log.Slf4jLog
+2017-12-15 06:43:46,233 375  [main] INFO  org.eclipse.jetty.server.Server - jetty-9.4.6.v20170531
+2017-12-15 06:43:46,310 452  [main] INFO  o.e.j.s.handler.ContextHandler.ROOT - Initializing Spring root WebApplicationContext
+2017-12-15 06:43:46,310 452  [main] INFO  o.s.web.context.ContextLoader - Root WebApplicationContext: initialization started
+2017-12-15 06:43:46,314 456  [main] INFO  o.s.w.c.s.AnnotationConfigWebApplicationContext - Refreshing Root WebApplicationContext: startup date [Fri Dec 15 06:43:46 EST 2017]; root of context hierarchy
+2017-12-15 06:43:46,409 551  [main] INFO  o.s.w.c.s.AnnotationConfigWebApplicationContext - Found 2 annotated classes in package [net/ddex/ern/config]
+2017-12-15 06:43:47,271 1413 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/status],methods=[GET],produces=[text/plain]}" onto public java.lang.String net.ddex.ern.controller.ValidateController.test() throws javax.xml.parsers.ParserConfigurationException,org.xml.sax.SAXException,java.io.IOException,javax.xml.stream.XMLStreamException,javax.xml.transform.TransformerException,javax.xml.xpath.XPathExpressionException
+2017-12-15 06:43:47,272 1414 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/json/validateSchematron],methods=[POST],produces=[application/json]}" onto public java.util.List<java.util.Map<java.lang.String, java.lang.String>> net.ddex.ern.controller.ValidateController.validateSchematronJSON(org.springframework.web.multipart.MultipartFile,java.lang.String,java.lang.String) throws javax.xml.parsers.ParserConfigurationException,org.xml.sax.SAXException,java.io.IOException,javax.xml.stream.XMLStreamException,javax.xml.transform.TransformerException,javax.xml.xpath.XPathExpressionException
+2017-12-15 06:43:47,272 1414 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/json/validateXML],methods=[POST],produces=[application/json]}" onto public java.util.List<java.util.Map<java.lang.String, java.lang.Object>> net.ddex.ern.controller.ValidateController.validateXMLJSON(org.springframework.web.multipart.MultipartFile,java.lang.String,java.lang.String,java.lang.String) throws javax.xml.parsers.ParserConfigurationException,java.io.IOException,javax.xml.stream.XMLStreamException,javax.xml.transform.TransformerException,org.xml.sax.SAXException,javax.xml.xpath.XPathExpressionException,net.ddex.ern.exception.ValidatorException
+2017-12-15 06:43:47,660 1802 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerAdapter - Looking for @ControllerAdvice: Root WebApplicationContext: startup date [Fri Dec 15 06:43:46 EST 2017]; root of context hierarchy
+2017-12-15 06:43:47,712 1854 [main] INFO  o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - Detected @ExceptionHandler methods in exceptionControllerAdvice
+2017-12-15 06:43:47,799 1941 [main] INFO  o.s.web.context.ContextLoader - Root WebApplicationContext: initialization completed in 1488 ms
+2017-12-15 06:43:47,804 1946 [main] INFO  o.e.j.s.handler.ContextHandler.ROOT - Initializing Spring FrameworkServlet 'org.springframework.web.servlet.DispatcherServlet-60285225'
+2017-12-15 06:43:47,804 1946 [main] INFO  o.s.web.servlet.DispatcherServlet - FrameworkServlet 'org.springframework.web.servlet.DispatcherServlet-60285225': initialization started
+2017-12-15 06:43:47,817 1959 [main] INFO  o.s.web.servlet.DispatcherServlet - FrameworkServlet 'org.springframework.web.servlet.DispatcherServlet-60285225': initialization completed in 13 ms
+2017-12-15 06:43:47,818 1960 [main] INFO  o.e.j.server.handler.ContextHandler - Started o.e.j.s.ServletContextHandler@5b11a194{/,null,AVAILABLE}
+2017-12-15 06:43:48,629 2771 [main] INFO  o.e.jetty.server.AbstractConnector - Started ServerConnector@4f071df8{HTTP/1.1,[http/1.1]}{0.0.0.0:6060}
+2017-12-15 06:43:48,629 2771 [main] INFO  org.eclipse.jetty.server.Server - Started @2953ms
+2017-12-15 06:43:48,629 2771 [main] INFO  n.d.ern.initializer.EmbeddedJetty - Server started at port 6060
+2017-12-15 06:43:54,746 8888 [qtp2008362258-15] INFO  n.d.e.controller.ValidateController - Validating ERN 130295703_20171205033227.xml as schema version 3.8.2. 
+2017-12-15 06:43:54,746 8888 [qtp2008362258-15] INFO  n.d.e.controller.ValidateController - Validating ERN 130295703_20171205033227.xml as schematron version 14 and product version AudioAlbumMusicOnly. 
+2017-12-15 06:43:54,746 8888 [qtp2008362258-15] INFO  n.d.e.controller.ValidateController - working swell
+2017-12-15 06:43:54,803 8945 [qtp2008362258-15] INFO  net.ddex.ern.service.SchemaService - schemaVersion: 382
+2017-12-15 06:43:54,807 8949 [qtp2008362258-15] INFO  n.d.e.e.ExceptionControllerAdvice - <500 Internal Server Error,net.ddex.ern.exception.ErrorResponse@54ca2a90,{}>
+2017-12-15 06:45:05,678 216  [main] INFO  org.eclipse.jetty.util.log - Logging initialized @388ms to org.eclipse.jetty.util.log.Slf4jLog
+2017-12-15 06:45:05,858 396  [main] INFO  org.eclipse.jetty.server.Server - jetty-9.4.6.v20170531
+2017-12-15 06:45:05,955 493  [main] INFO  o.e.j.s.handler.ContextHandler.ROOT - Initializing Spring root WebApplicationContext
+2017-12-15 06:45:05,955 493  [main] INFO  o.s.web.context.ContextLoader - Root WebApplicationContext: initialization started
+2017-12-15 06:45:05,959 497  [main] INFO  o.s.w.c.s.AnnotationConfigWebApplicationContext - Refreshing Root WebApplicationContext: startup date [Fri Dec 15 06:45:05 EST 2017]; root of context hierarchy
+2017-12-15 06:45:06,059 597  [main] INFO  o.s.w.c.s.AnnotationConfigWebApplicationContext - Found 2 annotated classes in package [net/ddex/ern/config]
+2017-12-15 06:45:06,820 1358 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/status],methods=[GET],produces=[text/plain]}" onto public java.lang.String net.ddex.ern.controller.ValidateController.test() throws javax.xml.parsers.ParserConfigurationException,org.xml.sax.SAXException,java.io.IOException,javax.xml.stream.XMLStreamException,javax.xml.transform.TransformerException,javax.xml.xpath.XPathExpressionException
+2017-12-15 06:45:06,821 1359 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/json/validateSchematron],methods=[POST],produces=[application/json]}" onto public java.util.List<java.util.Map<java.lang.String, java.lang.String>> net.ddex.ern.controller.ValidateController.validateSchematronJSON(org.springframework.web.multipart.MultipartFile,java.lang.String,java.lang.String) throws javax.xml.parsers.ParserConfigurationException,org.xml.sax.SAXException,java.io.IOException,javax.xml.stream.XMLStreamException,javax.xml.transform.TransformerException,javax.xml.xpath.XPathExpressionException
+2017-12-15 06:45:06,822 1360 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/json/validateXML],methods=[POST],produces=[application/json]}" onto public java.util.List<java.util.Map<java.lang.String, java.lang.Object>> net.ddex.ern.controller.ValidateController.validateXMLJSON(org.springframework.web.multipart.MultipartFile,java.lang.String,java.lang.String,java.lang.String) throws javax.xml.parsers.ParserConfigurationException,java.io.IOException,javax.xml.stream.XMLStreamException,javax.xml.transform.TransformerException,org.xml.sax.SAXException,javax.xml.xpath.XPathExpressionException,net.ddex.ern.exception.ValidatorException
+2017-12-15 06:45:07,178 1716 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerAdapter - Looking for @ControllerAdvice: Root WebApplicationContext: startup date [Fri Dec 15 06:45:05 EST 2017]; root of context hierarchy
+2017-12-15 06:45:07,225 1763 [main] INFO  o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - Detected @ExceptionHandler methods in exceptionControllerAdvice
+2017-12-15 06:45:07,303 1841 [main] INFO  o.s.web.context.ContextLoader - Root WebApplicationContext: initialization completed in 1347 ms
+2017-12-15 06:45:07,309 1847 [main] INFO  o.e.j.s.handler.ContextHandler.ROOT - Initializing Spring FrameworkServlet 'org.springframework.web.servlet.DispatcherServlet-60285225'
+2017-12-15 06:45:07,310 1848 [main] INFO  o.s.web.servlet.DispatcherServlet - FrameworkServlet 'org.springframework.web.servlet.DispatcherServlet-60285225': initialization started
+2017-12-15 06:45:07,331 1869 [main] INFO  o.s.web.servlet.DispatcherServlet - FrameworkServlet 'org.springframework.web.servlet.DispatcherServlet-60285225': initialization completed in 21 ms
+2017-12-15 06:45:07,331 1869 [main] INFO  o.e.j.server.handler.ContextHandler - Started o.e.j.s.ServletContextHandler@5b11a194{/,null,AVAILABLE}
+2017-12-15 06:45:08,321 2859 [main] INFO  o.e.jetty.server.AbstractConnector - Started ServerConnector@4f071df8{HTTP/1.1,[http/1.1]}{0.0.0.0:6060}
+2017-12-15 06:45:08,321 2859 [main] INFO  org.eclipse.jetty.server.Server - Started @3036ms
+2017-12-15 06:45:08,321 2859 [main] INFO  n.d.ern.initializer.EmbeddedJetty - Server started at port 6060
+2017-12-15 06:45:25,307 19845 [qtp2008362258-13] INFO  n.d.e.controller.ValidateController - Validating ERN 130295703_20171205033227.xml as schema version 3.8.2. 
+2017-12-15 06:45:25,308 19846 [qtp2008362258-13] INFO  n.d.e.controller.ValidateController - Validating ERN 130295703_20171205033227.xml as schematron version 14 and product version AudioAlbumMusicOnly. 
+2017-12-15 06:45:25,308 19846 [qtp2008362258-13] INFO  n.d.e.controller.ValidateController - working swell
+2017-12-15 06:45:25,359 19897 [qtp2008362258-13] INFO  net.ddex.ern.service.SchemaService - schemaVersion: 382
+2017-12-15 06:45:25,364 19902 [qtp2008362258-13] INFO  n.d.e.e.ExceptionControllerAdvice - <500 Internal Server Error,net.ddex.ern.exception.ErrorResponse@5cb39438,{}>
+2017-12-15 06:53:11,011 219  [main] INFO  org.eclipse.jetty.util.log - Logging initialized @394ms to org.eclipse.jetty.util.log.Slf4jLog
+2017-12-15 06:53:11,169 377  [main] INFO  org.eclipse.jetty.server.Server - jetty-9.4.6.v20170531
+2017-12-15 06:53:11,240 448  [main] INFO  o.e.j.s.handler.ContextHandler.ROOT - Initializing Spring root WebApplicationContext
+2017-12-15 06:53:11,240 448  [main] INFO  o.s.web.context.ContextLoader - Root WebApplicationContext: initialization started
+2017-12-15 06:53:11,242 450  [main] INFO  o.s.w.c.s.AnnotationConfigWebApplicationContext - Refreshing Root WebApplicationContext: startup date [Fri Dec 15 06:53:11 EST 2017]; root of context hierarchy
+2017-12-15 06:53:11,336 544  [main] INFO  o.s.w.c.s.AnnotationConfigWebApplicationContext - Found 2 annotated classes in package [net/ddex/ern/config]
+2017-12-15 06:53:12,253 1461 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/status],methods=[GET],produces=[text/plain]}" onto public java.lang.String net.ddex.ern.controller.ValidateController.test() throws javax.xml.parsers.ParserConfigurationException,org.xml.sax.SAXException,java.io.IOException,javax.xml.stream.XMLStreamException,javax.xml.transform.TransformerException,javax.xml.xpath.XPathExpressionException
+2017-12-15 06:53:12,254 1462 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/json/validateXML],methods=[POST],produces=[application/json]}" onto public java.util.List<java.util.Map<java.lang.String, java.lang.Object>> net.ddex.ern.controller.ValidateController.validateXMLJSON(org.springframework.web.multipart.MultipartFile,java.lang.String,java.lang.String,java.lang.String) throws javax.xml.parsers.ParserConfigurationException,java.io.IOException,javax.xml.stream.XMLStreamException,javax.xml.transform.TransformerException,org.xml.sax.SAXException,javax.xml.xpath.XPathExpressionException,net.ddex.ern.exception.ValidatorException
+2017-12-15 06:53:12,255 1463 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/json/validateSchematron],methods=[POST],produces=[application/json]}" onto public java.util.List<java.util.Map<java.lang.String, java.lang.String>> net.ddex.ern.controller.ValidateController.validateSchematronJSON(org.springframework.web.multipart.MultipartFile,java.lang.String,java.lang.String) throws javax.xml.parsers.ParserConfigurationException,org.xml.sax.SAXException,java.io.IOException,javax.xml.stream.XMLStreamException,javax.xml.transform.TransformerException,javax.xml.xpath.XPathExpressionException
+2017-12-15 06:53:12,583 1791 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerAdapter - Looking for @ControllerAdvice: Root WebApplicationContext: startup date [Fri Dec 15 06:53:11 EST 2017]; root of context hierarchy
+2017-12-15 06:53:12,631 1839 [main] INFO  o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - Detected @ExceptionHandler methods in exceptionControllerAdvice
+2017-12-15 06:53:12,727 1935 [main] INFO  o.s.web.context.ContextLoader - Root WebApplicationContext: initialization completed in 1487 ms
+2017-12-15 06:53:12,733 1941 [main] INFO  o.e.j.s.handler.ContextHandler.ROOT - Initializing Spring FrameworkServlet 'org.springframework.web.servlet.DispatcherServlet-60285225'
+2017-12-15 06:53:12,733 1941 [main] INFO  o.s.web.servlet.DispatcherServlet - FrameworkServlet 'org.springframework.web.servlet.DispatcherServlet-60285225': initialization started
+2017-12-15 06:53:12,748 1956 [main] INFO  o.s.web.servlet.DispatcherServlet - FrameworkServlet 'org.springframework.web.servlet.DispatcherServlet-60285225': initialization completed in 15 ms
+2017-12-15 06:53:12,749 1957 [main] INFO  o.e.j.server.handler.ContextHandler - Started o.e.j.s.ServletContextHandler@5827af16{/,null,AVAILABLE}
+2017-12-15 06:53:13,576 2784 [main] INFO  o.e.jetty.server.AbstractConnector - Started ServerConnector@38be305c{HTTP/1.1,[http/1.1]}{0.0.0.0:6060}
+2017-12-15 06:53:13,576 2784 [main] INFO  org.eclipse.jetty.server.Server - Started @2963ms
+2017-12-15 06:53:13,576 2784 [main] INFO  n.d.ern.initializer.EmbeddedJetty - Server started at port 6060
+2017-12-15 06:53:23,406 12614 [qtp2008362258-16] INFO  n.d.e.controller.ValidateController - Validating ERN 130295703_20171205033227.xml as schema version 3.8.2. 
+2017-12-15 06:53:23,406 12614 [qtp2008362258-16] INFO  n.d.e.controller.ValidateController - Validating ERN 130295703_20171205033227.xml as schematron version 14 and product version AudioAlbumMusicOnly. 
+2017-12-15 06:53:23,406 12614 [qtp2008362258-16] INFO  n.d.e.controller.ValidateController - working swell
+2017-12-15 06:53:23,467 12675 [qtp2008362258-16] INFO  net.ddex.ern.service.SchemaService - schemaVersion: 382
+2017-12-15 06:53:23,952 13160 [qtp2008362258-16] ERROR net.ddex.ern.schema.SchemaValidator - An error occured while validating schema.
+org.xml.sax.SAXParseException: cvc-elt.1: Cannot find the declaration of element 'ernm:NewReleaseMessage'.
+	at com.sun.org.apache.xerces.internal.util.ErrorHandlerWrapper.createSAXParseException(ErrorHandlerWrapper.java:203)
+	at com.sun.org.apache.xerces.internal.util.ErrorHandlerWrapper.error(ErrorHandlerWrapper.java:134)
+	at com.sun.org.apache.xerces.internal.impl.XMLErrorReporter.reportError(XMLErrorReporter.java:396)
+	at com.sun.org.apache.xerces.internal.impl.XMLErrorReporter.reportError(XMLErrorReporter.java:327)
+	at com.sun.org.apache.xerces.internal.impl.XMLErrorReporter.reportError(XMLErrorReporter.java:284)
+	at com.sun.org.apache.xerces.internal.impl.xs.XMLSchemaValidator.handleStartElement(XMLSchemaValidator.java:1900)
+	at com.sun.org.apache.xerces.internal.impl.xs.XMLSchemaValidator.startElement(XMLSchemaValidator.java:740)
+	at com.sun.org.apache.xerces.internal.jaxp.validation.DOMValidatorHelper.beginNode(DOMValidatorHelper.java:277)
+	at com.sun.org.apache.xerces.internal.jaxp.validation.DOMValidatorHelper.validate(DOMValidatorHelper.java:244)
+	at com.sun.org.apache.xerces.internal.jaxp.validation.DOMValidatorHelper.validate(DOMValidatorHelper.java:190)
+	at com.sun.org.apache.xerces.internal.jaxp.validation.ValidatorImpl.validate(ValidatorImpl.java:109)
+	at javax.xml.validation.Validator.validate(Validator.java:124)
+	at net.ddex.ern.schema.SchemaValidator.validate(SchemaValidator.java:57)
+	at net.ddex.ern.service.SchemaService.validateSchema(SchemaService.java:41)
+	at net.ddex.ern.controller.ValidateController.validateXMLJSON(ValidateController.java:73)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:205)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:133)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:116)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:827)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:738)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:85)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:963)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:897)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:970)
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:872)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:707)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:846)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:790)
+	at org.eclipse.jetty.servlet.ServletHolder.handle(ServletHolder.java:841)
+	at org.eclipse.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1634)
+	at org.eclipse.jetty.servlets.CrossOriginFilter.handle(CrossOriginFilter.java:257)
+	at org.eclipse.jetty.servlets.CrossOriginFilter.doFilter(CrossOriginFilter.java:220)
+	at org.eclipse.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1621)
+	at org.eclipse.jetty.servlet.ServletHandler.doHandle(ServletHandler.java:541)
+	at org.eclipse.jetty.server.handler.ScopedHandler.nextHandle(ScopedHandler.java:188)
+	at org.eclipse.jetty.server.handler.ContextHandler.doHandle(ContextHandler.java:1253)
+	at org.eclipse.jetty.server.handler.ScopedHandler.nextScope(ScopedHandler.java:168)
+	at org.eclipse.jetty.servlet.ServletHandler.doScope(ServletHandler.java:481)
+	at org.eclipse.jetty.server.handler.ScopedHandler.nextScope(ScopedHandler.java:166)
+	at org.eclipse.jetty.server.handler.ContextHandler.doScope(ContextHandler.java:1155)
+	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:141)
+	at org.eclipse.jetty.server.handler.HandlerWrapper.handle(HandlerWrapper.java:132)
+	at org.eclipse.jetty.server.Server.handle(Server.java:564)
+	at org.eclipse.jetty.server.HttpChannel.handle(HttpChannel.java:317)
+	at org.eclipse.jetty.server.HttpConnection.onFillable(HttpConnection.java:251)
+	at org.eclipse.jetty.io.AbstractConnection$ReadCallback.succeeded(AbstractConnection.java:279)
+	at org.eclipse.jetty.io.FillInterest.fillable(FillInterest.java:110)
+	at org.eclipse.jetty.io.ChannelEndPoint$2.run(ChannelEndPoint.java:124)
+	at org.eclipse.jetty.util.thread.Invocable.invokePreferred(Invocable.java:128)
+	at org.eclipse.jetty.util.thread.Invocable$InvocableExecutor.invoke(Invocable.java:222)
+	at org.eclipse.jetty.util.thread.strategy.EatWhatYouKill.doProduce(EatWhatYouKill.java:294)
+	at org.eclipse.jetty.util.thread.strategy.EatWhatYouKill.produce(EatWhatYouKill.java:126)
+	at org.eclipse.jetty.util.thread.QueuedThreadPool.runJob(QueuedThreadPool.java:673)
+	at org.eclipse.jetty.util.thread.QueuedThreadPool$2.run(QueuedThreadPool.java:591)
+	at java.lang.Thread.run(Thread.java:748)
+2017-12-15 06:53:23,953 13161 [qtp2008362258-16] ERROR net.ddex.ern.service.SchemaService - An error occured while calling schema validation.
+net.ddex.ern.exception.ValidatorException: org.xml.sax.SAXParseException; cvc-elt.1: Cannot find the declaration of element 'ernm:NewReleaseMessage'.
+	at net.ddex.ern.schema.SchemaValidator.validate(SchemaValidator.java:63)
+	at net.ddex.ern.service.SchemaService.validateSchema(SchemaService.java:41)
+	at net.ddex.ern.controller.ValidateController.validateXMLJSON(ValidateController.java:73)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:205)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:133)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:116)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:827)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:738)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:85)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:963)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:897)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:970)
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:872)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:707)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:846)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:790)
+	at org.eclipse.jetty.servlet.ServletHolder.handle(ServletHolder.java:841)
+	at org.eclipse.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1634)
+	at org.eclipse.jetty.servlets.CrossOriginFilter.handle(CrossOriginFilter.java:257)
+	at org.eclipse.jetty.servlets.CrossOriginFilter.doFilter(CrossOriginFilter.java:220)
+	at org.eclipse.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1621)
+	at org.eclipse.jetty.servlet.ServletHandler.doHandle(ServletHandler.java:541)
+	at org.eclipse.jetty.server.handler.ScopedHandler.nextHandle(ScopedHandler.java:188)
+	at org.eclipse.jetty.server.handler.ContextHandler.doHandle(ContextHandler.java:1253)
+	at org.eclipse.jetty.server.handler.ScopedHandler.nextScope(ScopedHandler.java:168)
+	at org.eclipse.jetty.servlet.ServletHandler.doScope(ServletHandler.java:481)
+	at org.eclipse.jetty.server.handler.ScopedHandler.nextScope(ScopedHandler.java:166)
+	at org.eclipse.jetty.server.handler.ContextHandler.doScope(ContextHandler.java:1155)
+	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:141)
+	at org.eclipse.jetty.server.handler.HandlerWrapper.handle(HandlerWrapper.java:132)
+	at org.eclipse.jetty.server.Server.handle(Server.java:564)
+	at org.eclipse.jetty.server.HttpChannel.handle(HttpChannel.java:317)
+	at org.eclipse.jetty.server.HttpConnection.onFillable(HttpConnection.java:251)
+	at org.eclipse.jetty.io.AbstractConnection$ReadCallback.succeeded(AbstractConnection.java:279)
+	at org.eclipse.jetty.io.FillInterest.fillable(FillInterest.java:110)
+	at org.eclipse.jetty.io.ChannelEndPoint$2.run(ChannelEndPoint.java:124)
+	at org.eclipse.jetty.util.thread.Invocable.invokePreferred(Invocable.java:128)
+	at org.eclipse.jetty.util.thread.Invocable$InvocableExecutor.invoke(Invocable.java:222)
+	at org.eclipse.jetty.util.thread.strategy.EatWhatYouKill.doProduce(EatWhatYouKill.java:294)
+	at org.eclipse.jetty.util.thread.strategy.EatWhatYouKill.produce(EatWhatYouKill.java:126)
+	at org.eclipse.jetty.util.thread.QueuedThreadPool.runJob(QueuedThreadPool.java:673)
+	at org.eclipse.jetty.util.thread.QueuedThreadPool$2.run(QueuedThreadPool.java:591)
+	at java.lang.Thread.run(Thread.java:748)
+Caused by: org.xml.sax.SAXParseException: cvc-elt.1: Cannot find the declaration of element 'ernm:NewReleaseMessage'.
+	at com.sun.org.apache.xerces.internal.util.ErrorHandlerWrapper.createSAXParseException(ErrorHandlerWrapper.java:203)
+	at com.sun.org.apache.xerces.internal.util.ErrorHandlerWrapper.error(ErrorHandlerWrapper.java:134)
+	at com.sun.org.apache.xerces.internal.impl.XMLErrorReporter.reportError(XMLErrorReporter.java:396)
+	at com.sun.org.apache.xerces.internal.impl.XMLErrorReporter.reportError(XMLErrorReporter.java:327)
+	at com.sun.org.apache.xerces.internal.impl.XMLErrorReporter.reportError(XMLErrorReporter.java:284)
+	at com.sun.org.apache.xerces.internal.impl.xs.XMLSchemaValidator.handleStartElement(XMLSchemaValidator.java:1900)
+	at com.sun.org.apache.xerces.internal.impl.xs.XMLSchemaValidator.startElement(XMLSchemaValidator.java:740)
+	at com.sun.org.apache.xerces.internal.jaxp.validation.DOMValidatorHelper.beginNode(DOMValidatorHelper.java:277)
+	at com.sun.org.apache.xerces.internal.jaxp.validation.DOMValidatorHelper.validate(DOMValidatorHelper.java:244)
+	at com.sun.org.apache.xerces.internal.jaxp.validation.DOMValidatorHelper.validate(DOMValidatorHelper.java:190)
+	at com.sun.org.apache.xerces.internal.jaxp.validation.ValidatorImpl.validate(ValidatorImpl.java:109)
+	at javax.xml.validation.Validator.validate(Validator.java:124)
+	at net.ddex.ern.schema.SchemaValidator.validate(SchemaValidator.java:57)
+	... 46 common frames omitted
+2017-12-15 06:54:06,295 219  [main] INFO  org.eclipse.jetty.util.log - Logging initialized @396ms to org.eclipse.jetty.util.log.Slf4jLog
+2017-12-15 06:54:06,452 376  [main] INFO  org.eclipse.jetty.server.Server - jetty-9.4.6.v20170531
+2017-12-15 06:54:06,524 448  [main] INFO  o.e.j.s.handler.ContextHandler.ROOT - Initializing Spring root WebApplicationContext
+2017-12-15 06:54:06,524 448  [main] INFO  o.s.web.context.ContextLoader - Root WebApplicationContext: initialization started
+2017-12-15 06:54:06,527 451  [main] INFO  o.s.w.c.s.AnnotationConfigWebApplicationContext - Refreshing Root WebApplicationContext: startup date [Fri Dec 15 06:54:06 EST 2017]; root of context hierarchy
+2017-12-15 06:54:06,616 540  [main] INFO  o.s.w.c.s.AnnotationConfigWebApplicationContext - Found 2 annotated classes in package [net/ddex/ern/config]
+2017-12-15 06:54:07,473 1397 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/status],methods=[GET],produces=[text/plain]}" onto public java.lang.String net.ddex.ern.controller.ValidateController.test() throws javax.xml.parsers.ParserConfigurationException,org.xml.sax.SAXException,java.io.IOException,javax.xml.stream.XMLStreamException,javax.xml.transform.TransformerException,javax.xml.xpath.XPathExpressionException
+2017-12-15 06:54:07,473 1397 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/json/validateXML],methods=[POST],produces=[application/json]}" onto public java.util.List<java.util.Map<java.lang.String, java.lang.Object>> net.ddex.ern.controller.ValidateController.validateXMLJSON(org.springframework.web.multipart.MultipartFile,java.lang.String,java.lang.String,java.lang.String) throws javax.xml.parsers.ParserConfigurationException,java.io.IOException,javax.xml.stream.XMLStreamException,javax.xml.transform.TransformerException,org.xml.sax.SAXException,javax.xml.xpath.XPathExpressionException,net.ddex.ern.exception.ValidatorException
+2017-12-15 06:54:07,474 1398 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/json/validateSchematron],methods=[POST],produces=[application/json]}" onto public java.util.List<java.util.Map<java.lang.String, java.lang.String>> net.ddex.ern.controller.ValidateController.validateSchematronJSON(org.springframework.web.multipart.MultipartFile,java.lang.String,java.lang.String) throws javax.xml.parsers.ParserConfigurationException,org.xml.sax.SAXException,java.io.IOException,javax.xml.stream.XMLStreamException,javax.xml.transform.TransformerException,javax.xml.xpath.XPathExpressionException
+2017-12-15 06:54:07,809 1733 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerAdapter - Looking for @ControllerAdvice: Root WebApplicationContext: startup date [Fri Dec 15 06:54:06 EST 2017]; root of context hierarchy
+2017-12-15 06:54:07,861 1785 [main] INFO  o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - Detected @ExceptionHandler methods in exceptionControllerAdvice
+2017-12-15 06:54:07,944 1868 [main] INFO  o.s.web.context.ContextLoader - Root WebApplicationContext: initialization completed in 1420 ms
+2017-12-15 06:54:07,948 1872 [main] INFO  o.e.j.s.handler.ContextHandler.ROOT - Initializing Spring FrameworkServlet 'org.springframework.web.servlet.DispatcherServlet-60285225'
+2017-12-15 06:54:07,948 1872 [main] INFO  o.s.web.servlet.DispatcherServlet - FrameworkServlet 'org.springframework.web.servlet.DispatcherServlet-60285225': initialization started
+2017-12-15 06:54:07,960 1884 [main] INFO  o.s.web.servlet.DispatcherServlet - FrameworkServlet 'org.springframework.web.servlet.DispatcherServlet-60285225': initialization completed in 12 ms
+2017-12-15 06:54:07,960 1884 [main] INFO  o.e.j.server.handler.ContextHandler - Started o.e.j.s.ServletContextHandler@5827af16{/,null,AVAILABLE}
+2017-12-15 06:54:08,748 2672 [main] INFO  o.e.jetty.server.AbstractConnector - Started ServerConnector@38be305c{HTTP/1.1,[http/1.1]}{0.0.0.0:6060}
+2017-12-15 06:54:08,749 2673 [main] INFO  org.eclipse.jetty.server.Server - Started @2854ms
+2017-12-15 06:54:08,749 2673 [main] INFO  n.d.ern.initializer.EmbeddedJetty - Server started at port 6060
+2017-12-15 06:54:16,193 10117 [qtp2008362258-13] INFO  n.d.e.controller.ValidateController - Validating ERN 130295703_20171205033227.xml as schema version 3.8.2. 
+2017-12-15 06:54:16,193 10117 [qtp2008362258-13] INFO  n.d.e.controller.ValidateController - Validating ERN 130295703_20171205033227.xml as schematron version 14 and product version AudioAlbumMusicOnly. 
+2017-12-15 06:54:16,193 10117 [qtp2008362258-13] INFO  n.d.e.controller.ValidateController - working swell
+2017-12-15 06:54:16,259 10183 [qtp2008362258-13] INFO  net.ddex.ern.service.SchemaService - schemaVersion: 382
+2017-12-15 06:54:16,264 10188 [qtp2008362258-13] INFO  n.d.e.e.ExceptionControllerAdvice - <500 Internal Server Error,net.ddex.ern.exception.ErrorResponse@3d9521a4,{}>
+2017-12-15 06:58:07,488 227  [main] INFO  org.eclipse.jetty.util.log - Logging initialized @426ms to org.eclipse.jetty.util.log.Slf4jLog
+2017-12-15 06:58:07,650 389  [main] INFO  org.eclipse.jetty.server.Server - jetty-9.4.6.v20170531
+2017-12-15 06:58:07,728 467  [main] INFO  o.e.j.s.handler.ContextHandler.ROOT - Initializing Spring root WebApplicationContext
+2017-12-15 06:58:07,729 468  [main] INFO  o.s.web.context.ContextLoader - Root WebApplicationContext: initialization started
+2017-12-15 06:58:07,732 471  [main] INFO  o.s.w.c.s.AnnotationConfigWebApplicationContext - Refreshing Root WebApplicationContext: startup date [Fri Dec 15 06:58:07 EST 2017]; root of context hierarchy
+2017-12-15 06:58:07,827 566  [main] INFO  o.s.w.c.s.AnnotationConfigWebApplicationContext - Found 2 annotated classes in package [net/ddex/ern/config]
+2017-12-15 06:58:08,711 1450 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/status],methods=[GET],produces=[text/plain]}" onto public java.lang.String net.ddex.ern.controller.ValidateController.test() throws javax.xml.parsers.ParserConfigurationException,org.xml.sax.SAXException,java.io.IOException,javax.xml.stream.XMLStreamException,javax.xml.transform.TransformerException,javax.xml.xpath.XPathExpressionException
+2017-12-15 06:58:08,713 1452 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/json/validateSchematron],methods=[POST],produces=[application/json]}" onto public java.util.List<java.util.Map<java.lang.String, java.lang.String>> net.ddex.ern.controller.ValidateController.validateSchematronJSON(org.springframework.web.multipart.MultipartFile,java.lang.String,java.lang.String) throws javax.xml.parsers.ParserConfigurationException,org.xml.sax.SAXException,java.io.IOException,javax.xml.stream.XMLStreamException,javax.xml.transform.TransformerException,javax.xml.xpath.XPathExpressionException
+2017-12-15 06:58:08,713 1452 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/json/validateXML],methods=[POST],produces=[application/json]}" onto public java.util.List<java.util.Map<java.lang.String, java.lang.Object>> net.ddex.ern.controller.ValidateController.validateXMLJSON(org.springframework.web.multipart.MultipartFile,java.lang.String,java.lang.String,java.lang.String) throws javax.xml.parsers.ParserConfigurationException,java.io.IOException,javax.xml.stream.XMLStreamException,javax.xml.transform.TransformerException,org.xml.sax.SAXException,javax.xml.xpath.XPathExpressionException,net.ddex.ern.exception.ValidatorException
+2017-12-15 06:58:09,083 1822 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerAdapter - Looking for @ControllerAdvice: Root WebApplicationContext: startup date [Fri Dec 15 06:58:07 EST 2017]; root of context hierarchy
+2017-12-15 06:58:09,132 1871 [main] INFO  o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - Detected @ExceptionHandler methods in exceptionControllerAdvice
+2017-12-15 06:58:09,222 1961 [main] INFO  o.s.web.context.ContextLoader - Root WebApplicationContext: initialization completed in 1493 ms
+2017-12-15 06:58:09,226 1965 [main] INFO  o.e.j.s.handler.ContextHandler.ROOT - Initializing Spring FrameworkServlet 'org.springframework.web.servlet.DispatcherServlet-60285225'
+2017-12-15 06:58:09,226 1965 [main] INFO  o.s.web.servlet.DispatcherServlet - FrameworkServlet 'org.springframework.web.servlet.DispatcherServlet-60285225': initialization started
+2017-12-15 06:58:09,240 1979 [main] INFO  o.s.web.servlet.DispatcherServlet - FrameworkServlet 'org.springframework.web.servlet.DispatcherServlet-60285225': initialization completed in 14 ms
+2017-12-15 06:58:09,240 1979 [main] INFO  o.e.j.server.handler.ContextHandler - Started o.e.j.s.ServletContextHandler@654d8173{/,null,AVAILABLE}
+2017-12-15 06:58:10,128 2867 [main] INFO  o.e.jetty.server.AbstractConnector - Started ServerConnector@269f4bad{HTTP/1.1,[http/1.1]}{0.0.0.0:6060}
+2017-12-15 06:58:10,128 2867 [main] INFO  org.eclipse.jetty.server.Server - Started @3071ms
+2017-12-15 06:58:10,128 2867 [main] INFO  n.d.ern.initializer.EmbeddedJetty - Server started at port 6060
+2017-12-15 06:58:19,855 12594 [qtp2008362258-15] INFO  n.d.e.controller.ValidateController - Validating ERN 130295703_20171205033227.xml as schema version 3.8.2. 
+2017-12-15 06:58:19,855 12594 [qtp2008362258-15] INFO  n.d.e.controller.ValidateController - Validating ERN 130295703_20171205033227.xml as schematron version 14 and product version AudioAlbumMusicOnly. 
+2017-12-15 06:58:19,855 12594 [qtp2008362258-15] INFO  n.d.e.controller.ValidateController - working swell
+2017-12-15 06:58:19,922 12661 [qtp2008362258-15] INFO  net.ddex.ern.service.SchemaService - schemaVersion: 382
+2017-12-15 06:58:20,433 13172 [qtp2008362258-15] ERROR net.ddex.ern.schema.SchemaValidator - An error occured while validating schema.
+org.xml.sax.SAXParseException: cvc-elt.1: Cannot find the declaration of element 'ernm:NewReleaseMessage'.
+	at com.sun.org.apache.xerces.internal.util.ErrorHandlerWrapper.createSAXParseException(ErrorHandlerWrapper.java:203)
+	at com.sun.org.apache.xerces.internal.util.ErrorHandlerWrapper.error(ErrorHandlerWrapper.java:134)
+	at com.sun.org.apache.xerces.internal.impl.XMLErrorReporter.reportError(XMLErrorReporter.java:396)
+	at com.sun.org.apache.xerces.internal.impl.XMLErrorReporter.reportError(XMLErrorReporter.java:327)
+	at com.sun.org.apache.xerces.internal.impl.XMLErrorReporter.reportError(XMLErrorReporter.java:284)
+	at com.sun.org.apache.xerces.internal.impl.xs.XMLSchemaValidator.handleStartElement(XMLSchemaValidator.java:1900)
+	at com.sun.org.apache.xerces.internal.impl.xs.XMLSchemaValidator.startElement(XMLSchemaValidator.java:740)
+	at com.sun.org.apache.xerces.internal.jaxp.validation.DOMValidatorHelper.beginNode(DOMValidatorHelper.java:277)
+	at com.sun.org.apache.xerces.internal.jaxp.validation.DOMValidatorHelper.validate(DOMValidatorHelper.java:244)
+	at com.sun.org.apache.xerces.internal.jaxp.validation.DOMValidatorHelper.validate(DOMValidatorHelper.java:190)
+	at com.sun.org.apache.xerces.internal.jaxp.validation.ValidatorImpl.validate(ValidatorImpl.java:109)
+	at javax.xml.validation.Validator.validate(Validator.java:124)
+	at net.ddex.ern.schema.SchemaValidator.validate(SchemaValidator.java:57)
+	at net.ddex.ern.service.SchemaService.validateSchema(SchemaService.java:41)
+	at net.ddex.ern.controller.ValidateController.validateXMLJSON(ValidateController.java:73)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:205)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:133)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:116)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:827)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:738)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:85)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:963)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:897)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:970)
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:872)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:707)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:846)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:790)
+	at org.eclipse.jetty.servlet.ServletHolder.handle(ServletHolder.java:841)
+	at org.eclipse.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1634)
+	at org.eclipse.jetty.servlets.CrossOriginFilter.handle(CrossOriginFilter.java:257)
+	at org.eclipse.jetty.servlets.CrossOriginFilter.doFilter(CrossOriginFilter.java:220)
+	at org.eclipse.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1621)
+	at org.eclipse.jetty.servlet.ServletHandler.doHandle(ServletHandler.java:541)
+	at org.eclipse.jetty.server.handler.ScopedHandler.nextHandle(ScopedHandler.java:188)
+	at org.eclipse.jetty.server.handler.ContextHandler.doHandle(ContextHandler.java:1253)
+	at org.eclipse.jetty.server.handler.ScopedHandler.nextScope(ScopedHandler.java:168)
+	at org.eclipse.jetty.servlet.ServletHandler.doScope(ServletHandler.java:481)
+	at org.eclipse.jetty.server.handler.ScopedHandler.nextScope(ScopedHandler.java:166)
+	at org.eclipse.jetty.server.handler.ContextHandler.doScope(ContextHandler.java:1155)
+	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:141)
+	at org.eclipse.jetty.server.handler.HandlerWrapper.handle(HandlerWrapper.java:132)
+	at org.eclipse.jetty.server.Server.handle(Server.java:564)
+	at org.eclipse.jetty.server.HttpChannel.handle(HttpChannel.java:317)
+	at org.eclipse.jetty.server.HttpConnection.onFillable(HttpConnection.java:251)
+	at org.eclipse.jetty.io.AbstractConnection$ReadCallback.succeeded(AbstractConnection.java:279)
+	at org.eclipse.jetty.io.FillInterest.fillable(FillInterest.java:110)
+	at org.eclipse.jetty.io.ChannelEndPoint$2.run(ChannelEndPoint.java:124)
+	at org.eclipse.jetty.util.thread.Invocable.invokePreferred(Invocable.java:128)
+	at org.eclipse.jetty.util.thread.Invocable$InvocableExecutor.invoke(Invocable.java:222)
+	at org.eclipse.jetty.util.thread.strategy.EatWhatYouKill.doProduce(EatWhatYouKill.java:294)
+	at org.eclipse.jetty.util.thread.strategy.EatWhatYouKill.produce(EatWhatYouKill.java:126)
+	at org.eclipse.jetty.util.thread.QueuedThreadPool.runJob(QueuedThreadPool.java:673)
+	at org.eclipse.jetty.util.thread.QueuedThreadPool$2.run(QueuedThreadPool.java:591)
+	at java.lang.Thread.run(Thread.java:748)
+2017-12-15 06:58:20,434 13173 [qtp2008362258-15] ERROR net.ddex.ern.service.SchemaService - An error occured while calling schema validation.
+net.ddex.ern.exception.ValidatorException: org.xml.sax.SAXParseException; cvc-elt.1: Cannot find the declaration of element 'ernm:NewReleaseMessage'.
+	at net.ddex.ern.schema.SchemaValidator.validate(SchemaValidator.java:63)
+	at net.ddex.ern.service.SchemaService.validateSchema(SchemaService.java:41)
+	at net.ddex.ern.controller.ValidateController.validateXMLJSON(ValidateController.java:73)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:205)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:133)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:116)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:827)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:738)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:85)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:963)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:897)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:970)
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:872)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:707)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:846)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:790)
+	at org.eclipse.jetty.servlet.ServletHolder.handle(ServletHolder.java:841)
+	at org.eclipse.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1634)
+	at org.eclipse.jetty.servlets.CrossOriginFilter.handle(CrossOriginFilter.java:257)
+	at org.eclipse.jetty.servlets.CrossOriginFilter.doFilter(CrossOriginFilter.java:220)
+	at org.eclipse.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1621)
+	at org.eclipse.jetty.servlet.ServletHandler.doHandle(ServletHandler.java:541)
+	at org.eclipse.jetty.server.handler.ScopedHandler.nextHandle(ScopedHandler.java:188)
+	at org.eclipse.jetty.server.handler.ContextHandler.doHandle(ContextHandler.java:1253)
+	at org.eclipse.jetty.server.handler.ScopedHandler.nextScope(ScopedHandler.java:168)
+	at org.eclipse.jetty.servlet.ServletHandler.doScope(ServletHandler.java:481)
+	at org.eclipse.jetty.server.handler.ScopedHandler.nextScope(ScopedHandler.java:166)
+	at org.eclipse.jetty.server.handler.ContextHandler.doScope(ContextHandler.java:1155)
+	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:141)
+	at org.eclipse.jetty.server.handler.HandlerWrapper.handle(HandlerWrapper.java:132)
+	at org.eclipse.jetty.server.Server.handle(Server.java:564)
+	at org.eclipse.jetty.server.HttpChannel.handle(HttpChannel.java:317)
+	at org.eclipse.jetty.server.HttpConnection.onFillable(HttpConnection.java:251)
+	at org.eclipse.jetty.io.AbstractConnection$ReadCallback.succeeded(AbstractConnection.java:279)
+	at org.eclipse.jetty.io.FillInterest.fillable(FillInterest.java:110)
+	at org.eclipse.jetty.io.ChannelEndPoint$2.run(ChannelEndPoint.java:124)
+	at org.eclipse.jetty.util.thread.Invocable.invokePreferred(Invocable.java:128)
+	at org.eclipse.jetty.util.thread.Invocable$InvocableExecutor.invoke(Invocable.java:222)
+	at org.eclipse.jetty.util.thread.strategy.EatWhatYouKill.doProduce(EatWhatYouKill.java:294)
+	at org.eclipse.jetty.util.thread.strategy.EatWhatYouKill.produce(EatWhatYouKill.java:126)
+	at org.eclipse.jetty.util.thread.QueuedThreadPool.runJob(QueuedThreadPool.java:673)
+	at org.eclipse.jetty.util.thread.QueuedThreadPool$2.run(QueuedThreadPool.java:591)
+	at java.lang.Thread.run(Thread.java:748)
+Caused by: org.xml.sax.SAXParseException: cvc-elt.1: Cannot find the declaration of element 'ernm:NewReleaseMessage'.
+	at com.sun.org.apache.xerces.internal.util.ErrorHandlerWrapper.createSAXParseException(ErrorHandlerWrapper.java:203)
+	at com.sun.org.apache.xerces.internal.util.ErrorHandlerWrapper.error(ErrorHandlerWrapper.java:134)
+	at com.sun.org.apache.xerces.internal.impl.XMLErrorReporter.reportError(XMLErrorReporter.java:396)
+	at com.sun.org.apache.xerces.internal.impl.XMLErrorReporter.reportError(XMLErrorReporter.java:327)
+	at com.sun.org.apache.xerces.internal.impl.XMLErrorReporter.reportError(XMLErrorReporter.java:284)
+	at com.sun.org.apache.xerces.internal.impl.xs.XMLSchemaValidator.handleStartElement(XMLSchemaValidator.java:1900)
+	at com.sun.org.apache.xerces.internal.impl.xs.XMLSchemaValidator.startElement(XMLSchemaValidator.java:740)
+	at com.sun.org.apache.xerces.internal.jaxp.validation.DOMValidatorHelper.beginNode(DOMValidatorHelper.java:277)
+	at com.sun.org.apache.xerces.internal.jaxp.validation.DOMValidatorHelper.validate(DOMValidatorHelper.java:244)
+	at com.sun.org.apache.xerces.internal.jaxp.validation.DOMValidatorHelper.validate(DOMValidatorHelper.java:190)
+	at com.sun.org.apache.xerces.internal.jaxp.validation.ValidatorImpl.validate(ValidatorImpl.java:109)
+	at javax.xml.validation.Validator.validate(Validator.java:124)
+	at net.ddex.ern.schema.SchemaValidator.validate(SchemaValidator.java:57)
+	... 46 common frames omitted
