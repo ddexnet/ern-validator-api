@@ -8,5 +8,4 @@ import org.springframework.context.annotation.PropertySource;
 //@PropertySource("file:${app.home}")
 @PropertySource("classpath:application.properties")
 @ComponentScan(basePackages = "net.ddex.ern")
-public class AppConfig {
-}
+public class AppConfig {}

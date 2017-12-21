@@ -11,7 +11,7 @@ import net.ddex.ern.exception.ValidatorException;
  * Created by rdewilde on 5/13/2017.
  */
 public interface Schema {
-	Validator getValidator();
+  Validator getValidator();
 
-	String validate(String messageType, String schemaVersion, Document ern, Result result) throws ValidatorException;
+  String validate(String messageType, String schemaVersion, Document ern, Result result) throws ValidatorException;
 }

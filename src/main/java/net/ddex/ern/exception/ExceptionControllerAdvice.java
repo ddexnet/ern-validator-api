@@ -13,16 +13,15 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 @ControllerAdvice
 public class ExceptionControllerAdvice {
 
-    private static final Logger logger = LoggerFactory.getLogger(ExceptionControllerAdvice.class);
+  private static final Logger logger = LoggerFactory.getLogger(ExceptionControllerAdvice.class);
 
-    @ExceptionHandler(Exception.class)
-    public ResponseEntity<ErrorResponse> exceptionHandler(Exception ex) {
-        ErrorResponse error = new ErrorResponse();
-        error.setErrorCode(HttpStatus.INTERNAL_SERVER_ERROR.value());
-        error.setMessage(ex.getMessage());
-        logger.info(String.valueOf(new ResponseEntity<>(error, HttpStatus.INTERNAL_SERVER_ERROR)));
-        return new ResponseEntity<>(error, HttpStatus.INTERNAL_SERVER_ERROR);
-    }
-
+  @ExceptionHandler(Exception.class)
+  public ResponseEntity<ErrorResponse> exceptionHandler(Exception ex) {
+    ErrorResponse error = new ErrorResponse();
+    error.setErrorCode(HttpStatus.INTERNAL_SERVER_ERROR.value());
+    error.setMessage(ex.getMessage());
+    logger.info(String.valueOf(new ResponseEntity<>(error, HttpStatus.INTERNAL_SERVER_ERROR)));
+    return new ResponseEntity<>(error, HttpStatus.INTERNAL_SERVER_ERROR);
+  }
 
 }
