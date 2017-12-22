@@ -2,6 +2,8 @@ package net.ddex.ern.service;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.Arrays;
+import java.util.List;
 
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
@@ -17,7 +19,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
-import org.w3c.dom.NamedNodeMap;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 import org.xml.sax.SAXException;
@@ -33,7 +34,7 @@ import net.ddex.ern.schema.SchemaValidator;
 public class SchemaService {
 
   private static final Logger logger = LoggerFactory.getLogger(SchemaService.class);
-  
+
   private static final String XPATH_EXPRESSION = "/*";
 
   @Autowired
@@ -45,21 +46,21 @@ public class SchemaService {
     DocumentBuilder parser = dbf.newDocumentBuilder();
     String valid = "Document is Invalid";
     Document ret = parser.parse(is);
-    if (schemaVersion.isEmpty()) {
+    if (schemaVersion.isEmpty() || messageType.isEmpty()) {
       XPath xPath = XPathFactory.newInstance().newXPath();
       try {
         NodeList nodeList = (NodeList) xPath.compile(SchemaService.XPATH_EXPRESSION).evaluate(ret, XPathConstants.NODESET);
         for (int i = 0; i < nodeList.getLength(); i++) {
           Node nNode = nodeList.item(i);
-          logger.info("Message Type is : {}", nNode.getNodeName());
           if (nNode.getNodeType() == Node.ELEMENT_NODE) {
             Element eElement = (Element) nNode;
-            logger.info("Schema Version is : {}", eElement.getAttribute("MessageSchemaVersionId"));
-            String tempSchemaVersion = eElement.getAttribute("MessageSchemaVersionId");
-            schemaVersion = tempSchemaVersion.substring(tempSchemaVersion.lastIndexOf("/") + 1, tempSchemaVersion.length());
-            if (schemaVersion.isEmpty()) {
-              logger.error("Schema Version not found in request or XML.");
-              throw new ValidatorException("SCHEMA_VERSION_NOT_FOUND", "Error occured while validating XML. Schema Version not found in request or XML.");
+            logger.info("MessageSchemaVersionId is: {}", eElement.getAttribute("MessageSchemaVersionId"));
+            if (eElement.getAttribute("MessageSchemaVersionId") != "") {
+              List<String> schemaProps = Arrays.asList(eElement.getAttribute("MessageSchemaVersionId").split("\\s*/\\s*"));
+              for (int j = 0; j < schemaProps.size(); j++) {
+                messageType = messageType.isEmpty() ? schemaProps.get(1) : messageType;
+                schemaVersion = schemaVersion.isEmpty() ? schemaProps.get(2) : schemaVersion;
+              }
             }
             break;
           }
@@ -67,8 +68,10 @@ public class SchemaService {
       } catch (XPathExpressionException e1) {
         logger.error("Error while parsing the XML for Schema Version: {}", e1);
       }
-    } else {
-      schemaVersion = schemaVersion.replace(".", "");
+    }
+    if (schemaVersion.isEmpty() || messageType.isEmpty()) {
+      logger.error("Schema Version or Message Type not found in request or XML.");
+      throw new ValidatorException("MANDATORY_PARAMS_NOT_FOUND", "Error occured while validating XML. Schema Version or Message Type not found in request or XML.");
     }
     logger.info("schemaVersion: {}", schemaVersion);
     try {

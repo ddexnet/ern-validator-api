@@ -54,17 +54,17 @@ public class ValidateController {
 
   @PostMapping(path = "/json/validateXML", produces = "application/json")
   public List<Map<String, Object>> validateXMLJSON(@RequestParam(value = "ernFile") MultipartFile file, @RequestParam(value = "schematronVersion") String schematronVersion,
-      @RequestParam(value = "profileVersion") String profileVersion, @RequestParam(value = "schemaVersion") Optional<String> schemaVersion)
+      @RequestParam(value = "profileVersion") String profileVersion, @RequestParam(value = "schemaVersion") Optional<String> schemaVersion,
+      @RequestParam(value = "messageType") Optional<String> messageType)
       throws ParserConfigurationException, IOException, XMLStreamException, TransformerException, SAXException, XPathExpressionException, ValidatorException {
     logger.info("Validating ERN {} as schema version {}. ", file.getOriginalFilename(), schemaVersion.orElse(""));
     logger.info("Validating ERN {} as schematron version {} and product version {}. ", file.getOriginalFilename(), schematronVersion, profileVersion);
     List<Map<String, Object>> list = new ArrayList<>();
     Map<String, Object> map = new HashMap<>();
     logger.info("working swell");
-    // TODO Hard-coded. Need to pass this from UI.
-    String messageType = "ern";
+    String tempSchemaVersion = schemaVersion.isPresent() ? schemaVersion.get().replace(".", "") : "";
     try {
-      map.put("schema", schemaService.validateSchema(file.getInputStream(), schemaVersion.orElse(""), messageType));
+      map.put("schema", schemaService.validateSchema(file.getInputStream(), tempSchemaVersion, messageType.orElse("")));
     } catch (SAXException e) {
       logger.info(e.getMessage());
       map.put("schema", e.getMessage());
