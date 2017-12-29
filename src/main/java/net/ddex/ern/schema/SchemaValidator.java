@@ -18,7 +18,7 @@ import net.ddex.ern.util.SchemaBuilder;
 @Component
 public class SchemaValidator {
 
-  private static final Logger logger = LoggerFactory.getLogger(SchemaValidator.class);
+  private static final Logger LOGGER = LoggerFactory.getLogger(SchemaValidator.class);
   private javax.xml.validation.Schema schema;
 
   @Autowired
@@ -32,10 +32,10 @@ public class SchemaValidator {
       schema.newValidator().validate(source);
       valid = "Document is valid";
     } catch (IOException e) {
-      logger.error("An error occured while validating schema.", e);
+      LOGGER.error("An error occured while validating schema.", e);
       throw new ValidatorException(e.getMessage(), e);
     } catch (SAXException e) {
-      logger.error("An error occured while validating schema.", e);
+      LOGGER.error("An error occured while validating schema.", e);
       throw new ValidatorException(e.getMessage(), e);
     }
     return valid;

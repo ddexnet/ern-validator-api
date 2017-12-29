@@ -16,6 +16,18 @@
                     ${project.basedir}/xml/**
                 </exclude>
                 <exclude>
+                    ${project.basedir}/.classpath
+                </exclude>
+                <exclude>
+                    ${project.basedir}/.settings/**
+                </exclude>
+                <exclude>
+                    ${project.basedir}/.project
+                </exclude>
+                <exclude>
+                    ${project.basedir}/application.log*
+                </exclude>
+                <exclude>
                     ${project.basedir}/src/**
                 </exclude>
                 <exclude>
@@ -33,7 +45,6 @@
             </excludes>
             <outputDirectory>bin</outputDirectory>
         </fileSet>
-
         <fileSet>
             <directory>target/appassembler/repo</directory>
             <outputDirectory>repo</outputDirectory>

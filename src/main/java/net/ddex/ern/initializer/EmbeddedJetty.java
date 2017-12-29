@@ -17,7 +17,7 @@ import org.springframework.web.servlet.DispatcherServlet;
 
 public class EmbeddedJetty {
 
-  private static final Logger logger = LoggerFactory.getLogger(EmbeddedJetty.class);
+  private static final Logger LOGGER = LoggerFactory.getLogger(EmbeddedJetty.class);
   private static final int DEFAULT_PORT = 6060;
   private static final String CONTEXT_PATH = "/";
   private static final String CONFIG_LOCATION = "net/ddex/ern/config";
@@ -35,18 +35,18 @@ public class EmbeddedJetty {
         return Integer.valueOf(args[0]);
       } catch (NumberFormatException ignore) {}
     }
-    logger.debug("No server port configured, falling back to {}", DEFAULT_PORT);
+    LOGGER.debug("No server port configured, falling back to {}", DEFAULT_PORT);
     return DEFAULT_PORT;
   }
 
   private void startJetty(int port) throws Exception {
-    logger.debug("Starting server at port {}", port);
+    LOGGER.debug("Starting server at port {}", port);
     Server server = new Server(port);
     ServletContextHandler myHand = getServletContextHandler(getContext());
     setAccessControlAllowOrigin(myHand);
     server.setHandler(myHand);
     server.start();
-    logger.info("Server started at port {}", port);
+    LOGGER.info("Server started at port {}", port);
     server.join();
   }
 

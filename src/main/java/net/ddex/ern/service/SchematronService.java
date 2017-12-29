@@ -45,7 +45,7 @@ import net.ddex.ern.exception.ValidatorException;
 public class SchematronService {
 
   private SAXTransformerFactory stf = new net.sf.saxon.TransformerFactoryImpl();
-  private static final Logger logger = LoggerFactory.getLogger(SchematronService.class);
+  private static final Logger LOGGER = LoggerFactory.getLogger(SchematronService.class);
   private static String PROFILE_ROOT = "xslt/profiles/";
 
   private FileInputStream loadSchematronXSLT(String profile, String version) throws ValidatorException {
@@ -154,10 +154,10 @@ public class SchematronService {
   public List<Map<String, String>> schematron2Map(InputStream is, String schematronVersion, String profileVersion)
       throws XMLStreamException, IOException, TransformerException, XPathExpressionException {
 
-    String XSLT_FILE = ("xslt/profiles/" + schematronVersion + "/" + profileVersion + ".xsl");
+    String XSLT_FILE = (PROFILE_ROOT + schematronVersion + "/" + profileVersion + ".xsl");
     SAXSource saxSource = new SAXSource(new InputSource(is));
     DOMResult result = new DOMResult();
-    SAXTransformerFactory stf = new net.sf.saxon.TransformerFactoryImpl();
+    //SAXTransformerFactory stf = new net.sf.saxon.TransformerFactoryImpl();
     Transformer transformer = stf.newTransformer(new StreamSource(XSLT_FILE));
     transformer.transform(saxSource, result);
     XPathFactory xPathfactory = XPathFactory.newInstance();

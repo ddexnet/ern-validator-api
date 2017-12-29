@@ -23,7 +23,7 @@ import net.ddex.ern.exception.ValidatorException;
 @Component
 public class SchemaBuilder {
 
-  private static final Logger logger = LoggerFactory.getLogger(SchemaBuilder.class);
+  private static final Logger LOGGER = LoggerFactory.getLogger(SchemaBuilder.class);
   private static final String FILE_PATH_PREFIX = "schema/";
   private ConcurrentHashMap<String, Schema> schemaMap = new ConcurrentHashMap<String, Schema>();
   private SchemaFactory factory = SchemaFactory.newInstance(XMLConstants.W3C_XML_SCHEMA_NS_URI);
@@ -42,7 +42,7 @@ public class SchemaBuilder {
       try {
         schemaMap.put(schemaKey, factory.newSchema(sources));
       } catch (SAXException e) {
-        logger.error("Error while building Schema Object");
+        LOGGER.error("Error while building Schema Object");
         throw new ValidatorException(e.getMessage(), e);
       }
     }

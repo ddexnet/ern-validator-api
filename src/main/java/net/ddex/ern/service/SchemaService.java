@@ -33,7 +33,7 @@ import net.ddex.ern.schema.SchemaValidator;
 @Service("schemaService")
 public class SchemaService {
 
-  private static final Logger logger = LoggerFactory.getLogger(SchemaService.class);
+  private static final Logger LOGGER = LoggerFactory.getLogger(SchemaService.class);
 
   private static final String XPATH_EXPRESSION = "/*";
 
@@ -54,7 +54,7 @@ public class SchemaService {
           Node nNode = nodeList.item(i);
           if (nNode.getNodeType() == Node.ELEMENT_NODE) {
             Element eElement = (Element) nNode;
-            logger.info("MessageSchemaVersionId is: {}", eElement.getAttribute("MessageSchemaVersionId"));
+            LOGGER.info("MessageSchemaVersionId is: {}", eElement.getAttribute("MessageSchemaVersionId"));
             if (eElement.getAttribute("MessageSchemaVersionId") != "") {
               List<String> schemaProps = Arrays.asList(eElement.getAttribute("MessageSchemaVersionId").split("\\s*/\\s*"));
               for (int j = 0; j < schemaProps.size(); j++) {
@@ -66,18 +66,19 @@ public class SchemaService {
           }
         }
       } catch (XPathExpressionException e1) {
-        logger.error("Error while parsing the XML for Schema Version: {}", e1);
+        LOGGER.error("Error while parsing the XML for Schema Version: {}", e1);
       }
     }
     if (schemaVersion.isEmpty() || messageType.isEmpty()) {
-      logger.error("Schema Version or Message Type not found in request or XML.");
+      LOGGER.error("Schema Version or Message Type not found in request or XML.");
       throw new ValidatorException("MANDATORY_PARAMS_NOT_FOUND", "Error occured while validating XML. Schema Version or Message Type not found in request or XML.");
     }
-    logger.info("schemaVersion: {}", schemaVersion);
+    LOGGER.info("schemaVersion: {}", schemaVersion);
     try {
       valid = schemaValidator.validate(messageType, schemaVersion, ret, null);
     } catch (ValidatorException e) {
-      logger.error("An error occured while calling schema validation.", e);
+      LOGGER.error("An error occured while calling schema validation.", e);
+      throw new ValidatorException("SCHEMA_VALIDATION_FAILED", "Schema validation failed for the Input XML.");
     }
     return valid;
   }

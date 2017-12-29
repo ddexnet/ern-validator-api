@@ -31,7 +31,7 @@ import net.ddex.ern.vo.ValidationResponse;
 @RestController
 public class ValidateController {
 
-  private static final Logger logger = LoggerFactory.getLogger(ValidateController.class);
+  private static final Logger LOGGER = LoggerFactory.getLogger(ValidateController.class);
 
   @Autowired
   private SchemaService schemaService;
@@ -40,7 +40,7 @@ public class ValidateController {
   private SchematronService schematronService;
 
   @GetMapping(path = "/status", produces = "text/plain")
-  public String test() throws ParserConfigurationException, SAXException, IOException, XMLStreamException, TransformerException, XPathExpressionException {
+  public String test() {
     return "The service is running";
   }
 
@@ -48,7 +48,7 @@ public class ValidateController {
   public List<Map<String, String>> validateSchematronJSON(@RequestParam(value = "ernFile") MultipartFile file, @RequestParam(value = "schematronVersion") String schematronVersion,
       @RequestParam(value = "profileVersion") String profileVersion)
       throws ParserConfigurationException, SAXException, IOException, XMLStreamException, TransformerException, XPathExpressionException {
-    logger.info("Validating ERN {} as schematron version {} and product version {}. ", file.getOriginalFilename(), schematronVersion, profileVersion);
+    LOGGER.info("Validating ERN {} as schematron version {} and product version {}. ", file.getOriginalFilename(), schematronVersion, profileVersion);
     return schematronService.schematron2Map(file.getInputStream(), schematronVersion, profileVersion);
   }
 
@@ -57,16 +57,15 @@ public class ValidateController {
       @RequestParam(value = "profileVersion") String profileVersion, @RequestParam(value = "schemaVersion") Optional<String> schemaVersion,
       @RequestParam(value = "messageType") Optional<String> messageType)
       throws ParserConfigurationException, IOException, XMLStreamException, TransformerException, SAXException, XPathExpressionException, ValidatorException {
-    logger.info("Validating ERN {} as schema version {}. ", file.getOriginalFilename(), schemaVersion.orElse(""));
-    logger.info("Validating ERN {} as schematron version {} and product version {}. ", file.getOriginalFilename(), schematronVersion, profileVersion);
-    List<Map<String, Object>> list = new ArrayList<>();
-    Map<String, Object> map = new HashMap<>();
-    logger.info("working swell");
+    LOGGER.info("Validating ERN {} as schema version {}. ", file.getOriginalFilename(), schemaVersion.orElse(""));
+    LOGGER.info("Validating ERN {} as schematron version {} and product version {}. ", file.getOriginalFilename(), schematronVersion, profileVersion);
+    List<Map<String, Object>> list = new ArrayList<>(2);
+    Map<String, Object> map = new HashMap<>(2);
     String tempSchemaVersion = schemaVersion.isPresent() ? schemaVersion.get().replace(".", "") : "";
     try {
       map.put("schema", schemaService.validateSchema(file.getInputStream(), tempSchemaVersion, messageType.orElse("")));
     } catch (SAXException e) {
-      logger.info(e.getMessage());
+      LOGGER.error(e.getMessage());
       map.put("schema", e.getMessage());
       list.add(map);
       return list;
