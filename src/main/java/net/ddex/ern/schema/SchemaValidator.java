@@ -24,20 +24,16 @@ public class SchemaValidator {
   @Autowired
   private SchemaBuilder schemaBuilder;
 
-  public String validate(String messageType, String schemaVersion, Document ern, Result result) throws ValidatorException {
+  public void validate(String profile, String schemaVersion, Document ern, Result result)
+          throws SAXException, ValidatorException {
     DOMSource source = new DOMSource(ern);
-    String valid = "Document is Invalid";
     try {
-      schema = schemaBuilder.getSchema(messageType, schemaVersion);
-      schema.newValidator().validate(source);
-      valid = "Document is valid";
+      schema = schemaBuilder.getSchema(schemaVersion);
+      schema.newValidator().validate(source, result);
+      System.out.println(result);
     } catch (IOException e) {
-      LOGGER.error("An error occured while validating schema.", e);
-      throw new ValidatorException(e.getMessage(), e);
-    } catch (SAXException e) {
-      LOGGER.error("An error occured while validating schema.", e);
+      LOGGER.error("IOException while validating schema.", e);
       throw new ValidatorException(e.getMessage(), e);
     }
-    return valid;
   }
 }

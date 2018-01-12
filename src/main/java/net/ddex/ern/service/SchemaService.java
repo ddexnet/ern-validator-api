@@ -2,8 +2,6 @@ package net.ddex.ern.service;
 
 import java.io.IOException;
 import java.io.InputStream;
-import java.util.Arrays;
-import java.util.List;
 
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
@@ -13,6 +11,7 @@ import javax.xml.xpath.XPathConstants;
 import javax.xml.xpath.XPathExpressionException;
 import javax.xml.xpath.XPathFactory;
 
+import javafx.util.Pair;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -33,61 +32,86 @@ import net.ddex.ern.schema.SchemaValidator;
 @Service("schemaService")
 public class SchemaService {
 
-  private static final Logger LOGGER = LoggerFactory.getLogger(SchemaService.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(SchemaService.class);
 
-  private static final String XPATH_EXPRESSION = "/*";
+    private static final String XPATH_EXPRESSION = "/*";
 
-  @Autowired
-  private SchemaValidator schemaValidator;
+    @Autowired
+    private SchemaValidator schemaValidator;
 
-  public String validateSchema(InputStream is, String schemaVersion, String messageType) throws ParserConfigurationException, IOException, SAXException, ValidatorException {
-    DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
-    dbf.setNamespaceAware(true);
-    DocumentBuilder parser = dbf.newDocumentBuilder();
-    String valid = "Document is Invalid";
-    Document ret = parser.parse(is);
-    if (schemaVersion.isEmpty() || messageType.isEmpty()) {
-      XPath xPath = XPathFactory.newInstance().newXPath();
-      try {
-        NodeList nodeList = (NodeList) xPath.compile(SchemaService.XPATH_EXPRESSION).evaluate(ret, XPathConstants.NODESET);
-        for (int i = 0; i < nodeList.getLength(); i++) {
-          Node nNode = nodeList.item(i);
-          if (nNode.getNodeType() == Node.ELEMENT_NODE) {
-            Element eElement = (Element) nNode;
-            LOGGER.info("MessageSchemaVersionId is: {}", eElement.getAttribute("MessageSchemaVersionId"));
-            if (eElement.getAttribute("MessageSchemaVersionId") != "") {
-              List<String> schemaProps = Arrays.asList(eElement.getAttribute("MessageSchemaVersionId").split("\\s*/\\s*"));
-              for (int j = 0; j < schemaProps.size(); j++) {
-                messageType = messageType.isEmpty() ? schemaProps.get(1) : messageType;
-                schemaVersion = schemaVersion.isEmpty() ? schemaProps.get(2) : schemaVersion;
-              }
-            }
-            break;
-          }
+    // Todo: https://stackoverflow.com/questions/15732/whats-the-best-way-to-validate-an-xml-file-against-an-xsd-file
+    // use SAX instead of Dom
+    public void validateSchema(InputStream is, String schemaVersion, String profile)
+            throws SAXException, ValidatorException {
+
+        // DocumentBuilderFactory and DocumentBuilder are not thread safe
+        DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
+        dbf.setNamespaceAware(true);
+        Document doc;
+
+        // Try to create the DOM from the uploaded file
+        try {
+            DocumentBuilder parser = dbf.newDocumentBuilder();
+            doc = parser.parse(is);
+        } catch (ParserConfigurationException e) {
+            LOGGER.error(e.getMessage());
+            throw new ValidatorException("Could not create XML parser", e);
+        } catch (IOException e) {
+            LOGGER.error(e.getMessage());
+            throw new ValidatorException("IOException during XML parse", e);
         }
-      } catch (XPathExpressionException e1) {
-        LOGGER.error("Error while parsing the XML for Schema Version: {}", e1);
-      }
-    }
-    if (schemaVersion.isEmpty() || messageType.isEmpty()) {
-      LOGGER.error("Schema Version or Message Type not found in request or XML.");
-      throw new ValidatorException("MANDATORY_PARAMS_NOT_FOUND", "Error occured while validating XML. Schema Version or Message Type not found in request or XML.");
-    }
-    LOGGER.info("schemaVersion: {}", schemaVersion);
-    try {
-      valid = schemaValidator.validate(messageType, schemaVersion, ret, null);
-    } catch (ValidatorException e) {
-      LOGGER.error("An error occured while calling schema validation.", e);
-      throw new ValidatorException("SCHEMA_VALIDATION_FAILED", "Schema validation failed for the Input XML.");
-    }
-    return valid;
-  }
 
-  public Document parseDocument() throws ParserConfigurationException, SAXException, IOException {
-    DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
-    dbf.setNamespaceAware(true);
-    DocumentBuilder parser = dbf.newDocumentBuilder();
-    System.out.println("Zoinks!!!!");
-    return null;
-  }
+        // Extract the Schema and profile from XML if not in request
+        if (schemaVersion.isEmpty() || profile.isEmpty()) {
+            Pair<String, String> schemaProfile = exractProfileAndSchemaVersion(doc);
+
+            if (schemaVersion.isEmpty() && !"".equals(schemaProfile.getKey()))
+                schemaVersion = schemaProfile.getKey();
+            else if (schemaVersion.isEmpty()) {
+                LOGGER.error("Schema Version not found in request or XML.");
+                throw new ValidatorException("MANDATORY_PARAMS_NOT_FOUND",
+                        "Error occurred while validating XML. Schema Version not found in request or XML.");
+            }
+
+            if (profile.isEmpty() && !"".equals(schemaProfile.getValue()))
+                profile = schemaProfile.getValue();
+            else if (profile.isEmpty()) {
+                LOGGER.error("Profile not found in request or XML.");
+                throw new ValidatorException("MANDATORY_PARAMS_NOT_FOUND",
+                        "Error occurred while validating XML. Profile not found in request or XML.");
+            }
+        }
+        LOGGER.info("schemaVersion: {}, profile: {}", schemaVersion, profile);
+        schemaValidator.validate(profile, schemaVersion, doc, null);
+    }
+
+    // Todo: use SAX instead of DOM
+    private Pair<String, String> exractProfileAndSchemaVersion(Document doc)
+            throws ValidatorException {
+        XPath xPath = XPathFactory.newInstance().newXPath();
+        String schemaVersion = "";
+        String profile = "";
+        try {
+            NodeList nodeList = (NodeList) xPath.compile(SchemaService.XPATH_EXPRESSION).evaluate(doc, XPathConstants.NODESET);
+            for (int i = 0; i < nodeList.getLength(); i++) {
+                Node nNode = nodeList.item(i);
+                if (nNode.getNodeType() == Node.ELEMENT_NODE) {
+                    Element eElement = (Element) nNode;
+                    if (!"".equals(eElement.getAttribute("MessageSchemaVersionId"))) {
+                        schemaVersion = eElement.getAttribute("MessageSchemaVersionId");
+                        schemaVersion = schemaVersion.startsWith("/") ? schemaVersion.substring(1) : schemaVersion;
+                    }
+                    if (!"".equals(eElement.getAttribute("ReleaseProfileVersionId "))) {
+                        profile = eElement.getAttribute("ReleaseProfileVersionId ");
+                        profile = profile.startsWith("/") ? profile.substring(1) : profile;
+                    }
+                }
+            }
+        } catch (XPathExpressionException e) {
+            LOGGER.error(e.getMessage());
+            throw new ValidatorException("XPath error during schema version extraction", e);
+        }
+
+        return new Pair<>(schemaVersion, profile);
+    }
 }

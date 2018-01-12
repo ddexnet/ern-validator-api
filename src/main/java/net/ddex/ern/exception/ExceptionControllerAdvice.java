@@ -15,11 +15,12 @@ public class ExceptionControllerAdvice {
 
   private static final Logger LOGGER = LoggerFactory.getLogger(ExceptionControllerAdvice.class);
 
-  @ExceptionHandler(Exception.class)
-  public ResponseEntity<ErrorResponse> exceptionHandler(Exception ex) {
+  @ExceptionHandler(ValidatorException.class)
+  public ResponseEntity<ErrorResponse> exceptionHandler(ValidatorException ex) {
     ErrorResponse error = new ErrorResponse();
     error.setErrorCode(HttpStatus.INTERNAL_SERVER_ERROR.value());
-    error.setMessage("An error occured while processing the request");
+    System.out.println("##############################");
+    error.setMessage(ex.getErrorMessage());
     LOGGER.error("An error occured while processing request. {}", ex.getMessage());
     return new ResponseEntity<>(error, HttpStatus.INTERNAL_SERVER_ERROR);
   }
