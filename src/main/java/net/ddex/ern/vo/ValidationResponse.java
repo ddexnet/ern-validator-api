@@ -10,51 +10,76 @@ import java.util.List;
 @JsonInclude(JsonInclude.Include.NON_EMPTY)
 public class ValidationResponse {
 
-    private Boolean isError = false;
-    private Boolean isSchemaValid;
-    private Boolean isSchematronValid;
+  private Boolean isError = false;
+  private Boolean isSchemaValid;
+  private Boolean isSchematronValid;
 
-    private List<String> schemaMessages;
-    private List<String> schematronMessages;
+  private List<String> schemaMessages;
+  private List<String> schematronMessages;
 
-    public boolean isError() {
-        return isError;
-    }
+  private String status;
+  private String message;
 
-    public void setError(Boolean error) {
-        isError = error;
-    }
+  public ValidationResponse(String status, String message) {
+    this.isError = true;
+    this.status = status;
+    this.message = message;
+  }
 
-    public Boolean isSchemaValid() {
-        return isSchemaValid;
-    }
+  public boolean isError() {
+    return isError;
+  }
 
-    public void setSchemaValid(Boolean schemaValid) {
-        isSchemaValid = schemaValid;
-    }
+  public void setError(Boolean error) {
+    isError = error;
+  }
 
-    public Boolean isSchematronValid() {
+  public Boolean isSchemaValid() {
+    return isSchemaValid;
+  }
 
-        return isSchematronValid;
-    }
+  public void setSchemaValid(Boolean schemaValid) {
+    isSchemaValid = schemaValid;
+  }
 
-    public void setSchematronValid(boolean schematronValid) {
-        isSchematronValid = schematronValid;
-    }
+  public Boolean isSchematronValid() {
 
-    public List<String> getSchemaMessages() {
-        return schemaMessages;
-    }
+    return isSchematronValid;
+  }
 
-    public void setSchemaMessages(List<String> schemaMessages) {
-        this.schemaMessages = schemaMessages;
-    }
+  public void setSchematronValid(boolean schematronValid) {
+    isSchematronValid = schematronValid;
+  }
 
-    public List<String> getSchematronMessages() {
-        return schematronMessages;
-    }
+  public List<String> getSchemaMessages() {
+    return schemaMessages;
+  }
 
-    public void setSchematronMessages(List<String> schematronMessages) {
-        this.schematronMessages = schematronMessages;
-    }
+  public void setSchemaMessages(List<String> schemaMessages) {
+    this.schemaMessages = schemaMessages;
+  }
+
+  public List<String> getSchematronMessages() {
+    return schematronMessages;
+  }
+
+  public void setSchematronMessages(List<String> schematronMessages) {
+    this.schematronMessages = schematronMessages;
+  }
+
+  public String getStatus() {
+    return status;
+  }
+
+  public void setStatus(String status) {
+    this.status = status;
+  }
+
+  public String getMessage() {
+    return message;
+  }
+
+  public void setMessage(String message) {
+    this.message = message;
+  }
 }

@@ -1,20 +1,29 @@
 package net.ddex.ern.service;
 
-import net.ddex.ern.exception.ValidatorException;
-import net.ddex.ern.schema.ThreeFourOneSchema;
-import net.ddex.ern.schema.ThreeSevenOneSchema;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-import org.springframework.stereotype.Service;
-import org.w3c.dom.Document;
-import org.xml.sax.SAXException;
+import java.io.IOException;
+import java.io.InputStream;
 
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
-import java.io.IOException;
-import java.io.InputStream;
+import javax.xml.xpath.XPath;
+import javax.xml.xpath.XPathConstants;
+import javax.xml.xpath.XPathExpressionException;
+import javax.xml.xpath.XPathFactory;
 
+import javafx.util.Pair;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.w3c.dom.Document;
+import org.w3c.dom.Element;
+import org.w3c.dom.Node;
+import org.w3c.dom.NodeList;
+import org.xml.sax.SAXException;
+
+import net.ddex.ern.exception.ValidatorException;
+import net.ddex.ern.schema.SchemaValidator;
 
 /**
  * Created by rdewilder on 4/16/2017.
@@ -23,51 +32,88 @@ import java.io.InputStream;
 @Service("schemaService")
 public class SchemaService {
 
-    private static final Logger logger = LoggerFactory.getLogger(SchemaService.class);
-    ThreeFourOneSchema schema341 = new ThreeFourOneSchema();
-    ThreeSevenOneSchema schema371 = new ThreeSevenOneSchema();
+    private static final Logger LOGGER = LoggerFactory.getLogger(SchemaService.class);
 
-    /**
-     * TODO:
-     * See if we can validate XSD using stream parser.
-     * DOM parser has potential to cause memory issues with larger documents
-     */
+    private static final String XPATH_EXPRESSION = "/*";
 
+    @Autowired
+    private SchemaValidator schemaValidator;
 
-    // TODO: look intializing doucmentbuilder.  Is it expensive to build?  Threadsafe?
-    public String validate(InputStream is, String schemaVersion) throws ParserConfigurationException, IOException, SAXException {
+    // Todo: https://stackoverflow.com/questions/15732/whats-the-best-way-to-validate-an-xml-file-against-an-xsd-file
+    // use SAX instead of Dom
+    public Pair<String, String> validateSchema(InputStream is, String schemaVersion, String profile)
+            throws SAXException, ValidatorException {
+
+        // DocumentBuilderFactory and DocumentBuilder are not thread safe
         DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
         dbf.setNamespaceAware(true);
-        DocumentBuilder parser = dbf.newDocumentBuilder();
-        Document ret = parser.parse(is);
+        Document doc;
 
-        switch (schemaVersion) {
-
-            case "3.4.1":
-                try {
-                    return schema341.validate(ret, null);
-                } catch (ValidatorException e) {
-                    logger.error(e.getMessage());
-                    return e.getCause().getMessage();
-                }
-
-            case "3.7.1":
-                try {
-                    return schema371.validate(ret, null);
-                } catch (ValidatorException e) {
-                    logger.error(e.getMessage());
-                    return e.getMessage();
-                }
+        // Try to create the DOM from the uploaded file
+        try {
+            DocumentBuilder parser = dbf.newDocumentBuilder();
+            doc = parser.parse(is);
+        } catch (ParserConfigurationException e) {
+            LOGGER.error(e.getMessage());
+            throw new ValidatorException("Could not create XML parser", e);
+        } catch (IOException e) {
+            LOGGER.error(e.getMessage());
+            throw new ValidatorException("IOException during XML parse", e);
         }
-        return null;
+
+        // Extract the Schema and profile from XML if not in request
+        if (schemaVersion.isEmpty() || profile.isEmpty()) {
+            Pair<String, String> schemaProfile = exractProfileAndSchemaVersion(doc);
+
+            if (schemaVersion.isEmpty() && !"".equals(schemaProfile.getKey()))
+                schemaVersion = schemaProfile.getKey();
+            else if (schemaVersion.isEmpty()) {
+                LOGGER.error("Schema Version not found in request or XML.");
+                throw new ValidatorException("MANDATORY_PARAMS_NOT_FOUND",
+                        "Error occurred while validating XML. Schema Version not found in request or XML.");
+            }
+
+            if (profile.isEmpty() && !"".equals(schemaProfile.getValue()))
+                profile = schemaProfile.getValue();
+            else if (profile.isEmpty()) {
+                LOGGER.error("Profile not found in request or XML.");
+                throw new ValidatorException("MANDATORY_PARAMS_NOT_FOUND",
+                        "Error occurred while validating XML. Profile not found in request or XML.");
+            }
+        }
+        LOGGER.info("schemaVersion: {}, profile: {}", schemaVersion, profile);
+        schemaValidator.validate(schemaVersion, profile, doc, null);
+
+        return new Pair<>(schemaVersion, profile);
     }
 
+    // Todo: use SAX instead of DOM
+    private Pair<String, String> exractProfileAndSchemaVersion(Document doc)
+            throws ValidatorException {
+        XPath xPath = XPathFactory.newInstance().newXPath();
+        String schemaVersion = "";
+        String profile = "";
+        try {
+            NodeList nodeList = (NodeList) xPath.compile(SchemaService.XPATH_EXPRESSION).evaluate(doc, XPathConstants.NODESET);
+            for (int i = 0; i < nodeList.getLength(); i++) {
+                Node nNode = nodeList.item(i);
+                if (nNode.getNodeType() == Node.ELEMENT_NODE) {
+                    Element eElement = (Element) nNode;
+                    if (!"".equals(eElement.getAttribute("MessageSchemaVersionId"))) {
+                        schemaVersion = eElement.getAttribute("MessageSchemaVersionId");
+                        schemaVersion = schemaVersion.startsWith("/") ? schemaVersion.substring(1) : schemaVersion;
+                    }
+                    if (!"".equals(eElement.getAttribute("ReleaseProfileVersionId "))) {
+                        profile = eElement.getAttribute("ReleaseProfileVersionId ");
+                        profile = profile.startsWith("/") ? profile.substring(1) : profile;
+                    }
+                }
+            }
+        } catch (XPathExpressionException e) {
+            LOGGER.error(e.getMessage());
+            throw new ValidatorException("XPath error during schema version extraction", e);
+        }
 
-    public Document parseDocument() throws ParserConfigurationException, SAXException, IOException {
-        DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
-        dbf.setNamespaceAware(true);
-        DocumentBuilder parser = dbf.newDocumentBuilder();
-        System.out.println("Zoinks!!!!");
-        return null;
+        return new Pair<>(schemaVersion, profile);
     }
 }
