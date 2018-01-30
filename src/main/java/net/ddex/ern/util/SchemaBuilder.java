@@ -53,7 +53,6 @@ public class SchemaBuilder {
 
     private List<String> loadSchemaFiles(String schemaVersion) throws ValidatorException {
         File dir = new File(FILE_PATH_PREFIX + schemaVersion);
-        System.out.println(FILE_PATH_PREFIX + schemaVersion);
         if(!dir.isDirectory() || !dir.exists()) {
             throw new ValidatorException(schemaVersion + " is not a valid message version");
         }

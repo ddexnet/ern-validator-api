@@ -30,7 +30,6 @@ public class SchemaValidator {
     try {
       schema = schemaBuilder.getSchema(schemaVersion);
       schema.newValidator().validate(source, result);
-      System.out.println(result);
     } catch (IOException e) {
       LOGGER.error("IOException while validating schema.", e);
       throw new ValidatorException(e.getMessage(), e);
