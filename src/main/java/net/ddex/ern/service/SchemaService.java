@@ -41,7 +41,7 @@ public class SchemaService {
 
     // Todo: https://stackoverflow.com/questions/15732/whats-the-best-way-to-validate-an-xml-file-against-an-xsd-file
     // use SAX instead of Dom
-    public void validateSchema(InputStream is, String schemaVersion, String profile)
+    public Pair<String, String> validateSchema(InputStream is, String schemaVersion, String profile)
             throws SAXException, ValidatorException {
 
         // DocumentBuilderFactory and DocumentBuilder are not thread safe
@@ -82,7 +82,9 @@ public class SchemaService {
             }
         }
         LOGGER.info("schemaVersion: {}, profile: {}", schemaVersion, profile);
-        schemaValidator.validate(profile, schemaVersion, doc, null);
+        schemaValidator.validate(schemaVersion, profile, doc, null);
+
+        return new Pair<>(schemaVersion, profile);
     }
 
     // Todo: use SAX instead of DOM

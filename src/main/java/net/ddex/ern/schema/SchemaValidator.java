@@ -24,7 +24,7 @@ public class SchemaValidator {
   @Autowired
   private SchemaBuilder schemaBuilder;
 
-  public void validate(String profile, String schemaVersion, Document ern, Result result)
+  public void validate(String schemaVersion, String profile, Document ern, Result result)
           throws SAXException, ValidatorException {
     DOMSource source = new DOMSource(ern);
     try {

@@ -12,6 +12,7 @@ import javax.xml.stream.XMLStreamException;
 import javax.xml.transform.TransformerException;
 import javax.xml.xpath.XPathExpressionException;
 
+import javafx.util.Pair;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -44,40 +45,6 @@ public class ValidateController {
         return "The service is running";
     }
 
-    @PostMapping(path = "/json/validateSchematron", produces = "application/json")
-    public List<Map<String, String>> validateSchematronJSON(@RequestParam(value = "ernFile") MultipartFile file, @RequestParam(value = "schematronVersion") String schematronVersion,
-                                                            @RequestParam(value = "profileVersion") String profileVersion)
-            throws ParserConfigurationException, SAXException, IOException, XMLStreamException, TransformerException, XPathExpressionException {
-        LOGGER.info("Validating ERN {} as schematron version {} and product version {}. ", file.getOriginalFilename(), schematronVersion, profileVersion);
-        return schematronService.schematron2Map(file.getInputStream(), schematronVersion, profileVersion);
-    }
-
-    @PostMapping(path = "/json/validateXML", produces = "application/json")
-    public List<Map<String, Object>> validateXMLJSON(@RequestParam(value = "ernFile") MultipartFile file, @RequestParam(value = "profileVersion") String profileVersion,
-                                                     @RequestParam(value = "schemaVersion") Optional<String> schemaVersion,
-                                                     @RequestParam(value = "messageType") Optional<String> messageType)
-            throws ParserConfigurationException, IOException, XMLStreamException, TransformerException, SAXException, XPathExpressionException, ValidatorException {
-        LOGGER.info("Validating {} message as schema {} and profile {}. ", file.getOriginalFilename(), schemaVersion.orElse("none"), profileVersion);
-        List<Map<String, Object>> list = new ArrayList<>(2);
-        Map<String, Object> map = new HashMap<>(2);
-        String tempSchemaVersion = schemaVersion.isPresent() ? schemaVersion.get().replace(".", "") : "";
-        try {
-            schemaService.validateSchema(file.getInputStream(), tempSchemaVersion, messageType.orElse(""));
-            map.put("schema", "Message vaildates against schema");
-        } catch (SAXException e) {
-            LOGGER.error(e.getMessage());
-            map.put("schema", e.getMessage());
-            list.add(map);
-            return list;
-        } catch (ValidatorException e) {
-            throw new ValidatorException(e.getStatus(), e.getErrorMessage());
-        }
-        map.put("schematron", schematronService.schematron2Map(file.getInputStream(), schemaVersion.orElse("none"), profileVersion));
-        list.add(map);
-        return list;
-    }
-
-
     @PostMapping(path = "/json/validate", produces = "application/json")
     public List<Map<String, Object>> validate(@RequestParam(value = "messageFile") MultipartFile file,
                                               @RequestParam(value = "schemaVersionId") Optional<String> schemaVersion,
@@ -95,16 +62,15 @@ public class ValidateController {
         _profileVersion = _profileVersion.startsWith("/") ? _profileVersion.substring(1) : _profileVersion;
 
         try {
-            schemaService.validateSchema(file.getInputStream(), _schemaVersion, _profileVersion);
-            map.put("schema", "Message vaildates against schema");
+            Pair<String, String> spec = schemaService.validateSchema(file.getInputStream(), _schemaVersion, _profileVersion);
+            map.put("schema", "Message vaildates against schema version " + spec.getKey());
         } catch (SAXException e) {
             LOGGER.error(e.getMessage());
             map.put("schema", e.getMessage());
             list.add(map);
             return list;
         }
-        //map.put("schematron", schematronService.schematron2Map(file.getInputStream(),
-        //       schemaVersion.orElse("none"), profileVersion.orElse("none")));
+        map.put("schematron", schematronService.schematron2Map(file.getInputStream(), _profileVersion));
         list.add(map);
         return list;
     }
