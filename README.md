@@ -1,20 +1,4 @@
 <h1>DDEX XML Validator</h1>
-<<<<<<< HEAD
-<p>DDEX XML Validator is an API that can be used to validate
-XML documents against schema (XSD) and advanced XML validation (Schematron). XML validator checks to see if an XML document is valid and well formed. A well formed document must meet the standards of XML syntax rules, whereas a valid document must meet the standards of a XML Schema.
-</p>
-<h2>Requirements</h2>
-<ul>
-  <li>Windows</li>
-  <li>Unix</li>
-  <li>Maven</li>
-</ul>
-
-<h2>Building</h2>
-<p>To build the source you can run the command in the project directory.</p>
-<pre>mvn clean install</pre>
-<p>After, a file with the name ddex-message-validator-api-1.0-SNAPSHOT-bin.zip will appear in 'target/' directory. Unzip the file and and you will see three folders bin, etc, repo. Within the bin folder you will also see start-api.sh and start-api.bat. In your command line you can start the API by typing the following below.</p>
-=======
 <p>The DDEX Message Validator is an API that provides methods to validate DDEX XML based messages against
 the set of active schema versions and profile schematrons.
 </p>
@@ -28,7 +12,6 @@ the set of active schema versions and profile schematrons.
 <p>To build the source execute the following maven targets:</p>
 <pre>mvn clean install</pre>
 <p>After execution a file with the name ddex-message-validator-api-1.0-SNAPSHOT-bin.zip will appear in 'target/' directory. Unzip the file and and you will see three folders bin, etc, repo. Within the bin folder you will also see start-api.sh and start-api.bat. In your command line you can start the API by typing the following below.</p>
->>>>>>> sme/rob-local
 <pre>start-api &lt;port&gt;</pre>
 <p>If a port is not specified the default port is 6060. The default profile has been set to "dev", this can be changed by setting spring.profiles.active environment variable.</p>
 <p>In cases where you are using IntelliJ or Eclipse you can also run it from within your IDE locally. </p>
@@ -58,7 +41,3 @@ the set of active schema versions and profile schematrons.
 <p>Schematron example</p>
 <pre>curl -X POST -F 'schematronVersion=1.4' -F 'profileVersion=AudioAlbum' -F 'ernFile=@location\xml\sme-album.xml'  localhost:6060/api/json/validateSchematron</pre>
 <p>Another way is to use our frontend (<a href="https://github.com/elibeta22/ddex-message-validator-client">DDEX XML Validator Client</a>) that we have created using <a href="https://facebook.github.io/react/">React</a> to access the api, which is a friendly UI for you to use.</p>
-<<<<<<< HEAD
-<img src="DDEX-XML-UI.png" alt="Mountain View" style="width:304px;height:228px;">
-=======
->>>>>>> sme/rob-local
