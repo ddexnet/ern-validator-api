@@ -47,7 +47,7 @@ public class ValidateController {
 
     @PostMapping(path = "/json/validate", produces = "application/json")
     public List<Map<String, Object>> validate(@RequestParam(value = "messageFile") MultipartFile file,
-                                              @RequestParam(value = "schemaVersionId") Optional<String> schemaVersion,
+                                              @RequestParam(value = "messageSchemaVersionId") Optional<String> schemaVersion,
                                               @RequestParam(value = "releaseProfileVersionId") Optional<String> profileVersion)
             throws ParserConfigurationException, IOException, XMLStreamException, TransformerException,
             SAXException, XPathExpressionException, ValidatorException {
