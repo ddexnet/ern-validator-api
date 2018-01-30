@@ -13,9 +13,7 @@ import java.util.Map;
 
 import javax.xml.namespace.NamespaceContext;
 import javax.xml.stream.XMLStreamException;
-import javax.xml.transform.Result;
 import javax.xml.transform.Transformer;
-import javax.xml.transform.TransformerConfigurationException;
 import javax.xml.transform.TransformerException;
 import javax.xml.transform.dom.DOMResult;
 import javax.xml.transform.sax.SAXSource;
@@ -33,8 +31,6 @@ import org.springframework.stereotype.Service;
 import org.w3c.dom.NodeList;
 import org.xml.sax.InputSource;
 
-import net.ddex.ern.exception.ValidatorException;
-
 /**
  * Created by rdewilde on 4/16/2017.
  */
@@ -44,68 +40,7 @@ public class SchematronService {
 
     private SAXTransformerFactory stf = new net.sf.saxon.TransformerFactoryImpl();
     private static final Logger LOGGER = LoggerFactory.getLogger(SchematronService.class);
-    private static String PROFILE_ROOT = "schematron/xslt/";
-
-    private FileInputStream loadSchematronXSLT(String profile) throws ValidatorException {
-        String xsltFilePath = PROFILE_ROOT + profile + ".xsl";
-        File f = new File(xsltFilePath);
-
-        try {
-            return new FileInputStream(f);
-        } catch (FileNotFoundException e) {
-            throw new ValidatorException(String.format("Profile %s could not be loaded", profile), e);
-        }
-
-    }
-
-    private void transform(InputStream xslt, InputStream ern, Result result) throws ValidatorException {
-        SAXSource saxSource = new SAXSource(new InputSource(ern));
-        try {
-            Transformer transformer = stf.newTransformer(new StreamSource(xslt));
-            transformer.transform(saxSource, result);
-        } catch (TransformerConfigurationException e) {
-            throw new ValidatorException(e.getMessage(), e);
-        } catch (TransformerException e) {
-            throw new ValidatorException(e.getMessage(), e);
-        }
-
-    }
-
-    public List<Map<String, String>> validate2Map(InputStream ern, String profile) throws ValidatorException {
-        FileInputStream xslt = loadSchematronXSLT(profile);
-        DOMResult result = new DOMResult();
-
-        transform(xslt, ern, result);
-
-        XPathFactory xPathfactory = XPathFactory.newInstance();
-        XPath xpath = xPathfactory.newXPath();
-
-        xpath.setNamespaceContext(getNamespaceContext());
-
-        List<Map<String, String>> data = new ArrayList<>();
-
-        try {
-            XPathExpression expr = xpath.compile("/svrl:schematron-output/svrl:failed-assert");
-            NodeList nl = (NodeList) expr.evaluate(result.getNode(), XPathConstants.NODESET);
-
-            for (int i = 0; i < nl.getLength(); i++) {
-                String role = String.format("/svrl:schematron-output/svrl:failed-assert[%d]/@role", i + 1);
-                String msg = String.format("/svrl:schematron-output/svrl:failed-assert[%d]/svrl:text", i + 1);
-                XPathExpression exprMsg = xpath.compile(msg);
-                XPathExpression exprRole = xpath.compile(role);
-
-                Map<String, String> failure = new HashMap<>();
-                failure.put("role", exprRole.evaluate(result.getNode()));
-                failure.put("msg", exprMsg.evaluate(result.getNode()));
-                data.add(failure);
-            }
-        } catch (XPathExpressionException e) {
-            e.printStackTrace();
-            throw new ValidatorException(e.getMessage(), e);
-        }
-
-        return data;
-    }
+    private static String PROFILE_ROOT = "profiles/";
 
     public List<Map<String, String>> schematron2Map(InputStream is, String profileVersion)
             throws XMLStreamException, IOException, TransformerException, XPathExpressionException {
