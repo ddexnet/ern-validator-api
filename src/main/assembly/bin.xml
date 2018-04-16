@@ -16,8 +16,6 @@
                     ${project.basedir}/xml/**
                 </exclude>
                 <exclude>
-<<<<<<< HEAD
-=======
                     ${project.basedir}/.classpath
                 </exclude>
                 <exclude>
@@ -30,7 +28,6 @@
                     ${project.basedir}/application.log*
                 </exclude>
                 <exclude>
->>>>>>> sme/rob-local
                     ${project.basedir}/src/**
                 </exclude>
                 <exclude>
@@ -48,10 +45,6 @@
             </excludes>
             <outputDirectory>bin</outputDirectory>
         </fileSet>
-<<<<<<< HEAD
-
-=======
->>>>>>> sme/rob-local
         <fileSet>
             <directory>target/appassembler/repo</directory>
             <outputDirectory>repo</outputDirectory>
