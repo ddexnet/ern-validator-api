@@ -15,6 +15,8 @@ the set of active schema versions and profile schematrons.
 <pre>start-api &lt;port&gt;</pre>
 <p>If a port is not specified the default port is 6060. The default profile has been set to "dev", this can be changed by setting spring.profiles.active environment variable.</p>
 <p>In cases where you are using IntelliJ or Eclipse you can also run it from within your IDE locally. </p>
+<p>Try the below URL in your browser to see if the service is running. </p>
+<pre>localhost:6060/api/status</pre>
 
 <h2>Working with the code</h2>
 <p>If you don't have a personal IDE preference we recommend you use IntelliJ when working with the code. We use the maven <a href="http://maven.apache.org/plugins/maven-assembly-plugin/">assembly</a> and
@@ -37,7 +39,5 @@ the set of active schema versions and profile schematrons.
 </ul>
 <p>You can use <a href="https://curl.haxx.se/">cURL</a> command line tool to use the API to validate your XML documents.</p>
 <p>Schema (XSD) example</p>
-<pre>curl -X POST -F 'schemaVersion=3.4.1' -F 'ernFile=@location\xml\sme-album.xml' localhost:6060/api/json/validateSchema</pre>
-<p>Schematron example</p>
-<pre>curl -X POST -F 'schematronVersion=1.4' -F 'profileVersion=AudioAlbum' -F 'ernFile=@location\xml\sme-album.xml'  localhost:6060/api/json/validateSchematron</pre>
-<p>Another way is to use our frontend (<a href="https://github.com/elibeta22/ddex-message-validator-client">DDEX XML Validator Client</a>) that we have created using <a href="https://facebook.github.io/react/">React</a> to access the api, which is a friendly UI for you to use.</p>
+<pre>curl -X POST -F 'messageSchemaVersionId=ern/341' -F 'messageFile=@location\xml\sme-album.xml' -F 'releaseProfileVersionId=commonreleasetypes/14/AudioAlbumMusicOnly' localhost:6060/api/json/validate</pre>
+

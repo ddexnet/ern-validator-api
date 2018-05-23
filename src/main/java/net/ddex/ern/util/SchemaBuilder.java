@@ -13,8 +13,6 @@ import javax.xml.validation.SchemaFactory;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.core.env.Environment;
 import org.springframework.stereotype.Component;
 import org.xml.sax.SAXException;
 
@@ -27,9 +25,6 @@ public class SchemaBuilder {
     private static final String FILE_PATH_PREFIX = "schema/";
     private ConcurrentHashMap<String, Schema> schemaMap = new ConcurrentHashMap<>();
     private SchemaFactory factory = SchemaFactory.newInstance(XMLConstants.W3C_XML_SCHEMA_NS_URI);
-
-    @Autowired
-    private Environment env;
 
     // what happens when schema directory is empty
     public Schema getSchema(String schemaVersion) throws ValidatorException {
