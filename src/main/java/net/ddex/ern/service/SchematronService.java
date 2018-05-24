@@ -1,8 +1,5 @@
 package net.ddex.ern.service;
 
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
@@ -40,16 +37,14 @@ public class SchematronService {
 
     private SAXTransformerFactory stf = new net.sf.saxon.TransformerFactoryImpl();
     private static final Logger LOGGER = LoggerFactory.getLogger(SchematronService.class);
-    private static String PROFILE_ROOT = "profiles/";
 
     public List<Map<String, String>> schematron2Map(InputStream is, String profileVersion)
             throws XMLStreamException, IOException, TransformerException, XPathExpressionException {
 
-        String XSLT_FILE = (PROFILE_ROOT + "/" + profileVersion + ".xsl");
         SAXSource saxSource = new SAXSource(new InputSource(is));
         DOMResult result = new DOMResult();
         //SAXTransformerFactory stf = new net.sf.saxon.TransformerFactoryImpl();
-        Transformer transformer = stf.newTransformer(new StreamSource(XSLT_FILE));
+        Transformer transformer = stf.newTransformer(new StreamSource(profileVersion));
         transformer.transform(saxSource, result);
         XPathFactory xPathfactory = XPathFactory.newInstance();
         XPath xpath = xPathfactory.newXPath();
@@ -93,7 +88,7 @@ public class SchematronService {
             }
 
             @Override
-            public Iterator<?> getPrefixes(String namespaceURI) {
+            public Iterator<String> getPrefixes(String namespaceURI) {
                 return null; // not used
             }
         };
