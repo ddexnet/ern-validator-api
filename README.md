@@ -32,7 +32,7 @@ the set of active schema versions and profile schematrons.
 <p>The API uses <a href="https://docs.spring.io/spring/docs/current/spring-framework-reference/html/mvc.html">Spring-WebMVC</a> framework which provides a Model-View-Controller architecture. Having a MVC structure in our application allows for the input logic, business logic, and UI logic to be seperated but still have the flexible ability to loosely couple these elements together.</p>
 <p>As an alternative to creating a stand-alone bundled WAR app we have incorporated <a href="http://www.eclipse.org/jetty/documentation/9.4.x/embedding-jetty.html">Embedded Jetty</a> as our application instantiator. By doing this you're able to instantiate Jetty within your Java program.</p>
 
-<h4>Ways to use API</h4>
+<h4>Ways to use API.</h4>
 <ul>
   <li>Curl</li>
   <li>DDEX XML Validator React Client</li>
