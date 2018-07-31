@@ -70,7 +70,7 @@ public class SchemaService {
             else if (schemaVersion.isEmpty()) {
                 LOGGER.error("Schema Version not found in request or XML.");
                 throw new ValidatorException("MANDATORY_PARAMS_NOT_FOUND",
-                        "Error occurred while validating XML. Schema Version not found in request or XML.");
+                        "Error occurred while validating XML. Message Schema Version not found in request or XML.");
             }
 
             if (profile.isEmpty() && !"".equals(schemaProfile.getValue()))
@@ -78,7 +78,7 @@ public class SchemaService {
             else if (profile.isEmpty()) {
                 LOGGER.error("Profile not found in request or XML.");
                 throw new ValidatorException("MANDATORY_PARAMS_NOT_FOUND",
-                        "Error occurred while validating XML. Profile not found in request or XML.");
+                        "Error occurred while validating XML. Release Profile Version not found in request or XML.");
             }
         }
         LOGGER.info("schemaVersion: {}, profile: {}", schemaVersion, profile);

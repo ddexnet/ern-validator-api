@@ -15,6 +15,7 @@ import javax.xml.xpath.XPathExpressionException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -41,6 +42,9 @@ public class ValidateController {
     @Autowired
     private SchematronService schematronService;
 
+    @Value("${max.input.file.size.kb}")
+    private Long maxInputFileSizeinKb;
+
     @GetMapping(path = "/status", produces = "text/plain")
     public String test() {
         return "The service is running";
@@ -53,6 +57,10 @@ public class ValidateController {
             throws ParserConfigurationException, IOException, XMLStreamException, TransformerException,
             SAXException, XPathExpressionException, ValidatorException {
 
+        LOGGER.info("file size is : {}", file.getSize()/1000);
+        if(file.getSize()/1000 > maxInputFileSizeinKb) {
+            throw new ValidatorException("MAX_FILE_SIZE_LIMIT_FAILED", "Input File Size cannot be greater than 15000 KB");
+        }
         List<Map<String, Object>> list = new ArrayList<>(2);
         Map<String, Object> map = new HashMap<>(2);
 
