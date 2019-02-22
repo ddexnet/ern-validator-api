@@ -28,6 +28,8 @@ import org.springframework.stereotype.Service;
 import org.w3c.dom.NodeList;
 import org.xml.sax.InputSource;
 
+import net.ddex.ern.exception.ValidatorException;
+
 /**
  * Created by rdewilde on 4/16/2017.
  */
@@ -38,14 +40,20 @@ public class SchematronService {
     private SAXTransformerFactory stf = new net.sf.saxon.TransformerFactoryImpl();
     private static final Logger LOGGER = LoggerFactory.getLogger(SchematronService.class);
 
-    public List<Map<String, String>> schematron2Map(InputStream is, String profileVersion)
-            throws XMLStreamException, IOException, TransformerException, XPathExpressionException {
+    public List<Map<String, String>> schematron2Map(InputStream is, String profileVersion, String schemaVersion)
+            throws XMLStreamException, IOException, TransformerException, XPathExpressionException, ValidatorException {
 
         SAXSource saxSource = new SAXSource(new InputSource(is));
         DOMResult result = new DOMResult();
         //SAXTransformerFactory stf = new net.sf.saxon.TransformerFactoryImpl();
-        Transformer transformer = stf.newTransformer(new StreamSource(profileVersion));
-        transformer.transform(saxSource, result);
+        try {
+        	Transformer transformer = stf.newTransformer(new StreamSource(profileVersion));
+        	transformer.transform(saxSource, result);
+        } catch(TransformerException ex) {
+        	LOGGER.error("Exception: {}", ex.getMessage());
+        	String releaseProfile = profileVersion.substring(profileVersion.lastIndexOf("/") + 1, profileVersion.lastIndexOf("."));
+        	throw new ValidatorException(String.format("%s%s%s%s","Error while validating Schematron. Release profile ", releaseProfile, " does not exist for schema version ", schemaVersion), ex);
+        }
         XPathFactory xPathfactory = XPathFactory.newInstance();
         XPath xpath = xPathfactory.newXPath();
 
