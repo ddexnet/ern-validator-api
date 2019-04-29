@@ -1,6 +1,7 @@
 package net.ddex.ern.controller;
 
 import java.io.IOException;
+import java.util.AbstractMap;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -24,7 +25,6 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 import org.xml.sax.SAXException;
 
-import javafx.util.Pair;
 import net.ddex.ern.exception.ValidatorException;
 import net.ddex.ern.service.SchemaService;
 import net.ddex.ern.service.SchematronService;
@@ -76,7 +76,7 @@ public class ValidateController {
         String version = _schemaVersion.equalsIgnoreCase("ern/371") ? "13/" : _schemaVersion.equalsIgnoreCase("ern/382") ? "14/" : _schemaVersion.equalsIgnoreCase("ern/41") ? "21/" : "none";
         String releaseProfile = null;
         try {
-            Pair<String, String> spec = schemaService.validateSchema(file.getInputStream(), _schemaVersion, _profileVersion);
+        	AbstractMap.SimpleEntry<String, String> spec = schemaService.validateSchema(file.getInputStream(), _schemaVersion, _profileVersion);
             map.put("schema", "Message validates against schema version " + spec.getKey());
             _schemaVersion = _schemaVersion.isEmpty() ? spec.getKey() : _schemaVersion;
             releaseProfile = _profileVersion.isEmpty() ? String.format("%s%s", spec.getValue(), ".xsl") : String.format("%s%s%s%s", PROFILE_ROOT, version, _profileVersion, ".xsl");
