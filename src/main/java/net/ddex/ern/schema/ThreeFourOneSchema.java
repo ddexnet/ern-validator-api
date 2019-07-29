@@ -1,10 +1,7 @@
 package net.ddex.ern.schema;
 
-import net.ddex.ern.exception.ValidatorException;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-import org.w3c.dom.Document;
-import org.xml.sax.SAXException;
+import java.io.File;
+import java.io.IOException;
 
 import javax.xml.XMLConstants;
 import javax.xml.transform.Result;
@@ -13,8 +10,13 @@ import javax.xml.transform.dom.DOMSource;
 import javax.xml.transform.stream.StreamSource;
 import javax.xml.validation.SchemaFactory;
 import javax.xml.validation.Validator;
-import java.io.File;
-import java.io.IOException;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.w3c.dom.Document;
+import org.xml.sax.SAXException;
+
+import net.ddex.ern.exception.ValidatorException;
 
 /**
  * Electronic Release Notification 3.4.1
