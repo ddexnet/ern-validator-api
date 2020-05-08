@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xs:schema xmlns:ern="http://ddex.net/xml/ern/41" xmlns:avs="http://ddex.net/xml/avs/avs"
+<xs:schema xmlns:ern="http://ddex.net/xml/ern/411" xmlns:avs="http://ddex.net/xml/avs/avs"
    xmlns:ds="http://www.w3.org/2000/09/xmldsig#" xmlns:xs="http://www.w3.org/2001/XMLSchema"
-   targetNamespace="http://ddex.net/xml/ern/41" elementFormDefault="unqualified"
+   targetNamespace="http://ddex.net/xml/ern/411" elementFormDefault="unqualified"
    attributeFormDefault="unqualified">
    <xs:import namespace="http://ddex.net/xml/avs/avs"
-      schemaLocation="avs4.xsd"/>
+      schemaLocation="avs411.xsd"/>
    <xs:annotation>
-      <xs:documentation>© 2006-2018 Digital Data Exchange, LLC (DDEX)</xs:documentation>
+      <xs:documentation>© 2006-2019 Digital Data Exchange, LLC (DDEX)</xs:documentation>
       <xs:documentation>This XML Schema Definition file is, together with all DDEX standards, subject to two licences: If you wish to evaluate whether the standard meets your needs please have a look at the Evaluation Licence at https://kb.ddex.net/display/HBK/Evaluation+Licence+for+DDEX+Standards. If you want to implement and use this DDEX standard, please take out an Implementation Licence. For details please go to http://ddex.net/apply-ddex-implementation-licence.</xs:documentation>
    </xs:annotation>
    <xs:element name="NewReleaseMessage">
@@ -401,6 +401,11 @@
                <xs:documentation source="ddex:Definition">A Flag indicating whether the Party is an Artist that has a contract for its part in creating the Resource (=true) or not (=false).</xs:documentation>
             </xs:annotation>
          </xs:element>
+         <xs:element name="IsCredited" minOccurs="0" type="ern:IsCredited">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">A Flag indicating whether the Contributor is credited as having played a role in creating the Recording (=true) or not (=false).</xs:documentation>
+            </xs:annotation>
+         </xs:element>
          <xs:element name="DisplayCredits" minOccurs="0" maxOccurs="unbounded"
             type="ern:DisplayCredits">
             <xs:annotation>
@@ -565,7 +570,7 @@
          </xs:choice>
          <xs:element name="ValidityPeriod" maxOccurs="unbounded" type="ern:PeriodWithoutFlags">
             <xs:annotation>
-               <xs:documentation source="ddex:Definition">A Composite containing details about a Period of Time during which the Deal is valid. No StartDate in this Composite means that the Deal is valid as per contractual relationship between MessageSender and MessageRecipient. No EndDate in this Composite means that the Deal is valid until further notice.</xs:documentation>
+               <xs:documentation source="ddex:Definition">A Composite containing details about a Period of Time during which the Deal is valid. No StartDate in this Composite means that the Deal is valid as per contractual relationship between MessageSender and MessageRecipient. No EndDate in this Composite means that the Deal is valid until further notice. StartDate and EndDate are deprecated and StartDateTime/EndDateTime should be used instead. DDEX advises that StartDate and EndDate may be removed at a future date and therefore recommends against using them.</xs:documentation>
             </xs:annotation>
          </xs:element>
          <xs:element name="CommercialModelType" minOccurs="0" maxOccurs="unbounded"
@@ -639,46 +644,46 @@
          </xs:element>
          <xs:choice minOccurs="0">
             <xs:sequence>
-               <xs:element name="ReleaseDisplayStartDate" type="ern:ddex_IsoDate">
+               <xs:element name="ReleaseDisplayStartDate" minOccurs="0" type="ern:ddex_IsoDate">
                   <xs:annotation>
-                     <xs:documentation source="ddex:Definition">A Date on which the Release is made first available for display. If other Track list, cover art and clip preview dates are not provided, then this date covers them as well (assuming clips are available). If no ReleaseDisplayStartDate is provided, the StartDate for the Deal is used instead. The ReleaseDisplayStartDate may not be later than the StartDate for the Deal. If the MessageRecipient is not able to cater for such granular display policies, the MessageRecipient may be forced to not display any Release information until a much later date. This is a string with the syntax YYYY[-MM[-DD]].</xs:documentation>
+                     <xs:documentation source="ddex:Definition">A Date on which the Release is made first available for display. If no ReleaseDisplayStartDate is provided, the StartDate for the Deal is used instead. The ReleaseDisplayStartDate may not be later than the StartDate for the Deal. If the MessageRecipient is not able to cater for such granular display policies, the MessageRecipient may be forced to not display any Release information until a much later date. This is a string with the syntax YYYY[-MM[-DD]]. ReleaseDisplayStartDate is deprecated and ReleaseDisplayStartDateTime should be used instead. DDEX advises that ReleaseDisplayStartDate may be removed at a future date and therefore recommends against using it.</xs:documentation>
                   </xs:annotation>
                </xs:element>
-               <xs:element name="TrackListingPreviewStartDate" type="ern:ddex_IsoDate">
+               <xs:element name="TrackListingPreviewStartDate" minOccurs="0" type="ern:ddex_IsoDate">
                   <xs:annotation>
-                     <xs:documentation source="ddex:Definition">A Date on which the Track list is made first available for display (it overrides the generic ReleaseDisplayStartDate if supplied). If no TrackListingPreviewStartDate is provided, the StartDate for the Deal is used instead. The TrackListingPreviewStartDate shall not be later than the StartDate of the Deal allowing the general availability of the referenced Release. This element is not applicable on Track Releases. This is a string with the syntax YYYY[-MM[-DD]].</xs:documentation>
+                     <xs:documentation source="ddex:Definition">A Date on which the Track list is made first available for display (it overrides the generic ReleaseDisplayStartDate if supplied). If no TrackListingPreviewStartDate is provided, the StartDate for the Deal is used instead. The TrackListingPreviewStartDate shall not be later than the StartDate of the Deal allowing the general availability of the referenced Release. This element is not applicable on Track Releases. This is a string with the syntax YYYY[-MM[-DD]]. TrackListingPreviewStartDate is deprecated and TrackListingPreviewStartDateTime should be used instead. DDEX advises that TrackListingPreviewStartDate may be removed at a future date and therefore recommends against using it.</xs:documentation>
                   </xs:annotation>
                </xs:element>
-               <xs:element name="CoverArtPreviewStartDate" type="ern:ddex_IsoDate">
+               <xs:element name="CoverArtPreviewStartDate" minOccurs="0" type="ern:ddex_IsoDate">
                   <xs:annotation>
-                     <xs:documentation source="ddex:Definition">A Date on which the cover art is made first available for display (it overrides the generic ReleaseDisplayStartDate if supplied). If no CoverArtPreviewStartDate is provided, the StartDate for the Deal is used instead. The CoverArtPreviewStartDate shall not be later than the StartDate of the Deal allowing the general availability of the referenced Release. This is a string with the syntax YYYY[-MM[-DD]].</xs:documentation>
+                     <xs:documentation source="ddex:Definition">A Date on which the cover art is made first available for display (it overrides the generic ReleaseDisplayStartDate if supplied). If no CoverArtPreviewStartDate is provided, the StartDate for the Deal is used instead. The CoverArtPreviewStartDate shall not be later than the StartDate of the Deal allowing the general availability of the referenced Release. This is a string with the syntax YYYY[-MM[-DD]]. CoverArtPreviewStartDate is deprecated and CoverArtPreviewStartDateTime should be used instead. DDEX advises that CoverArtPreviewStartDate may be removed at a future date and therefore recommends against using it.</xs:documentation>
                   </xs:annotation>
                </xs:element>
-               <xs:element name="ClipPreviewStartDate" type="ern:ddex_IsoDate">
+               <xs:element name="ClipPreviewStartDate" minOccurs="0" type="ern:ddex_IsoDate">
                   <xs:annotation>
-                     <xs:documentation source="ddex:Definition">A Date on which an audio or video clip is made first available for display (it overrides the generic ReleaseDisplayStartDate if supplied). If no ClipPreviewStartDate is provided, the StartDate for the Deal is used instead. The ClipPreviewStartDate may not be later than the StartDate for the Deal. The ClipPrevicePreviewStartDate shall not be later than the StartDate of the Deal allowing the general availability of the referenced Release. This is a string with the syntax YYYY[-MM[-DD]].</xs:documentation>
+                     <xs:documentation source="ddex:Definition">A Date on which an audio or video clip is made first available for display (it overrides the generic ReleaseDisplayStartDate if supplied). If no ClipPreviewStartDate is provided, the StartDate for the Deal is used instead. The ClipPreviewStartDate may not be later than the StartDate for the Deal. The ClipPrevicePreviewStartDate shall not be later than the StartDate of the Deal allowing the general availability of the referenced Release. This is a string with the syntax YYYY[-MM[-DD]]. ClipPreviewStartDate is deprecated and ClipPreviewStartDateTime should be used instead. DDEX advises that ClipPreviewStartDate may be removed at a future date and therefore recommends against using it.</xs:documentation>
                   </xs:annotation>
                </xs:element>
             </xs:sequence>
             <xs:sequence>
-               <xs:element name="ReleaseDisplayStartDateTime" type="xs:dateTime">
+               <xs:element name="ReleaseDisplayStartDateTime" minOccurs="0" type="xs:dateTime">
                   <xs:annotation>
-                     <xs:documentation source="ddex:Definition">A DateTime on which the Release is made first available for display. If other Track list, cover art and clip preview dates are not provided, then this date covers them as well (assuming clips are available). If no ReleaseDisplayStartDateTime is provided, the StartDate for the Deal is used instead. The ReleaseDisplayStartDateTime may not be later than the StartDate for the Deal. If the MessageRecipient is not able to cater for such granular display policies, the MessageRecipient may be forced to not display any Release information until a much later date. This is a string in ISO 8601:2004 format: YYYY-DD-MMThh:mm:ss.</xs:documentation>
+                     <xs:documentation source="ddex:Definition">A DateTime on which the Release is made first available for display. If no ReleaseDisplayStartDateTime is provided, the StartDate for the Deal is used instead. The ReleaseDisplayStartDateTime may not be later than the StartDate for the Deal. If the MessageRecipient is not able to cater for such granular display policies, the MessageRecipient may be forced to not display any Release information until a much later date. This is a string in ISO 8601:2004 format: YYYY-MM-DDThh:mm:ss.</xs:documentation>
                   </xs:annotation>
                </xs:element>
-               <xs:element name="TrackListingPreviewStartDateTime" type="xs:dateTime">
+               <xs:element name="TrackListingPreviewStartDateTime" minOccurs="0" type="xs:dateTime">
                   <xs:annotation>
-                     <xs:documentation source="ddex:Definition">A DateTime on which the Track list is made first available for display (it overrides the generic ReleaseDisplayStartDate if supplied). If no TrackListingPreviewStartDateTime is provided, the StartDate for the Deal is used instead. The TrackListingPreviewStartDateTime shall not be later than the StartDate of the Deal allowing the general availability of the referenced Release. This element is not applicable on Track Releases. This is a string in ISO 8601:2004 format: YYYY-DD-MMThh:mm:ss.</xs:documentation>
+                     <xs:documentation source="ddex:Definition">A DateTime on which the Track list is made first available for display (it overrides the generic ReleaseDisplayStartDate if supplied). If no TrackListingPreviewStartDateTime is provided, the StartDate for the Deal is used instead. The TrackListingPreviewStartDateTime shall not be later than the StartDate of the Deal allowing the general availability of the referenced Release. This element is not applicable on Track Releases. This is a string in ISO 8601:2004 format: YYYY-MM-DDThh:mm:ss.</xs:documentation>
                   </xs:annotation>
                </xs:element>
-               <xs:element name="CoverArtPreviewStartDateTime" type="xs:dateTime">
+               <xs:element name="CoverArtPreviewStartDateTime" minOccurs="0" type="xs:dateTime">
                   <xs:annotation>
-                     <xs:documentation source="ddex:Definition">A DateTime on which the cover art is made first available for display (it overrides the generic ReleaseDisplayStartDate if supplied). If no CoverArtPreviewStartDateTime is provided, the StartDate for the Deal is used instead. The CoverArtPreviewStartDateTime shall not be later than the StartDate of the Deal allowing the general availability of the referenced Release. This is a string in ISO 8601:2004 format: YYYY-DD-MMThh:mm:ss.</xs:documentation>
+                     <xs:documentation source="ddex:Definition">A DateTime on which the cover art is made first available for display (it overrides the generic ReleaseDisplayStartDate if supplied). If no CoverArtPreviewStartDateTime is provided, the StartDate for the Deal is used instead. The CoverArtPreviewStartDateTime shall not be later than the StartDate of the Deal allowing the general availability of the referenced Release. This is a string in ISO 8601:2004 format: YYYY-MM-DDThh:mm:ss.</xs:documentation>
                   </xs:annotation>
                </xs:element>
-               <xs:element name="ClipPreviewStartDateTime" type="xs:dateTime">
+               <xs:element name="ClipPreviewStartDateTime" minOccurs="0" type="xs:dateTime">
                   <xs:annotation>
-                     <xs:documentation source="ddex:Definition">A DateTime on which an audio or video clip is made first available for display (it overrides the generic ReleaseDisplayStartDate if supplied). If no ClipPreviewStartDateTime is provided, the StartDate for the Deal is used instead. The ClipPreviewStartDateTime ClipPrevicePreviewStartDate shall not be later than the StartDate of the Deal allowing the general availability of the referenced Release. This is a string in ISO 8601:2004 format: YYYY-DD-MMThh:mm:ss.</xs:documentation>
+                     <xs:documentation source="ddex:Definition">A DateTime on which an audio or video clip is made first available for display (it overrides the generic ReleaseDisplayStartDate if supplied). If no ClipPreviewStartDateTime is provided, the StartDate for the Deal is used instead. The ClipPreviewStartDateTime ClipPrevicePreviewStartDate shall not be later than the StartDate of the Deal allowing the general availability of the referenced Release. This is a string in ISO 8601:2004 format: YYYY-MM-DDThh:mm:ss.</xs:documentation>
                   </xs:annotation>
                </xs:element>
             </xs:sequence>
@@ -1061,7 +1066,7 @@
          <xs:documentation source="ddex:Definition">A Composite containing details of a SubTitle.</xs:documentation>
       </xs:annotation>
       <xs:simpleContent>
-         <xs:extension base="ern:ddex_SubTitle">
+         <xs:extension base="xs:string">
             <xs:attribute name="SequenceNumber" type="xs:integer">
                <xs:annotation>
                   <xs:documentation source="ddex:Definition">The number indicating the order of the SubTitle in a group of SubTitles. This is represented in an XML schema as an XML Attribute. </xs:documentation>
@@ -1257,7 +1262,7 @@
          </xs:element>
          <xs:element name="ValidityPeriod" minOccurs="0" type="ern:PeriodWithoutFlags">
             <xs:annotation>
-               <xs:documentation source="ddex:Definition">A Composite containing details about the Period of Time during which the ExternalResourceLink is active.</xs:documentation>
+               <xs:documentation source="ddex:Definition">A Composite containing details about the Period of Time during which the ExternalResourceLink is active. StartDate and EndDate are deprecated and StartDateTime/EndDateTime should be used instead. DDEX advises that StartDate and EndDate may be removed at a future date and therefore recommends against using them.</xs:documentation>
             </xs:annotation>
          </xs:element>
          <xs:element name="ExternalLink" minOccurs="0" type="xs:string">
@@ -1446,18 +1451,6 @@
                <xs:documentation source="ddex:Definition">A Composite containing a Description of the subject of the Image.</xs:documentation>
             </xs:annotation>
          </xs:element>
-         <xs:element name="Keywords" minOccurs="0" maxOccurs="unbounded"
-            type="ern:KeywordsWithTerritory">
-            <xs:annotation>
-               <xs:documentation source="ddex:Definition">A Composite containing details of a Description of the Image containing Keywords.</xs:documentation>
-            </xs:annotation>
-         </xs:element>
-         <xs:element name="Synopsis" minOccurs="0" maxOccurs="unbounded"
-            type="ern:SynopsisWithTerritory">
-            <xs:annotation>
-               <xs:documentation source="ddex:Definition">A Composite containing details of a Synopsis of the Image.</xs:documentation>
-            </xs:annotation>
-         </xs:element>
          <xs:element name="TechnicalDetails" minOccurs="0" maxOccurs="unbounded"
             type="ern:TechnicalImageDetails">
             <xs:annotation>
@@ -1475,6 +1468,20 @@
             <xs:documentation source="ddex:Definition">The Flag indicating whether the Image is provided in a addition to the Resources that form part of the Release (=true) or not (=false). If the flag is set to false (or absent) the Image is part of at least one Release in the message. This is represented in an XML schema as an XML Attribute.</xs:documentation>
          </xs:annotation>
       </xs:attribute>
+   </xs:complexType>
+   <xs:complexType name="IsCredited">
+      <xs:annotation>
+         <xs:documentation source="ddex:Definition">A Composite containing details of a Flag indicating whether the Contributor is credited as having played a role in creating the Recording.</xs:documentation>
+      </xs:annotation>
+      <xs:simpleContent>
+         <xs:extension base="xs:boolean">
+            <xs:attribute name="MayBeShared" type="xs:boolean">
+               <xs:annotation>
+                  <xs:documentation source="ddex:Definition">A Flag indicating whether this information may be shared (=true) or not (=false). If the Flag is not present, the Contributor may be credited.</xs:documentation>
+               </xs:annotation>
+            </xs:attribute>
+         </xs:extension>
+      </xs:simpleContent>
    </xs:complexType>
    <xs:complexType name="Party">
       <xs:annotation>
@@ -1518,7 +1525,7 @@
          </xs:element>
          <xs:element name="RelatedParty" minOccurs="0" maxOccurs="unbounded" type="ern:RelatedParty">
             <xs:annotation>
-               <xs:documentation source="ddex:Definition">A Composite containing details of a PartyRelatedPartyReference referring to a Party that is related to the current Party.</xs:documentation>
+               <xs:documentation source="ddex:Definition">A Composite containing details of a PartyRelatedPartyReference referring to a Party that is related to the current Party. This can be used to express, for instance, relationships between a band and its members or between a label and its parent company.</xs:documentation>
             </xs:annotation>
          </xs:element>
          <xs:element name="ArtistProfilePage" minOccurs="0" maxOccurs="unbounded" type="xs:string">
@@ -1615,24 +1622,24 @@
          <xs:sequence>
             <xs:element name="StartDate" minOccurs="0" type="ern:EventDateWithoutFlags">
                <xs:annotation>
-                  <xs:documentation source="ddex:Definition">A Composite containing details of the Date and Place of an Event that marks the beginning of the Period (in ISO 8601:2004 format: YYYY-MM-DD). The StartDate must be no later than the EndDate if both are provided.</xs:documentation>
+                  <xs:documentation source="ddex:Definition">A Composite containing details of the Date and Place of an Event that marks the beginning of the Period (in ISO 8601:2004 format: YYYY-MM-DD). The StartDate must be no later than the EndDate if both are provided. StartDate and EndDate are deprecated and StartDateTime/EndDateTime should be used instead. DDEX advises that StartDate and EndDate may be removed at a future date and therefore recommends against using them.</xs:documentation>
                </xs:annotation>
             </xs:element>
             <xs:element name="EndDate" minOccurs="0" type="ern:EventDateWithoutFlags">
                <xs:annotation>
-                  <xs:documentation source="ddex:Definition">A Composite containing details of the Date and Place of an Event that marks the end of the Period (in ISO 8601:2004 format: YYYY-MM-DD). The EndDate must not be earlier than the StartDate if both are provided.</xs:documentation>
+                  <xs:documentation source="ddex:Definition">A Composite containing details of the Date and Place of an Event that marks the end of the Period (in ISO 8601:2004 format: YYYY-MM-DD). The EndDate must not be earlier than the StartDate if both are provided. StartDate and EndDate are deprecated and StartDateTime/EndDateTime should be used instead. DDEX advises that StartDate and EndDate may be removed at a future date and therefore recommends against using them.</xs:documentation>
                </xs:annotation>
             </xs:element>
          </xs:sequence>
          <xs:sequence>
             <xs:element name="StartDateTime" minOccurs="0" type="ern:EventDateTimeWithoutFlags">
                <xs:annotation>
-                  <xs:documentation source="ddex:Definition">A Composite containing details of the DateTime and Place of an Event that marks the beginning of the Period (in ISO 8601:2004 format: YYYY-DD-MMThh:mm:ss). The StartDateTime must be no later than the EndDateTime if both are provided.</xs:documentation>
+                  <xs:documentation source="ddex:Definition">A Composite containing details of the DateTime and Place of an Event that marks the beginning of the Period (in ISO 8601:2004 format: YYYY-MM-DDThh:mm:ss). The StartDateTime must be no later than the EndDateTime if both are provided.</xs:documentation>
                </xs:annotation>
             </xs:element>
             <xs:element name="EndDateTime" minOccurs="0" type="ern:EventDateTimeWithoutFlags">
                <xs:annotation>
-                  <xs:documentation source="ddex:Definition">A Composite containing details of the DateTime and Place of an Event that marks the end of the Period (in ISO 8601:2004 format: YYYY-DD-MMThh:mm:ss). The EndDateTime must not be earlier than the StartDateTime if both are provided.</xs:documentation>
+                  <xs:documentation source="ddex:Definition">A Composite containing details of the DateTime and Place of an Event that marks the end of the Period (in ISO 8601:2004 format: YYYY-MM-DDThh:mm:ss). The EndDateTime must not be earlier than the StartDateTime if both are provided.</xs:documentation>
                </xs:annotation>
             </xs:element>
          </xs:sequence>
@@ -2317,26 +2324,16 @@
          <xs:documentation source="ddex:Definition">A Composite containing details of a RightsController for a Resource. RightsControllers are typically described by Name, Identifier and Role(s).</xs:documentation>
       </xs:annotation>
       <xs:sequence>
-         <xs:choice>
-            <xs:element name="PartyId" maxOccurs="unbounded" type="ern:DetailedPartyId">
-               <xs:annotation>
-                  <xs:documentation source="ddex:Definition">A Composite containing details of the PartyId for the Party. If no Namespace is given, the Identifier is a DdexPartyId (DPID). Note that DPIDs are not normally used to identify Artists, producers or other Creators.</xs:documentation>
-               </xs:annotation>
-            </xs:element>
-            <xs:sequence>
-               <xs:element name="PartyName" maxOccurs="unbounded" type="ern:PartyName">
-                  <xs:annotation>
-                     <xs:documentation source="ddex:Definition">A Composite containing details of the PartyName(s).</xs:documentation>
-                  </xs:annotation>
-               </xs:element>
-               <xs:element name="PartyId" minOccurs="0" maxOccurs="unbounded"
-                  type="ern:DetailedPartyId">
-                  <xs:annotation>
-                     <xs:documentation source="ddex:Definition">A Composite containing details of the PartyId for the Party. If no Namespace is given, the Identifier is a DdexPartyId (DPID). Note that DPIDs are not normally used to identify Artists, producers or other Creators.</xs:documentation>
-                  </xs:annotation>
-               </xs:element>
-            </xs:sequence>
-         </xs:choice>
+         <xs:element name="RightsControllerPartyReference">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">A Reference for a Party (specific to this Message). This is a LocalPartyAnchorReference starting with the letter P.</xs:documentation>
+            </xs:annotation>
+            <xs:simpleType>
+               <xs:restriction base="xs:IDREF">
+                  <xs:pattern value="P[\d\-_a-zA-Z]+"/>
+               </xs:restriction>
+            </xs:simpleType>
+         </xs:element>
          <xs:element name="RightsControllerRole" minOccurs="0" maxOccurs="unbounded"
             type="avs:RightsControllerRole">
             <xs:annotation>
@@ -2757,18 +2754,6 @@
                <xs:documentation source="ddex:Definition">A Composite containing details of ResourceContainedResourceReferences referring to a Resource that is contained in the current Software.</xs:documentation>
             </xs:annotation>
          </xs:element>
-         <xs:element name="Keywords" minOccurs="0" maxOccurs="unbounded"
-            type="ern:KeywordsWithTerritory">
-            <xs:annotation>
-               <xs:documentation source="ddex:Definition">A Composite containing details of a Description of the Software containing Keywords.</xs:documentation>
-            </xs:annotation>
-         </xs:element>
-         <xs:element name="Synopsis" minOccurs="0" maxOccurs="unbounded"
-            type="ern:SynopsisWithTerritory">
-            <xs:annotation>
-               <xs:documentation source="ddex:Definition">A Composite containing details of a Synopsis of the Software.</xs:documentation>
-            </xs:annotation>
-         </xs:element>
          <xs:element name="TechnicalDetails" minOccurs="0" maxOccurs="unbounded"
             type="ern:TechnicalSoftwareDetails">
             <xs:annotation>
@@ -2930,6 +2915,11 @@
             type="avs:CompositeMusicalWorkType">
             <xs:annotation>
                <xs:documentation source="ddex:Definition">A Type of the SoundRecording indicating whether it is a Medley or a Potpourri.</xs:documentation>
+            </xs:annotation>
+         </xs:element>
+         <xs:element name="IsCover" minOccurs="0" type="xs:boolean">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">A Flag indicating whether the SoundRecording is a Cover (=true) or not (=false). This is not legal information, but meant to help consumers to differentiate originals from covers.</xs:documentation>
             </xs:annotation>
          </xs:element>
          <xs:element name="IsInstrumental" minOccurs="0" type="xs:boolean">
@@ -3763,18 +3753,6 @@
                <xs:documentation source="ddex:Definition">A Composite containing details of ResourceContainedResourceReferences referring to a Resource that is contained in the current Text.</xs:documentation>
             </xs:annotation>
          </xs:element>
-         <xs:element name="Keywords" minOccurs="0" maxOccurs="unbounded"
-            type="ern:KeywordsWithTerritory">
-            <xs:annotation>
-               <xs:documentation source="ddex:Definition">A Composite containing details of a Description of the Text containing Keywords.</xs:documentation>
-            </xs:annotation>
-         </xs:element>
-         <xs:element name="Synopsis" minOccurs="0" maxOccurs="unbounded"
-            type="ern:SynopsisWithTerritory">
-            <xs:annotation>
-               <xs:documentation source="ddex:Definition">A Composite containing details of a Synopsis of the Text.</xs:documentation>
-            </xs:annotation>
-         </xs:element>
          <xs:element name="TechnicalDetails" minOccurs="0" maxOccurs="unbounded"
             type="ern:TechnicalTextDetails">
             <xs:annotation>
@@ -3899,6 +3877,18 @@
          <xs:element name="Genre" maxOccurs="unbounded" type="ern:GenreWithTerritory">
             <xs:annotation>
                <xs:documentation source="ddex:Definition">A Composite containing details of a Genre to which the Release belongs.</xs:documentation>
+            </xs:annotation>
+         </xs:element>
+         <xs:element name="Keywords" minOccurs="0" maxOccurs="unbounded"
+            type="ern:KeywordsWithTerritory">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">A Composite containing details of a Description of the Release containing Keywords.</xs:documentation>
+            </xs:annotation>
+         </xs:element>
+         <xs:element name="Synopsis" minOccurs="0" maxOccurs="unbounded"
+            type="ern:SynopsisWithTerritory">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">A Composite containing details of a Synopsis of the Release.</xs:documentation>
             </xs:annotation>
          </xs:element>
          <xs:element name="MarketingComment" minOccurs="0" maxOccurs="unbounded"
@@ -4087,6 +4077,11 @@
                </xs:annotation>
             </xs:element>
          </xs:choice>
+         <xs:element name="IsCover" minOccurs="0" type="xs:boolean">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">A Flag indicating whether the Video is a Cover (=true) or not (=false). This is not legal information, but meant to help consumers to differentiate originals from covers.</xs:documentation>
+            </xs:annotation>
+         </xs:element>
          <xs:element name="IsInstrumental" minOccurs="0" type="xs:boolean">
             <xs:annotation>
                <xs:documentation source="ddex:Definition">The Flag indicating whether the Video is instrumental (=true) or not (=false).</xs:documentation>
@@ -4735,10 +4730,15 @@
                </xs:restriction>
             </xs:simpleType>
          </xs:element>
-         <xs:element name="IpiNameNumber" minOccurs="0" type="xs:string">
+         <xs:element name="IpiNameNumber" minOccurs="0">
             <xs:annotation>
-               <xs:documentation source="ddex:Definition">An Interested Party Identifier, a CISAC standard Identifier.</xs:documentation>
+               <xs:documentation source="ddex:Definition">An Interested Party Identifier, a CISAC standard Identifier. An IpiNameNumber comprises 11 digits.</xs:documentation>
             </xs:annotation>
+            <xs:simpleType>
+               <xs:restriction base="xs:string">
+                  <xs:pattern value="[0-9]{11}"/>
+               </xs:restriction>
+            </xs:simpleType>
          </xs:element>
          <xs:element name="IPN" minOccurs="0" type="xs:string">
             <xs:annotation>
@@ -5637,6 +5637,11 @@
                   <xs:documentation source="ddex:Definition">A UserDefined value of the PartyRelationshipType. This is represented in an XML schema as an XML Attribute.</xs:documentation>
                </xs:annotation>
             </xs:attribute>
+            <xs:attribute name="MayBeShared" type="xs:boolean">
+               <xs:annotation>
+                  <xs:documentation source="ddex:Definition">A Flag indicating whether this information may be shared (=true) or not (=false). If the Flag is not present, the information may be shared.</xs:documentation>
+               </xs:annotation>
+            </xs:attribute>
          </xs:extension>
       </xs:simpleContent>
    </xs:complexType>
@@ -5674,12 +5679,12 @@
          <xs:sequence>
             <xs:element name="StartDateTime" minOccurs="0" type="ern:EventDateTime">
                <xs:annotation>
-                  <xs:documentation source="ddex:Definition">A Composite containing details of the DateTime and Place of an Event that marks the beginning of the Period (in ISO 8601:2004 format: YYYY-DD-MMThh:mm:ss). The StartDateTime must be no later than the EndDateTime if both are provided.</xs:documentation>
+                  <xs:documentation source="ddex:Definition">A Composite containing details of the DateTime and Place of an Event that marks the beginning of the Period (in ISO 8601:2004 format: YYYY-MM-DDThh:mm:ss). The StartDateTime must be no later than the EndDateTime if both are provided.</xs:documentation>
                </xs:annotation>
             </xs:element>
             <xs:element name="EndDateTime" minOccurs="0" type="ern:EventDateTime">
                <xs:annotation>
-                  <xs:documentation source="ddex:Definition">A Composite containing details of the DateTime and Place of an Event that marks the end of the Period (in ISO 8601:2004 format: YYYY-DD-MMThh:mm:ss). The EndDateTime must not be earlier than the StartDateTime if both are provided.</xs:documentation>
+                  <xs:documentation source="ddex:Definition">A Composite containing details of the DateTime and Place of an Event that marks the end of the Period (in ISO 8601:2004 format: YYYY-MM-DDThh:mm:ss). The EndDateTime must not be earlier than the StartDateTime if both are provided.</xs:documentation>
                </xs:annotation>
             </xs:element>
          </xs:sequence>
@@ -6447,13 +6452,6 @@
          </xs:extension>
       </xs:simpleContent>
    </xs:complexType>
-   <xs:simpleType name="ddex_SubTitle">
-      <xs:annotation>
-         <xs:documentation source="ddex:Definition">A Descriptor which is supplementary to, but not contained within, a Title.</xs:documentation>
-         <xs:documentation source="ddex:Comment">Scope: A Creation cannot have a SubTitle without a Title to which it is supplementary.</xs:documentation>
-      </xs:annotation>
-      <xs:restriction base="xs:string"/>
-   </xs:simpleType>
    <xs:simpleType name="ddex_LocalPartyAnchorReference">
       <xs:annotation>
          <xs:documentation source="ddex:Definition">A LocalAnchorReference which acts as a reference to a local Identifier of a Party. This LocalAnchorReference is a xs:string starting with the letter P.</xs:documentation>

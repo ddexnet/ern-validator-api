@@ -904,25 +904,25 @@
 
 		    <!--ASSERT Information-->
       <xsl:choose>
-         <xsl:when test="substring(@MessageSchemaVersionId, 1, 4) = 'ern/' and number(substring(@MessageSchemaVersionId, 5,2)) &gt;= 38"/>
+         <xsl:when test="substring(@MessageSchemaVersionId, 1, 4) = 'ern/' and number(substring(@MessageSchemaVersionId, 5,2)) &gt;= 37"/>
          <xsl:otherwise>
             <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl"
-                                test="substring(@MessageSchemaVersionId, 1, 4) = 'ern/' and number(substring(@MessageSchemaVersionId, 5,2)) &gt;= 38">
+                                test="substring(@MessageSchemaVersionId, 1, 4) = 'ern/' and number(substring(@MessageSchemaVersionId, 5,2)) &gt;= 37">
                <xsl:attribute name="role">Information</xsl:attribute>
                <xsl:attribute name="location">
                   <xsl:apply-templates select="." mode="schematron-select-full-path"/>
                </xsl:attribute>
-               <svrl:text>Information: #TV Series) The MessageSchemaVersionId should be at least 3.8.</svrl:text>
+               <svrl:text>Information: #TV Series) The MessageSchemaVersionId should be at least 3.7.</svrl:text>
             </svrl:failed-assert>
          </xsl:otherwise>
       </xsl:choose>
 
 		    <!--ASSERT Information-->
       <xsl:choose>
-         <xsl:when test="@MessageSchemaVersionId = 'ern/38'"/>
+         <xsl:when test="@MessageSchemaVersionId = 'ern/37'"/>
          <xsl:otherwise>
             <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl"
-                                test="@MessageSchemaVersionId = 'ern/38'">
+                                test="@MessageSchemaVersionId = 'ern/37'">
                <xsl:attribute name="role">Information</xsl:attribute>
                <xsl:attribute name="location">
                   <xsl:apply-templates select="." mode="schematron-select-full-path"/>
