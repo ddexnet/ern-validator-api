@@ -7,10 +7,7 @@
 *.ipr
 *.iml
 *.iws
-<<<<<<< HEAD
-=======
 /target/
 *.gz
 *.log
 130295703_20171205033227.xml
->>>>>>> sme/rob-local
