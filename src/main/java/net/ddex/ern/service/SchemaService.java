@@ -2,6 +2,7 @@ package net.ddex.ern.service;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.AbstractMap;
 
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
@@ -11,7 +12,6 @@ import javax.xml.xpath.XPathConstants;
 import javax.xml.xpath.XPathExpressionException;
 import javax.xml.xpath.XPathFactory;
 
-import javafx.util.Pair;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -41,7 +41,7 @@ public class SchemaService {
 
     // Todo: https://stackoverflow.com/questions/15732/whats-the-best-way-to-validate-an-xml-file-against-an-xsd-file
     // use SAX instead of Dom
-    public Pair<String, String> validateSchema(InputStream is, String schemaVersion, String profile)
+    public AbstractMap.SimpleEntry<String, String> validateSchema(InputStream is, String schemaVersion, String profile)
             throws SAXException, ValidatorException {
 
         // DocumentBuilderFactory and DocumentBuilder are not thread safe
@@ -63,14 +63,14 @@ public class SchemaService {
 
         // Extract the Schema and profile from XML if not in request
         if (schemaVersion.isEmpty() || profile.isEmpty()) {
-            Pair<String, String> schemaProfile = exractProfileAndSchemaVersion(doc);
+        	AbstractMap.SimpleEntry<String, String> schemaProfile = exractProfileAndSchemaVersion(doc);
 
             if (schemaVersion.isEmpty() && !"".equals(schemaProfile.getKey()))
                 schemaVersion = schemaProfile.getKey();
             else if (schemaVersion.isEmpty()) {
                 LOGGER.error("Schema Version not found in request or XML.");
                 throw new ValidatorException("MANDATORY_PARAMS_NOT_FOUND",
-                        "Error occurred while validating XML. Schema Version not found in request or XML.");
+                        "Error occurred while validating XML. Message Schema Version not found in request or XML.");
             }
 
             if (profile.isEmpty() && !"".equals(schemaProfile.getValue()))
@@ -78,17 +78,16 @@ public class SchemaService {
             else if (profile.isEmpty()) {
                 LOGGER.error("Profile not found in request or XML.");
                 throw new ValidatorException("MANDATORY_PARAMS_NOT_FOUND",
-                        "Error occurred while validating XML. Profile not found in request or XML.");
+                        "Error occurred while validating XML. Release Profile Version not found in request or XML.");
             }
         }
         LOGGER.info("schemaVersion: {}, profile: {}", schemaVersion, profile);
         schemaValidator.validate(schemaVersion, profile, doc, null);
-
-        return new Pair<>(schemaVersion, profile);
+        return new AbstractMap.SimpleEntry<>(schemaVersion, profile);
     }
 
     // Todo: use SAX instead of DOM
-    private Pair<String, String> exractProfileAndSchemaVersion(Document doc)
+    private AbstractMap.SimpleEntry<String, String> exractProfileAndSchemaVersion(Document doc)
             throws ValidatorException {
         XPath xPath = XPathFactory.newInstance().newXPath();
         String schemaVersion = "";
@@ -114,6 +113,6 @@ public class SchemaService {
             throw new ValidatorException("XPath error during schema version extraction", e);
         }
 
-        return new Pair<>(schemaVersion, profile);
+        return new AbstractMap.SimpleEntry<>(schemaVersion, profile);
     }
 }

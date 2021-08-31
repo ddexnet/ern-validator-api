@@ -1693,6 +1693,11 @@
          <xs:documentation source="ddex:Definition">A TerritoryId which is not a TerritoryId according to the ISO 3166-1 standard or the TIS standard.</xs:documentation>
       </xs:annotation>
       <xs:restriction base="xs:string">
+         <xs:enumeration value="XK">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">Kosovo (Source: EU).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
          <xs:enumeration value="Worldwide">
             <xs:annotation>
                <xs:documentation source="ddex:Definition">An Identifier which identifies all Territories in the world.</xs:documentation>
@@ -7554,6 +7559,11 @@ within the digital boxed sets resource group structure. </xs:documentation>
                <xs:documentation source="ddex:Definition">A Release typically for use as an EBook.</xs:documentation>
             </xs:annotation>
          </xs:enumeration>
+         <xs:enumeration value="EP">
+            <xs:annotation>
+               <xs:documentation source="ddex:Definition">A mid-size Release ranging between a Single and an Album.</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>                 
          <xs:enumeration value="Episode">
             <xs:annotation>
                <xs:documentation source="ddex:Definition">A Part of a Series made available at a specific point in time. It may be that a Season or Series is not yet complete when an Episode is made available. Episodes include 'pilots'.</xs:documentation>
