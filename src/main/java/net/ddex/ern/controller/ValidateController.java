@@ -8,6 +8,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 
+import javax.xml.parsers.ParserConfigurationException;
 import javax.xml.stream.XMLStreamException;
 import javax.xml.transform.TransformerException;
 import javax.xml.xpath.XPathExpressionException;
@@ -58,7 +59,7 @@ public class ValidateController {
 			@RequestParam(value = "releaseProfileVersionId") Optional<String> releaseProfile,
 			@RequestParam(value = "businessProfileValidationRequired", required = false, defaultValue = "false") boolean businessProfileValidationRequired)
 			throws IOException, XMLStreamException, TransformerException, SAXException, XPathExpressionException,
-			ValidatorException {
+			ValidatorException, ParserConfigurationException {
 		
 		LOGGER.info("file size is : {}", file.getSize() / 1000);
 		if (file.getSize() / 1000 > maxInputFileSizeinKb) {

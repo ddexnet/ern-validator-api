@@ -8,10 +8,12 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
+import javax.xml.XMLConstants;
 import javax.xml.namespace.NamespaceContext;
 import javax.xml.stream.XMLStreamException;
 import javax.xml.transform.Transformer;
 import javax.xml.transform.TransformerException;
+import javax.xml.transform.TransformerFactory;
 import javax.xml.transform.dom.DOMResult;
 import javax.xml.transform.sax.SAXSource;
 import javax.xml.transform.sax.SAXTransformerFactory;
@@ -37,7 +39,7 @@ import net.ddex.ern.exception.ValidatorException;
 @Service("schematronService")
 public class SchematronService {
 
-	private SAXTransformerFactory stf = new net.sf.saxon.TransformerFactoryImpl();
+//	private SAXTransformerFactory stf = new net.sf.saxon.TransformerFactoryImpl();
 	private static final Logger LOGGER = LoggerFactory.getLogger(SchematronService.class);
 
 	public List<Map<String, String>> schematron2Map(InputStream is, String profileVersion, String schemaVersion)
@@ -47,7 +49,10 @@ public class SchematronService {
 		DOMResult result = new DOMResult();
 		// SAXTransformerFactory stf = new net.sf.saxon.TransformerFactoryImpl();
 		try {
-			Transformer transformer = stf.newTransformer(new StreamSource(profileVersion));
+			TransformerFactory sf = SAXTransformerFactory.newInstance();
+			sf.setAttribute(XMLConstants.ACCESS_EXTERNAL_DTD, "");
+			sf.setAttribute(XMLConstants.ACCESS_EXTERNAL_STYLESHEET, "");
+			Transformer transformer = sf.newTransformer(new StreamSource(profileVersion));
 			transformer.transform(saxSource, result);
 		} catch (TransformerException ex) {
 			LOGGER.error("Exception: {}", ex.getMessage());
