@@ -17,6 +17,8 @@ import org.springframework.stereotype.Component;
 import org.xml.sax.SAXException;
 
 import net.ddex.ern.exception.ValidatorException;
+import org.xml.sax.SAXNotRecognizedException;
+import org.xml.sax.SAXNotSupportedException;
 
 @Component
 public class SchemaBuilder {
@@ -27,12 +29,14 @@ public class SchemaBuilder {
     private SchemaFactory factory = SchemaFactory.newInstance(XMLConstants.W3C_XML_SCHEMA_NS_URI);
 
     // what happens when schema directory is empty
-    public Schema getSchema(String schemaVersion) throws ValidatorException {
+    public Schema getSchema(String schemaVersion) throws ValidatorException, SAXNotSupportedException, SAXNotRecognizedException {
         String schemaKey = schemaVersion.toLowerCase();
         if (!schemaMap.containsKey(schemaKey)) {
             //List<String> schemaFiles = Arrays.asList(env.getProperty(schemaKey).split("\\s*,\\s*"));
             List<String> schemaFiles = loadSchemaFiles(schemaKey);
             Source[] sources = new Source[schemaFiles.size()];
+            factory.setProperty(XMLConstants.ACCESS_EXTERNAL_DTD, "");
+            factory.setProperty(XMLConstants.ACCESS_EXTERNAL_SCHEMA, "");
             for (int i = 0; i < schemaFiles.size(); i++) {
                 sources[i] = new StreamSource(new File(String.format("%s/%s/%s", SchemaBuilder.FILE_PATH_PREFIX, schemaVersion, schemaFiles.get(i))));
             }

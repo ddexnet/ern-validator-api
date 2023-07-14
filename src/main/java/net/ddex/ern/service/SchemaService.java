@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.AbstractMap;
 
+import javax.xml.XMLConstants;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
@@ -42,10 +43,13 @@ public class SchemaService {
     // Todo: https://stackoverflow.com/questions/15732/whats-the-best-way-to-validate-an-xml-file-against-an-xsd-file
     // use SAX instead of Dom
     public AbstractMap.SimpleEntry<String, String> validateSchema(InputStream is, String schemaVersion, String profile)
-            throws SAXException, ValidatorException {
+            throws SAXException, ValidatorException, ParserConfigurationException {
 
         // DocumentBuilderFactory and DocumentBuilder are not thread safe
         DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
+        dbf.setFeature("http://apache.org/xml/features/disallow-doctype-decl", true);
+        dbf.setAttribute(XMLConstants.ACCESS_EXTERNAL_DTD, "");
+        dbf.setAttribute(XMLConstants.ACCESS_EXTERNAL_SCHEMA, "");
         dbf.setNamespaceAware(true);
         Document doc;
 
