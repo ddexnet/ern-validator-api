@@ -38,6 +38,8 @@ public class ThreeFourOneSchema implements Schema {
 
         SchemaFactory factory = SchemaFactory.newInstance(XMLConstants.W3C_XML_SCHEMA_NS_URI);
         try {
+            factory.setProperty(XMLConstants.ACCESS_EXTERNAL_DTD, "");
+            factory.setProperty(XMLConstants.ACCESS_EXTERNAL_SCHEMA, "");
             schema = factory.newSchema(schemaFiles);
         } catch (SAXException e) {
             e.printStackTrace();
